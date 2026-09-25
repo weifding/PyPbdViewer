@@ -1,0 +1,38 @@
+# C# 原始项目
+*.cs
+*.csproj
+*.xaml
+*.config
+*.manifest
+App.xaml
+MainWindow.xaml
+Properties/
+DataModel/
+Logger/
+Tool/
+Uitils/
+ViewModel/
+PrivateImplementationDetails.cs
+
+# 临时分析脚本
+analyze_*.py
+extract_*.py
+test_*.py
+batch_test.py
+extend_array.py
+disasm_*.py
+
+# 输出和大文件
+output/
+au680_pbd/
+au680_py/
+opcode_handlers.txt
+fail_list.txt
+ynsoft_pbl_pbd_list.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.idea/
+.vscode/
