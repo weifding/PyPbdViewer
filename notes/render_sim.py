@@ -11,6 +11,10 @@ OUT = OUT_DIR / "ui-sim.html"
 PBU_H = 2.0
 PBU_V = 1.5
 
+def _int(v, default=0):
+    try: return int(str(v).strip().split()[0])
+    except: return default
+
 def parse_blocks(txt):
     blocks = {}
     children_of = {}
@@ -58,9 +62,15 @@ def window_to_json(txt, win_name):
             p = blocks.get(cn, {})
             controls.append({
                 "name": cn, "type": ca, "parent": parent, "depth": depth,
-                "x": int(p.get("x", 0)), "y": int(p.get("y", 0)),
-                "width": int(p.get("width", 200)), "height": int(p.get("height", 80)),
+                "x": _int(p.get("x", 0)), "y": _int(p.get("y", 0)),
+                "width": _int(p.get("width", 200)), "height": _int(p.get("height", 80)),
                 "text": p.get("text", ""), "enabled": p.get("enabled", "true") != "false",
+                "facename": p.get("facename", "宋体"),
+                "textsize": _int(p.get("textsize", -9)),
+                "weight": _int(p.get("weight", 400)),
+                "backcolor": p.get("backcolor", ""),
+                "textcolor": p.get("textcolor", ""),
+                "border": p.get("border", ""),
             })
             if ca == "tab":
                 walk(cn, depth+1)
@@ -68,8 +78,8 @@ def window_to_json(txt, win_name):
     return {
         "name": win_name,
         "title": wp.get("title", win_name),
-        "width": int(wp.get("width", 4000)),
-        "height": int(wp.get("height", 3000)),
+        "width": _int(wp.get("width", 4000)),
+        "height": _int(wp.get("height", 3000)),
         "menus": _extract_menus(txt),
         "controls": controls,
     }
@@ -162,6 +172,28 @@ function renderControl(ctrl) {
   div.style.height = uy(ctrl.height) + "px";
   div.title = ctrl.name + " (" + ctrl.type + ")";
   if (!ctrl.enabled) div.classList.add("disabled");
+
+  // Apply font
+  const pt = Math.abs(ctrl.textsize || -9);
+  div.style.fontSize = pt + "pt";
+  div.style.fontFamily = ctrl.facename || "宋体";
+  div.style.fontWeight = (ctrl.weight >= 700) ? "bold" : "normal";
+
+  // PB long color = 0x00BBGGRR; convert to CSS #rrggbb
+  function pbColor(v) {
+    if (!v) return null;
+    try {
+      const n = parseInt(v, 10) >>> 0;
+      const r = n & 0xff, g = (n >> 8) & 0xff, b = (n >> 16) & 0xff;
+      return `rgb(${r},${g},${b})`;
+    } catch { return null; }
+  }
+  const bg = pbColor(ctrl.backcolor);
+  const fg = pbColor(ctrl.textcolor);
+  if (bg && !["datawindow","checkbox","radiobutton","groupbox"].includes(ctrl.type)) {
+    div.style.background = bg;
+  }
+  if (fg) div.style.color = fg;
 
   switch (ctrl.type) {
     case "commandbutton":
