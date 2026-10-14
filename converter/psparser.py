@@ -723,12 +723,13 @@ def _is_eq_op(t: Token) -> bool:
 
 def parse_function_body(body_lines) -> List[Node]:
     text = "\n".join(body_lines) if isinstance(body_lines, list) else body_lines
+    # line continuation: trailing & joins next line
+    text = text.replace("&\n", " ").replace("& \n", " ")
     try:
         tokens = tokenize(text)
         p = Parser(tokens)
         return p.parse_block_until({'end'})
     except Exception:
-        # Any parse error -> single Fallback node with raw text.
         return [Fallback(text=text)]
 
 
