@@ -99,6 +99,41 @@ def _read_vars(data, pos, is_unicode):
     return pos, out
 
 
+def _resolve_val(v, var_buf, is_unicode):
+    """Resolve a variable's value.
+    - type t1 (long): val_off IS the int value (signed)
+    - type t2 (color): val_off IS the BGR long
+    - type t7 (boolean): val_off != 0
+    - type t6 (string): val_off & 0x7FFFFFFF = offset into var_buf, null-terminated
+    """
+    t = v["type_idx"]
+    vo = v["val_off"]
+    if t == 1:
+        # signed 32
+        return struct.unpack("<i", struct.pack("<I", vo))[0]
+    if t == 2:
+        return vo  # BGR color long
+    if t == 7:
+        return bool(vo)
+    if t == 6:
+        off = vo & 0x7FFFFFFF
+        if off >= len(var_buf):
+            return ""
+        end = off
+        if is_unicode:
+            while end + 1 < len(var_buf) and var_buf[end] != 0 and var_buf[end+1] != 0:
+                end += 2
+            return var_buf[off:end].decode("utf-16-le", errors="replace")
+        else:
+            while end < len(var_buf) and var_buf[end] != 0:
+                end += 1
+            try:
+                return var_buf[off:end].decode("gbk", errors="replace")
+            except:
+                return var_buf[off:end].decode("latin-1", errors="replace")
+    return vo
+
+
 def _read_func(data, pos, is_unicode):
     """ReadFunction: u16 pc_size, u16 dbg_size, u16 flag, p-code, debug*4, locals vars, struct buffer."""
     pc_size = read_u16(data, pos); pos += 2
@@ -114,7 +149,7 @@ def _read_func(data, pos, is_unicode):
     return pos
 
 
-def _read_object(data, pos, inh, is_unicode, type_names):
+def _read_object(data, pos, inh, is_unicode, type_names, var_buf):
     """ReadObject per control. Returns (pos, props_list)."""
     num_funcs = read_u16(data, pos); pos += 2
     func_idx = []
@@ -137,6 +172,9 @@ def _read_object(data, pos, inh, is_unicode, type_names):
     pos += 16 * read_u16(inh, 26)
     num_fndefs = read_u16(inh, 4)
     pos += 48 * num_fndefs
+    # resolve values
+    for p in props:
+        p["value"] = _resolve_val(p, var_buf, is_unicode)
     return pos, props
 
 
@@ -243,7 +281,7 @@ def parse_entry(data: bytes, is_unicode: bool = False):
             return type_names.get(t & 0x7FFF, type_names.get(t, f"t{t}"))
         obj_name = _tn(type_idx)
         try:
-            cur_pos, props = _read_object(data, cur_pos, inh, is_unicode, type_names)
+            cur_pos, props = _read_object(data, cur_pos, inh, is_unicode, type_names, var_buf)
         except Exception as e:
             props = []
         objects.append({
@@ -279,5 +317,6 @@ if __name__ == "__main__":
     print(f"\nObjects ({len(r['objects'])}):")
     for o in r['objects']:
         print(f"  {o['name']:25s} inh={o['inh_type']:18s} props={len(o['props'])}")
-        for p in o['props'][:25]:
-            print(f"      {p['name']:25s} type=t{p['type_idx']} val_off={p['val_off']}")
+        for p in o['props']:
+            v = p.get("value", p['val_off'])
+            print(f"      {p['name']:25s} = {v!r}")
