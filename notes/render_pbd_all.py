@@ -73,8 +73,9 @@ def main():
                 continue
             info["file"] = f.name
             info["pbd"] = entries_dir.parent.name
-            wins.append(info)
-    print(f"rendered {len(wins)} windows, errors={errors}")
+            if info["controls"] >= 30:
+                wins.append(info)
+    print(f"rendered {len(wins)} windows (>=30 controls), errors={errors}")
 
     tabs = []
     panes = []
