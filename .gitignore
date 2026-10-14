@@ -1,0 +1,13 @@
+node_modules/
+out/
+__pycache__/
+*.pyc
+.pytest_cache/
+.eggs/
+*.egg-info/
+dist/
+build/
+*.log
+.idea/
+.vscode/
+.DS_Store

@@ -1,0 +1,11 @@
+{
+  "events": 509,
+  "external": 11,
+  "functions": 100,
+  "globals": 2,
+  "objects": 61,
+  "prototypes_blocks": 27,
+  "truncated": 30,
+  "unparsed": 0,
+  "variables_blocks": 30
+}
