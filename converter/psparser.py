@@ -183,6 +183,10 @@ class ArrayLit(Node):
     elems: list
 
 @dataclass
+class CreateExpr(Node):
+    type: str
+
+@dataclass
 class Fallback(Node):
     """A statement we could not parse — tsbuilder preserves it as a comment."""
     text: str
@@ -611,9 +615,18 @@ class Parser:
         if t.kind == 'OP' and t.value in ('-', '+', '!'):
             self.next()
             return UnaryOp(op=t.value, operand=self.parse_unary())
-        if t.kind == 'KW' and t.value.lower() == 'not':
+        if t.kind in ('KW', 'IDENT') and t.value.lower() == 'not':
             self.next()
             return UnaryOp(op='not', operand=self.parse_unary())
+        if t.kind in ('KW', 'IDENT') and t.value.lower() == 'create':
+            self.next()
+            # next ident is the type
+            self.skip_noise()
+            tt = self.peek()
+            if tt.kind in ('IDENT', 'KW'):
+                self.next()
+                return CreateExpr(type=tt.value)
+            return CreateExpr(type='')
         return self.parse_postfix()
 
     def parse_postfix(self) -> Node:

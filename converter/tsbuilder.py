@@ -25,7 +25,7 @@ from psparser import (
     Node, Literal, Ident, Index, Member, Call, BinaryOp, UnaryOp,
     Assign, If, Choose, For, DoWhile, DoUntil, LoopWhile, LoopUntil,
     Try, Return, Exit, Continue, Throw, Create, Destroy, CallStmt,
-    Goto, Label, Decl, MultiDecl, ArrayLit, Fallback, ParseError,
+    Goto, Label, Decl, MultiDecl, ArrayLit, CreateExpr, Fallback, ParseError,
 )
 
 
@@ -45,6 +45,8 @@ class Builder:
     def expr(self, e: Node, precedence: int = 0) -> str:
         if isinstance(e, ArrayLit):
             return "[" + ", ".join(self.expr(x) for x in e.elems) + "]"
+        if isinstance(e, CreateExpr):
+            return f"new /* {e.type} */ ()"
         if isinstance(e, Literal):
             if e.kind == 'str':
                 # PB string already decoded; re-escape for TS.
