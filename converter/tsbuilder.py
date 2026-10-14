@@ -25,7 +25,7 @@ from psparser import (
     Node, Literal, Ident, Index, Member, Call, BinaryOp, UnaryOp,
     Assign, If, Choose, For, DoWhile, DoUntil, LoopWhile, LoopUntil,
     Try, Return, Exit, Continue, Throw, Create, Destroy, CallStmt,
-    Goto, Label, Decl, Fallback, ParseError,
+    Goto, Label, Decl, MultiDecl, Fallback, ParseError,
 )
 
 
@@ -113,6 +113,12 @@ class Builder:
         if isinstance(s, Decl):
             v = f" = {self.expr(s.value)}" if s.value else ""
             return [f"let {s.name}{v};"]
+        if isinstance(s, MultiDecl):
+            out = []
+            v = f" = {self.expr(s.value)}" if s.value else ""
+            for n in s.names:
+                out.append(f"let {n}{v};")
+            return out
         if isinstance(s, Create):
             return [f"{s.name} = new /* {s.type or s.name} */ ();"]
         if isinstance(s, Destroy):

@@ -172,6 +172,13 @@ class Decl(Node):
     value: Optional[Node] = None
 
 @dataclass
+class MultiDecl(Node):
+    type: str
+    names: list
+    array: bool = False
+    value: Optional[Node] = None
+
+@dataclass
 class Fallback(Node):
     """A statement we could not parse — tsbuilder preserves it as a comment."""
     text: str
@@ -280,7 +287,7 @@ class Parser:
             return Fallback(text=raw)
 
     def _parse_statement_inner(self, t) -> Node:
-        if t.kind == 'KW':
+        if t.kind in ('KW', 'IDENT'):
             w = t.value.lower() if isinstance(t.value, str) else ''
             if w == 'if':      return self.parse_if()
             if w == 'choose':  return self.parse_choose()
@@ -488,7 +495,7 @@ class Parser:
             self.expect('RPAREN')
         return CallStmt(callee=base, args=args)
 
-    def parse_decl(self) -> Decl:
+    def parse_decl(self) -> Node:
         # leading constant
         is_const = self.accept_kw('constant')
         # modifiers shared/global/local/instance
@@ -499,14 +506,24 @@ class Parser:
         # optional dec precision
         if self.peek().kind == 'LBRACE':
             self.next(); self.expect('RBRACE')
-        name = self.expect('IDENT').value
-        array = bool(self.accept('LBRACKET'))
-        if array:
+        names = [self.expect('IDENT').value]
+        array = False
+        if self.peek().kind == 'LBRACKET':
+            self.next()
+            while self.peek().kind != 'RBRACKET':
+                self.next()
             self.expect('RBRACKET')
+            array = True
+        # comma-separated names
+        while self.peek().kind == 'COMMA' or (self.peek().kind == 'OP' and self.peek().value == ','):
+            self.next()
+            names.append(self.expect('IDENT').value)
         value = None
         if self.accept('OP', '='):
             value = self.parse_expr()
-        return Decl(type=t, name=name, array=array, value=value)
+        if len(names) == 1:
+            return Decl(type=t, name=names[0], array=array, value=value)
+        return MultiDecl(type=t, names=names, array=array, value=value)
 
     def parse_expr_or_assign(self) -> Node:
         target = self.parse_expr()
