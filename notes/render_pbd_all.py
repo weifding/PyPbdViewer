@@ -4,7 +4,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "converter"))
 from pbd_entry_structured import parse_entry
 
-SCALE = 0.45
+SCALE = 1.0
 def h(v): return int(v * 2 * SCALE)
 def v(v): return int(v * 1.5 * SCALE)
 
@@ -15,7 +15,8 @@ def color_to_css(c):
     return f"#{r:02x}{g:02x}{b:02x}"
 
 def textsize_to_px(ts):
-    pt = -ts / 100 if ts < 0 else ts / 100
+    # PB textsize stored as negative points (-9 = 9pt)
+    pt = -ts if ts < 0 else ts
     return int(pt * 96 / 72 * SCALE)
 
 def render_win(data):
