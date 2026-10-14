@@ -530,13 +530,23 @@ class Parser:
         return MultiDecl(type=t, names=names, array=array, value=value)
 
     def parse_expr_or_assign(self) -> Node:
+        # lookahead for compound assign += before parse_expr (else + gets swallowed as binary op)
+        nxt = self.peek(1)
+        if self.peek().kind == 'OP' and self.peek().value == '+' and nxt.kind == 'OP' and nxt.value == '=':
+            pass  # let it fall through
         target = self.parse_expr()
         self.skip_noise()
+        # compound assign: +=
+        if self.peek().kind == 'OP' and self.peek().value == '+':
+            nxt2 = self.peek(1)
+            if nxt2.kind == 'OP' and nxt2.value == '=':
+                self.next(); self.next()
+                value = self.parse_expr()
+                return Assign(target=target, value=BinaryOp(op='+', lhs=target, rhs=value))
         if self.peek().kind == 'OP' and self.peek().value == '=':
             self.next()
             value = self.parse_expr()
             return Assign(target=target, value=value)
-        # Expression statement: wrap as CallStmt if it's a call, else Fallback.
         if isinstance(target, Call):
             return CallStmt(callee=target.callee, args=target.args)
         return Fallback(text=';')
@@ -572,6 +582,11 @@ class Parser:
         while True:
             self.skip_noise()
             t = self.peek()
+            # compound assignment: stop before +=
+            if t.kind == 'OP' and t.value in ('+', '-', '*', '/'):
+                nxt = self.peek(1)
+                if nxt.kind == 'OP' and nxt.value == '=':
+                    break
             if t.kind == 'OP':
                 prec = _BIN_PREC.get(t.value)
                 if prec is None or prec < min_prec:
