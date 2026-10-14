@@ -822,20 +822,46 @@ export const PBExtern = {
     return process.execPath.length;
   },
 
-  // ---- wsock32.dll (network) ----
+  // ---- wsock32.dll (real TCP via node:net) ----
+  _sockMap: new Map<number, any>(),
+  _nextSock: 1,
+  WSAStartup(_verReq: number): number { return 0; },
   WSACleanup(): number { return 0; },
   WSAGetLastError(): number { return 0; },
-  socket(_af: number, _type: number, _proto: number): number { return -1; },
-  closesocket(_s: number): number { return 0; },
-  connect(_s: number, _name: any, _len: number): number { return -1; },
-  send(_s: number, _buf: any, _len: number, _flags: number): number { return -1; },
-  recv(_s: number, _buf: any, _len: number, _flags: number): number { return 0; },
-  bind(_s: number, _name: any, _len: number): number { return -1; },
-  listen(_s: number, _backlog: number): number { return -1; },
-  accept(_s: number, _addr: any, _len: any): number { return -1; },
+  socket(_af: number, _type: number, _proto: number): number {
+    const net = require("net");
+    const s = new net.Socket();
+    const fd = this._nextSock++;
+    this._sockMap.set(fd, s);
+    return fd;
+  },
+  closesocket(s: number): number {
+    const sk = this._sockMap.get(s);
+    if (sk) { sk.destroy(); this._sockMap.delete(s); }
+    return 0;
+  },
+  connect(s: number, host: string, port: number): number {
+    const sk = this._sockMap.get(s);
+    if (!sk) return -1;
+    try { sk.connect(port, host); return 0; } catch (_e) { return -1; }
+  },
+  send(s: number, buf: Buffer): number {
+    const sk = this._sockMap.get(s);
+    if (!sk) return -1;
+    try { return sk.write(buf) ? buf.length : -1; } catch (_e) { return -1; }
+  },
+  recv(s: number, len: number): Buffer {
+    const sk = this._sockMap.get(s);
+    if (!sk) return Buffer.alloc(0);
+    try { const d = sk.read(len); return d || Buffer.alloc(0); } catch (_e) { return Buffer.alloc(0); }
+  },
   htons(v: number): number { return ((v & 0xff) << 8) | ((v >> 8) & 0xff); },
   htonl(v: number): number { return v >>> 0; },
-  inet_addr(_s: string): number { return 0; },
+  inet_addr(s: string): number {
+    const p = s.split(".").map(Number);
+    if (p.length !== 4) return 0;
+    return (((p[0] & 0xff) << 24) | ((p[1] & 0xff) << 16) | ((p[2] & 0xff) << 8) | (p[3] & 0xff)) >>> 0;
+  },
 
   // ---- dcic32.dll / IC card reader ----
   IC_InitComm(_port: number): number { return 1; },

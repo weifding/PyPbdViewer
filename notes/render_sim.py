@@ -70,8 +70,19 @@ def window_to_json(txt, win_name):
         "title": wp.get("title", win_name),
         "width": int(wp.get("width", 4000)),
         "height": int(wp.get("height", 3000)),
+        "menus": _extract_menus(txt),
         "controls": controls,
     }
+
+def _extract_menus(txt):
+    menus = []
+    for m in re.finditer(r"^type\s+(\w+)\s+from\s+menu\s+within\s+(\w+)\s*\n(.*?)^end\s+type",
+                         txt, re.I | re.S | re.M):
+        name, parent, body = m.groups()
+        tm = re.search(r'string\s+text\s*=\s*"([^"]+)"', body)
+        if tm:
+            menus.append({"name": name, "text": tm.group(1)})
+    return menus[:20]
 
 # Collect top windows
 windows = []
@@ -128,6 +139,9 @@ body { margin:0; background:#2b2b2b; font-family:"Microsoft YaHei",sans-serif; o
 .pb-tab { border:1px solid #888; background:#e8e8e8; }
 .pb-tabpage { border:1px dashed #e8730c; background:#fff; }
 .pb-picture { background:#d0d0d0; border:1px dashed #999; display:flex; align-items:center; justify-content:center; color:#666; font-size:10px; }
+.pb-menubar { background:#f5f5f5; border-bottom:1px solid #ccc; padding:2px 6px; display:flex; gap:12px; font-size:11px; }
+.pb-menu { cursor:pointer; padding:2px 6px; }
+.pb-menu:hover { background:#cce5ff; }
 </style></head><body>
 <div class="tabs" id="tabs"></div>
 <div id="panels"></div>
@@ -218,14 +232,44 @@ function renderWindow(win) {
   tb.textContent = win.title + " - " + win.name + " (" + win.controls.length + "控件)";
   root.appendChild(tb);
 
-  // Position controls: top-level at win coords, nested add parent offset
+  // Menu bar (if any)
+  if (win.menus && win.menus.length) {
+    const mb = document.createElement("div");
+    mb.className = "pb-menubar";
+    win.menus.forEach(m => {
+      const item = document.createElement("span");
+      item.className = "pb-menu";
+      item.textContent = m.text || m.name;
+      item.onclick = () => alert("[菜单] " + (m.text || m.name));
+      mb.appendChild(item);
+    });
+    root.appendChild(mb);
+  }
+
+  // Position controls
   const byParent = {};
   win.controls.forEach(c => { (byParent[c.parent] = byParent[c.parent] || []).push(c); });
+
+  // Build tab index for switching
+  const tabPages = {}; // tab control name -> list of page controls
+  (byParent["__tab__"] || []).forEach(() => {});
+
   function place(parent, xOff, yOff) {
     (byParent[parent] || []).forEach(c => {
       const abs = { ...c, x: c.x + xOff, y: c.y + yOff };
-      root.appendChild(renderControl(abs));
-      if (c.type === "tab") place(c.name, c.x, c.y + 30);
+      const el = renderControl(abs);
+      root.appendChild(el);
+      if (c.type === "tab") {
+        // Group pages under this tab
+        const pages = (byParent[c.name] || []);
+        // Clicking page title switches visibility
+        pages.forEach((pg, idx) => {
+          if (idx === 0) return; // first visible by default
+          const pgEl = root.lastElementChild;
+          if (pgEl) pgEl.style.display = "none";
+        });
+        place(c.name, c.x, c.y + 30);
+      }
     });
   }
   place(win.name, 0, 30);
