@@ -29,8 +29,13 @@ def render_win(data):
     wprops = {p["name"]: p.get("value", p["val_off"]) for p in win["props"]}
     W = h(wprops.get("width", 1000))
     H = v(wprops.get("height", 500))
+    # fit into 1024px max (old monitor)
+    max_dim = 1024
+    fit = min(1.0, max_dim / max(W, H, 1))
+    W2 = int(W * fit); H2 = int(H * fit)
     title = wprops.get("title", win["name"])
-    body = [f'<div class="win" style="width:{W}px;height:{H}px;background:{color_to_css(wprops.get("backcolor",67108864))};">']
+    body = [f'<div class="winwrap" style="width:{W2}px;height:{H2}px;">']
+    body.append(f'<div class="win" style="width:{W}px;height:{H}px;background:{color_to_css(wprops.get("backcolor",67108864))};transform:scale({fit});transform-origin:top left;">')
     body.append(f'<div class="titlebar">{title}</div>')
     for o in r["objects"][1:]:
         p = {x["name"]: x.get("value", x["val_off"]) for x in o["props"]}
@@ -57,7 +62,7 @@ def render_win(data):
         else:
             el = f'<div style="left:{x}px;top:{y}px;width:{w}px;height:{hh}px;background:#ffe8e8;">[{ct}]</div>'
         body.append(el)
-    body.append("</div>")
+    body.append("</div></div>")
     return {"title": title, "name": win["name"], "controls": len(r["objects"])-1, "html": "".join(body)}, None
 
 def main():
@@ -103,6 +108,7 @@ body{{font-family:sans-serif;background:#333;margin:0;}}
 .tab.active{{background:#0078d7;color:#fff;}}
 .panes{{padding-top:50px;padding:60px 20px 20px;}}
 .win{{position:relative;background:#fff;margin:20px auto;box-shadow:0 0 20px rgba(0,0,0,.5);}}
+.winwrap{{margin:20px auto;}}
 .titlebar{{height:24px;background:#0078d7;color:#fff;padding:4px 8px;font-size:13px;}}
 .win div,.win input,.win fieldset{{position:absolute;box-sizing:border-box;}}
 .dw{{line-height:100px;text-align:center;color:#666;}}
