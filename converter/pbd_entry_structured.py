@@ -135,18 +135,27 @@ def _resolve_val(v, var_buf, is_unicode):
 
 
 def _read_func(data, pos, is_unicode):
-    """ReadFunction: u16 pc_size, u16 dbg_size, u16 flag, p-code, debug*4, locals vars, struct buffer."""
+    """ReadFunction: u16 pc_size, u16 dbg_size, u16 flag, p-code, debug*4, locals vars, struct buffer.
+    Returns (new_pos, func_dict_with_pcode_and_locals)."""
     pc_size = read_u16(data, pos); pos += 2
     dbg_size = read_u16(data, pos); pos += 2
-    pos += 2  # flag
-    pos += pc_size
+    flag = read_u16(data, pos); pos += 2
+    pcode = data[pos:pos+pc_size]; pos += pc_size
     pos += dbg_size * 4
-    pos, _ = _read_vars(data, pos, is_unicode)
-    # struct buffer
+    pos, locals_vars = _read_vars(data, pos, is_unicode)
+    locals_names = [v.get("name", "") for v in locals_vars]
+    # struct buffer (function string pool)
     sb_size = read_u32(data, pos); pos += 4
     sb_size2 = read_u32(data, pos); pos += 4
-    pos += sb_size + sb_size2
-    return pos
+    str_pool = data[pos:pos+sb_size]; pos += sb_size + sb_size2
+    func = {
+        "pc_size": pc_size,
+        "flag": flag,
+        "pcode_hex": pcode.hex(),
+        "locals": locals_names,
+        "str_pool_hex": str_pool.hex(),
+    }
+    return pos, func
 
 
 def _read_object(data, pos, inh, is_unicode, type_names, var_buf):
@@ -155,8 +164,10 @@ def _read_object(data, pos, inh, is_unicode, type_names, var_buf):
     func_idx = []
     for _ in range(num_funcs):
         func_idx.append(data[pos:pos+4]); pos += 4
+    funcs = []
     for idx in func_idx:
-        pos = _read_func(data, pos, is_unicode)
+        pos, fd = _read_func(data, pos, is_unicode)
+        funcs.append(fd)
 
     # ReadBuffer(6 * buffer[24]), ReadBuffer(4 * buffer[22])
     pos += 6 * read_u16(inh, 24)
@@ -175,7 +186,7 @@ def _read_object(data, pos, inh, is_unicode, type_names, var_buf):
     # resolve values
     for p in props:
         p["value"] = _resolve_val(p, var_buf, is_unicode)
-    return pos, props
+    return pos, props, funcs
 
 
 def parse_entry(data: bytes, is_unicode: bool = False):
@@ -281,15 +292,16 @@ def parse_entry(data: bytes, is_unicode: bool = False):
             return type_names.get(t & 0x7FFF, type_names.get(t, f"t{t}"))
         obj_name = _tn(type_idx)
         try:
-            cur_pos, props = _read_object(data, cur_pos, inh, is_unicode, type_names, var_buf)
+            cur_pos, props, funcs = _read_object(data, cur_pos, inh, is_unicode, type_names, var_buf)
         except Exception as e:
-            props = []
+            props, funcs = [], []
         objects.append({
             "name": obj_name,
             "type_idx": type_idx,
             "inh_type": _tn(inh_type_idx),
             "parent_type": _tn(parent_type_idx),
             "props": props,
+            "funcs": funcs,
         })
 
     return {
