@@ -75,7 +75,19 @@ def main():
             info["pbd"] = entries_dir.parent.name
             if info["controls"] >= 30:
                 wins.append(info)
-    print(f"rendered {len(wins)} windows (>=30 controls), errors={errors}")
+    # dedup by name (same window across PBDs)
+    seen = set()
+    uniq = []
+    for w in wins:
+        if w["name"] in seen: continue
+        seen.add(w["name"])
+        uniq.append(w)
+    wins = uniq
+    wins.sort(key=lambda w: -w["controls"])
+    wins = wins[:10]
+    for i, w in enumerate(wins):
+        print(f"  {i+1}. {w['name']:30s} controls={w['controls']}  title={w['title']}")
+    print(f"rendered top {len(wins)} windows by control count")
 
     tabs = []
     panes = []
