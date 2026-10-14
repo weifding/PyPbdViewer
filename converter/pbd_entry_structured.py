@@ -111,9 +111,88 @@ def parse_entry(data: bytes, is_unicode: bool = False):
         name = read_cstr(struct_buf, name_off, is_unicode)
         variables.append(PbVar(name=name, type_name=f"t{type_idx}", value=str(val_off)))
 
+    # totalObjNum + numInheritRecords
+    total_obj = read_u16(data, pos); pos += 2
+    num_inherit = read_u16(data, pos); pos += 2
+
+    # FunctionBuffer / ParamBuffer (StructBuffer each)
+    fb_size = read_u32(data, pos); pos += 4
+    fb_size2 = read_u32(data, pos); pos += 4
+    func_buf = data[pos:pos+fb_size]; pos += fb_size + fb_size2
+
+    pb_size = read_u32(data, pos); pos += 4
+    pb_size2 = read_u32(data, pos); pos += 4
+    param_buf = data[pos:pos+pb_size]; pos += pb_size + pb_size2
+
+    # Types: ReadBuffer(6) + StructBuffer + u16 count/20 + 20 each
+    pos += 6
+    ts_size = read_u32(data, pos); pos += 4
+    ts_size2 = read_u32(data, pos); pos += 4
+    type_struct_buf = data[pos:pos+ts_size]; pos += ts_size + ts_size2
+    num_types = read_u16(data, pos); pos += 2
+    num_types //= 20
+    type_names = {}
+    for i in range(num_types):
+        rec = data[pos:pos+20]; pos += 20
+        name_off = read_u32(rec, 8)
+        type_names[i] = read_cstr(type_struct_buf, name_off, is_unicode)
+
+    # Enums (ReadVariables(false))
+    pos += 6
+    es_size = read_u32(data, pos); pos += 4
+    es_size2 = read_u32(data, pos); pos += 4
+    enum_struct = data[pos:pos+es_size]; pos += es_size + es_size2
+    num_enums = read_u16(data, pos); pos += 2
+    num_enums //= 20
+    for i in range(num_enums):
+        pos += 20
+
+    # objrawdata: totalObjNum * 16 bytes
+    objraw = []
+    for i in range(total_obj):
+        objraw.append(data[pos:pos+16]); pos += 16
+
+    # inherit records: numInheritRecords * 32 bytes
+    inherit_recs = []
+    for i in range(num_inherit):
+        inherit_recs.append(data[pos:pos+32]); pos += 32
+
+    # Per-object ReadObject (best-effort, skip to next object)
+    objects = []
+    inh_idx = 0
+    for i in range(total_obj):
+        raw = objraw[i]
+        type_idx = read_u16(raw, 2)
+        flags0 = raw[0]
+        sub = flags0 >> 1 & 7
+        if sub != 0:
+            continue
+        inh = inherit_recs[inh_idx] if inh_idx < len(inherit_recs) else None
+        inh_idx += 1
+        if inh is None:
+            continue
+        inh_type_idx = read_u16(inh, 0)
+        parent_type_idx = read_u16(inh, 2)
+        # type index has 0x8000 high bit; mask to local table index
+        def _tn(t):
+            return type_names.get(t & 0x7FFF, type_names.get(t, f"t{t}"))
+        obj_name = _tn(type_idx)
+        objects.append({
+            "name": obj_name,
+            "type_idx": type_idx,
+            "inh_type": _tn(inh_type_idx),
+            "parent_type": _tn(parent_type_idx),
+            "raw": raw,
+            "inh": inh,
+        })
+
     return {
         "version": version, "flag": flag, "entry_type": entry_type,
         "variables": variables, "var_buf_size": var_size,
+        "total_obj": total_obj, "num_inherit": num_inherit,
+        "type_names": type_names,
+        "objects": objects,
+        "pos": pos, "data_len": len(data),
     }
 
 
@@ -124,6 +203,11 @@ if __name__ == "__main__":
     data = p.read_bytes()
     r = parse_entry(data)
     print(f"version={r['version']:x} flag={r['flag']:x} entry_type={r['entry_type']:x}")
-    print(f"variables: {len(r['variables'])}")
-    for v in r["variables"][:30]:
-        print(f"  {v.name:30s} type={v.type_name} val_off={v.value}")
+    print(f"variables: {len(r['variables'])}, objects: {r['total_obj']}, inherit_recs: {r['num_inherit']}")
+    print(f"pos after parse: {r['pos']} / {r['data_len']}")
+    print(f"\nTypes ({len(r['type_names'])}):")
+    for k, v in list(r['type_names'].items())[:20]:
+        print(f"  [{k}] {v}")
+    print(f"\nObjects ({len(r['objects'])}):")
+    for o in r['objects']:
+        print(f"  {o['name']:30s} inh={o['inh_type']:20s} parent={o['parent_type']}")
