@@ -179,6 +179,10 @@ class MultiDecl(Node):
     value: Optional[Node] = None
 
 @dataclass
+class ArrayLit(Node):
+    elems: list
+
+@dataclass
 class Fallback(Node):
     """A statement we could not parse — tsbuilder preserves it as a comment."""
     text: str
@@ -651,6 +655,20 @@ class Parser:
             e = self.parse_expr()
             self.expect('RPAREN')
             return e
+        if t.kind == 'LBRACE':
+            self.next()
+            elems = []
+            self.skip_noise()
+            if self.peek().kind != 'RBRACE':
+                elems.append(self.parse_expr())
+                while self.peek().kind == 'COMMA' or (self.peek().kind == 'OP' and self.peek().value == ','):
+                    self.next()
+                    self.skip_noise()
+                    if self.peek().kind == 'RBRACE': break
+                    elems.append(self.parse_expr())
+            self.skip_noise()
+            self.expect('RBRACE')
+            return ArrayLit(elems=elems)
         if t.kind == 'IDENT' or t.kind == 'KW':
             self.next()
             return Ident(name=t.value)
