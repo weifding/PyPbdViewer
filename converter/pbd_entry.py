@@ -150,18 +150,25 @@ def _read_object(cur: EntryCursor, obj_idx: int, func_buf: bytes = b"") -> PbObj
         # ReadVariables: 6-byte header, then var-name struct buffer, then 20-byte entries.
         cur.buf(6)
         var_name_buf = cur.struct_buf()
-        # We don't know var count up front; walk until cursor end? C# reads via
-        # a count that's stored elsewhere. Use a heuristic: read 20-byte entries
-        # until next u16 doesn't look like a type id. For now, skip by using
-        # the fact that pbFunction.Buffer comes right after.
-        # Actually C# ReadVariables reads n from a prior header. We'll just
-        # trust that the remaining bytes until pbFunction.Buffer are var entries.
+        # Read local var entries: u16 count (= n*20 bytes ahead), then 20 bytes/var.
+        local_names: list[str] = []
+        try:
+            n_locals = cur.u16() // 20
+            for vi in range(n_locals):
+                raw = cur.buf(20)
+                name_off = _u32(raw, 8)
+                try:
+                    nm = _get_str(cur.is_unicode, var_name_buf, name_off)
+                except Exception:
+                    nm = f"loc{vi}"
+                local_names.append(nm)
+        except Exception:
+            local_names = []
         # pbFunction.Buffer = the function string constant pool.
         try:
             fn_str_buf = cur.struct_buf()
         except Exception:
             fn_str_buf = b""
-        local_names: list[str] = []
         # Disassemble p-code via VM. Pass fn_str_buf (per-function string pool)
         # as the string table — this is what C# PbFunction.Buffer points to.
         try:
