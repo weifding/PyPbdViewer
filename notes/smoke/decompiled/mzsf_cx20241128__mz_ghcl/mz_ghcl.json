@@ -1,0 +1,141 @@
+{
+  "pbl": "D:\\ynsoft\\mzsf_cx20241128\\mz_ghcl.pbl",
+  "size": 31232,
+  "objects": [
+    {
+      "name": "w_mz_ghcl",
+      "ancestor": "w_sheet_base",
+      "within": null,
+      "line": 84,
+      "type_text": "global type w_mz_ghcl from w_sheet_base\ninteger width = 3675\ninteger height = 2068\nsle_1 sle_1\nrb_ks rb_ks\nrb_ys rb_ys\nrb_yy rb_yy\nst_1 st_1\nddlb_ghyq ddlb_ghyq\ncbx_zdfp cbx_zdfp\ncbx_bl cbx_bl\ncbx_ck cbx_ck\ncbx_gh cbx_gh\ndw_1 dw_1\ngb_1 gb_1\nend type"
+    }
+  ],
+  "members": [
+    {
+      "name": "sle_1",
+      "ancestor": "vu_jzkh",
+      "within": "w_mz_ghcl",
+      "line": 179,
+      "type_text": "type sle_1 from vu_jzkh within w_mz_ghcl\ninteger x = 41\ninteger y = 32\ninteger width = 1010\ninteger height = 92\ninteger taborder = 10\nboolean bringtotop = true\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "rb_ks",
+      "ancestor": "vu_radiobutton",
+      "within": "w_mz_ghcl",
+      "line": 188,
+      "type_text": "type rb_ks from vu_radiobutton within w_mz_ghcl\ninteger x = 101\ninteger y = 360\ninteger width = 302\nboolean bringtotop = true\nstring text = \"科室[F3]\"\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "rb_ys",
+      "ancestor": "vu_radiobutton",
+      "within": "w_mz_ghcl",
+      "line": 196,
+      "type_text": "type rb_ys from vu_radiobutton within w_mz_ghcl\ninteger x = 453\ninteger y = 360\ninteger width = 302\nboolean bringtotop = true\nstring text = \"医生[F4]\"\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "rb_yy",
+      "ancestor": "vu_radiobutton",
+      "within": "w_mz_ghcl",
+      "line": 204,
+      "type_text": "type rb_yy from vu_radiobutton within w_mz_ghcl\ninteger x = 791\ninteger y = 360\ninteger width = 302\nboolean bringtotop = true\nstring text = \"预约[F5]\"\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "st_1",
+      "ancestor": "vu_statictext",
+      "within": "w_mz_ghcl",
+      "line": 212,
+      "type_text": "type st_1 from vu_statictext within w_mz_ghcl\ninteger x = 1312\ninteger y = 364\ninteger width = 297\nboolean bringtotop = true\nstring text = \"挂号院区:\"\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "ddlb_ghyq",
+      "ancestor": "vu_datalistbox",
+      "within": "w_mz_ghcl",
+      "line": 220,
+      "type_text": "type ddlb_ghyq from vu_datalistbox within w_mz_ghcl\ninteger x = 1632\ninteger y = 356\ninteger taborder = 20\nboolean bringtotop = true\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "cbx_zdfp",
+      "ancestor": "vu_checkbox",
+      "within": "w_mz_ghcl",
+      "line": 227,
+      "type_text": "type cbx_zdfp from vu_checkbox within w_mz_ghcl\ninteger x = 2373\ninteger y = 356\ninteger width = 466\nboolean bringtotop = true\nstring text = \"自动选择时间点\"\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "cbx_bl",
+      "ancestor": "vu_checkbox",
+      "within": "w_mz_ghcl",
+      "line": 235,
+      "type_text": "type cbx_bl from vu_checkbox within w_mz_ghcl\ninteger x = 69\ninteger y = 1828\ninteger width = 302\nboolean bringtotop = true\nstring text = \"病历[F6]\"\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "cbx_ck",
+      "ancestor": "vu_checkbox",
+      "within": "w_mz_ghcl",
+      "line": 243,
+      "type_text": "type cbx_ck from vu_checkbox within w_mz_ghcl\ninteger x = 462\ninteger y = 1820\ninteger width = 302\nboolean bringtotop = true\nstring text = \"磁卡[F7]\"\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "cbx_gh",
+      "ancestor": "vu_checkbox",
+      "within": "w_mz_ghcl",
+      "line": 251,
+      "type_text": "type cbx_gh from vu_checkbox within w_mz_ghcl\ninteger x = 864\ninteger y = 1828\ninteger width = 302\nboolean bringtotop = true\nstring text = \"挂号[F8]\"\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "dw_1",
+      "ancestor": "vu_toolbar",
+      "within": "w_mz_ghcl",
+      "line": 259,
+      "type_text": "type dw_1 from vu_toolbar within w_mz_ghcl\ninteger x = 1065\ninteger y = 4\ninteger width = 2565\ninteger taborder = 20\nboolean bringtotop = true\nend type",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "gb_1",
+      "ancestor": "groupbox",
+      "within": "w_mz_ghcl",
+      "line": 267,
+      "type_text": "type gb_1 from groupbox within w_mz_ghcl\ninteger x = 59\ninteger y = 300\ninteger width = 3488\ninteger height = 160\ninteger taborder = 20\ninteger textsize = -9\ninteger weight = 400\nfontcharset fontcharset = gb2312charset!\nfontpitch fontpitch = variable!\nstring facename = \"宋体\"\nlong textcolor = 33554432\nlong backcolor = 67108864\nend getselectedrow\nKeyDownArrow\nKeyUpArrow\nKeyPageDown\n(upper(PYDM)  like ' ') or (upper(DZMC)  like ' gy_dzxx.dzlsh gy_dzxx.dzmc gy_dzxx.pydm\ngy_dzxx.wbdm\ngy_dzxx.sscs\ngy_dzxx.yzbm\nSELECT  \"GY_DZXX\".\"DZLSH\" ,\n           \"GY_DZXX\".\"DZMC\" , \n           \"GY_DZXX\".\"PYDM\" ,\n           \"GY_DZXX\".\"WBDM\" ,\n           \"GY_DZXX\".\"SSCS\" ,\n           \"GY_DZXX\".\"YZBM\"     \n        FROM \"GY_DZXX\"    ",
+      "member_of": "w_mz_ghcl"
+    },
+    {
+      "name": "cb_parent_exit",
+      "ancestor": "w_sheet_base",
+      "within": null,
+      "line": 176,
+      "type_text": "type cb_parent_exit from w_sheet_base`cb_parent_exit within w_mz_ghcl\nend type",
+      "member_of": "w_mz_ghcl"
+    }
+  ],
+  "blocks": [
+    {
+      "kind": "event",
+      "object": "w_mz_ghcl",
+      "name": "create",
+      "text": "on w_mz_ghcl.create\nint iCurrent\ncall super::create\nthis.sle_1=create sle_1\nthis.rb_ks=create rb_ks\nthis.rb_ys=create rb_ys\nthis.rb_yy=create rb_yy\nthis.st_1=create st_1\nthis.ddlb_ghyq=create ddlb_ghyq\nthis.cbx_zdfp=create cbx_zdfp\nthis.cbx_bl=create cbx_bl\nthis.cbx_ck=create cbx_ck\nthis.cbx_gh=create cbx_gh\nthis.dw_1=create dw_1\nthis.gb_1=create gb_1\niCurrent=UpperBound(this.Control)\nthis.Control[iCurrent+1]=this.sle_1\nthis.Control[iCurrent+2]=this.rb_ks\nthis.Control[iCurrent+3]=this.rb_ys\nthis.Control[iCurrent+4]=this.rb_yy\nthis.Control[iCurrent+5]=this.st_1\nthis.Control[iCurrent+6]=this.ddlb_ghyq\nthis.Control[iCurrent+7]=this.cbx_zdfp\nthis.Control[iCurrent+8]=this.cbx_bl\nthis.Control[iCurrent+9]=this.cbx_ck\nthis.Control[iCurrent+10]=this.cbx_gh\nthis.Control[iCurrent+11]=this.dw_1\nthis.Control[iCurrent+12]=this.gb_1\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on w_mz_ghcl.create"
+    },
+    {
+      "kind": "event",
+      "object": "w_mz_ghcl",
+      "name": "destroy",
+      "text": "on w_mz_ghcl.destroy\ncall super::destroy\ndestroy(this.sle_1)\ndestroy(this.rb_ks)\ndestroy(this.rb_ys)\ndestroy(this.rb_yy)\ndestroy(this.st_1)\ndestroy(this.ddlb_ghyq)\ndestroy(this.cbx_zdfp)\ndestroy(this.cbx_bl)\ndestroy(this.cbx_ck)\ndestroy(this.cbx_gh)\ndestroy(this.dw_1)\ndestroy(this.gb_1)\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on w_mz_ghcl.destroy"
+    }
+  ]
+}

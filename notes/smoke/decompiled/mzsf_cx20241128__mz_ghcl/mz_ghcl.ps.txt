@@ -1,0 +1,294 @@
+HDR*PowerBuilder
+w_mz_ghcl.win
+w_mz_ghcl.srw
+w_pop_dzxx.prp
+w_mz_ghcl.prp
+w_sheet_base
+accessibility
+windowtype
+windowstate
+windowobject
+toolbaralignment
+fontcharset
+fontfamily
+powerobject
+n_cst_resizesrv
+borderstyle
+vu_radiobutton
+vu_statictext
+fillpattern
+statictext
+vu_datalistbox
+vu_checkbox
+vu_toolbar
+vu_tooltip
+graphicobject
+vu_toolbar_object
+vu_toolbar_btnmenu
+m_toolbar_menu
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+自动选择时间点
+w_sheet_base
+accessibility
+windowtype
+windowstate
+windowobject
+toolbaralignment
+w_sheet_base`cb_parent_exit
+cb_parent_exit
+fontcharset
+fontfamily
+powerobject
+n_cst_resizesrv
+borderstyle
+vu_radiobutton
+vu_statictext
+fillpattern
+vu_datalistbox
+vu_checkbox
+vu_toolbar
+vu_tooltip
+graphicvu_toolbar_object
+vu_toolbar_btnmenu
+m_toolbar_menu
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+bringtotop
+bringtotop
+bringtotop
+bringtotop
+bringtotop
+bringtotop
+bringtotop
+bringtotop
+bringtotop
+bringtotop
+bringtotop
+fontcharset
+挂号处理forward
+global type w_mz_ghcl from w_sheet_base
+end type
+type sle_1 from vu_jzkh within w_mz_ghcl
+end type
+type rb_ks from vu_radiobutton within w_mz_ghcl
+end type
+type rb_ys from vu_radiobutton within w_mz_ghcl
+end type
+type rb_yy from vu_radiobutton within w_mz_ghcl
+end type
+type st_1 from vu_statictext within w_mz_ghcl
+end type
+type ddlb_ghyq from vu_datalistbox within w_mz_ghcl
+end type
+type cbx_zdfp from vu_checkbox within w_mz_ghcl
+end type
+type cbx_bl from vu_checkbox within w_mz_ghcl
+end type
+type cbx_ck from vu_checkbox within w_mz_ghcl
+end type
+type cbx_gh from vu_checkbox within w_mz_ghcl
+end type
+type dw_1 from vu_toolbar within w_mz_ghcl
+end type
+type gb_1 from groupbox within w_mz_ghcl
+end type
+end forward
+
+global type w_mz_ghcl from w_sheet_base
+integer width = 3675
+integer height = 2068
+sle_1 sle_1
+rb_ks rb_ks
+rb_ys rb_ys
+rb_yy rb_yy
+st_1 st_1
+ddlb_ghyq ddlb_ghyq
+cbx_zdfp cbx_zdfp
+cbx_bl cbx_bl
+cbx_ck cbx_ck
+cbx_gh cbx_gh
+dw_1 dw_1
+gb_1 gb_1
+end type
+global w_mz_ghcl w_mz_ghcl
+
+on w_mz_ghcl.create
+int iCurrent
+call super::create
+this.sle_1=create sle_1
+this.rb_ks=create rb_ks
+this.rb_ys=create rb_ys
+this.rb_yy=create rb_yy
+this.st_1=create st_1
+this.ddlb_ghyq=create ddlb_ghyq
+this.cbx_zdfp=create cbx_zdfp
+this.cbx_bl=create cbx_bl
+this.cbx_ck=create cbx_ck
+this.cbx_gh=create cbx_gh
+this.dw_1=create dw_1
+this.gb_1=create gb_1
+iCurrent=UpperBound(this.Control)
+this.Control[iCurrent+1]=this.sle_1
+this.Control[iCurrent+2]=this.rb_ks
+this.Control[iCurrent+3]=this.rb_ys
+this.Control[iCurrent+4]=this.rb_yy
+this.Control[iCurrent+5]=this.st_1
+this.Control[iCurrent+6]=this.ddlb_ghyq
+this.Control[iCurrent+7]=this.cbx_zdfp
+this.Control[iCurrent+8]=this.cbx_bl
+this.Control[iCurrent+9]=this.cbx_ck
+this.Control[iCurrent+10]=this.cbx_gh
+this.Control[iCurrent+11]=this.dw_1
+this.Control[iCurrent+12]=this.gb_1
+end on
+
+on w_mz_ghcl.destroy
+call super::destroy
+destroy(this.sle_1)
+destroy(this.rb_ks)
+destroy(this.rb_ys)
+destroy(this.rb_yy)
+destroy(this.st_1)
+destroy(this.ddlb_ghyq)
+destroy(this.cbx_zdfp)
+destroy(this.cbx_bl)
+destroy(this.cbx_ck)
+destroy(this.cbx_gh)
+destroy(this.dw_1)
+destroy(this.gb_1)
+end on
+
+type cb_parent_exit from w_sheet_base`cb_parent_exit within w_mz_ghcl
+end type
+
+type sle_1 from vu_jzkh within w_mz_ghcl
+integer x = 41
+integer y = 32
+integer width = 1010
+integer height = 92
+integer taborder = 10
+boolean bringtotop = true
+end type
+
+type rb_ks from vu_radiobutton within w_mz_ghcl
+integer x = 101
+integer y = 360
+integer width = 302
+boolean bringtotop = true
+string text = "科室[F3]"
+end type
+
+type rb_ys from vu_radiobutton within w_mz_ghcl
+integer x = 453
+integer y = 360
+integer width = 302
+boolean bringtotop = true
+string text = "医生[F4]"
+end type
+
+type rb_yy from vu_radiobutton within w_mz_ghcl
+integer x = 791
+integer y = 360
+integer width = 302
+boolean bringtotop = true
+string text = "预约[F5]"
+end type
+
+type st_1 from vu_statictext within w_mz_ghcl
+integer x = 1312
+integer y = 364
+integer width = 297
+boolean bringtotop = true
+string text = "挂号院区:"
+end type
+
+type ddlb_ghyq from vu_datalistbox within w_mz_ghcl
+integer x = 1632
+integer y = 356
+integer taborder = 20
+boolean bringtotop = true
+end type
+
+type cbx_zdfp from vu_checkbox within w_mz_ghcl
+integer x = 2373
+integer y = 356
+integer width = 466
+boolean bringtotop = true
+string text = "自动选择时间点"
+end type
+
+type cbx_bl from vu_checkbox within w_mz_ghcl
+integer x = 69
+integer y = 1828
+integer width = 302
+boolean bringtotop = true
+string text = "病历[F6]"
+end type
+
+type cbx_ck from vu_checkbox within w_mz_ghcl
+integer x = 462
+integer y = 1820
+integer width = 302
+boolean bringtotop = true
+string text = "磁卡[F7]"
+end type
+
+type cbx_gh from vu_checkbox within w_mz_ghcl
+integer x = 864
+integer y = 1828
+integer width = 302
+boolean bringtotop = true
+string text = "挂号[F8]"
+end type
+
+type dw_1 from vu_toolbar within w_mz_ghcl
+integer x = 1065
+integer y = 4
+integer width = 2565
+integer taborder = 20
+boolean bringtotop = true
+end type
+
+type gb_1 from groupbox within w_mz_ghcl
+integer x = 59
+integer y = 300
+integer width = 3488
+integer height = 160
+integer taborder = 20
+integer textsize = -9
+integer weight = 400
+fontcharset fontcharset = gb2312charset!
+fontpitch fontpitch = variable!
+string facename = "宋体"
+long textcolor = 33554432
+long backcolor = 67108864
+end getselectedrow
+KeyDownArrow
+KeyUpArrow
+KeyPageDown
+(upper(PYDM)  like ' ') or (upper(DZMC)  like ' gy_dzxx.dzlsh gy_dzxx.dzmc gy_dzxx.pydm
+gy_dzxx.wbdm
+gy_dzxx.sscs
+gy_dzxx.yzbm
+SELECT  "GY_DZXX"."DZLSH" ,
+           "GY_DZXX"."DZMC" , 
+           "GY_DZXX"."PYDM" ,
+           "GY_DZXX"."WBDM" ,
+           "GY_DZXX"."SSCS" ,
+           "GY_DZXX"."YZBM"     
+        FROM "GY_DZXX"    

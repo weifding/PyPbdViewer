@@ -1,0 +1,7 @@
+{
+  "name": "pbtots-out",
+  "private": true,
+  "dependencies": {
+    "typescript": "4.9"
+  }
+}

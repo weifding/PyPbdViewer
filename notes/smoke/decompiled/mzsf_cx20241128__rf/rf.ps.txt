@@ -1,0 +1,663 @@
+HDR*PowerBuilder
+forward
+global transaction sqlca
+global dynamicdescriptionarea sqlda
+global dynamicstagingarea sqlsa
+global error error
+global message message
+end forward
+
+global variables
+long icdev = -1
+end variables
+
+global type rf from application
+ end type
+global rf rf
+
+type prototypes
+function long  IC_InitComm_Baud( int port, long baud ) library "dcic32.dll"
+
+function int   IC_ExitComm( long icdev ) library "dcic32.dll"
+function int   IC_Request( long icdev , int mode, ref UINT tagtype ) library "dcic32.dll"
+function int   IC_Anticoll(  long icdev , int bcnt, ref long snr ) library "dcic32.dll"
+function int   IC_Select( long  icdev, long snr , ref int  sizee ) library "dcic32.dll"
+function int   IC_Card( long  icdev, int mode, ref long snr ) library "dcic32.dll"
+function int   IC_Load_Key( long  icdev, int mode, int secnr, ref string nkey ) library "dcic32.dll"
+function int   IC_Load_Keyhex( long  icdev, int mode,int secnr, ref string nkey ) library "dcic32.dll"
+function i
+forward
+global type w_rf from Window
+end type
+type cb_3 from commandbutton within w_rf
+end type
+type cb_2 from commandbutton within w_rf
+end type
+type cb_1 from commandbutton within w_rf
+end type
+type lb_1 from listbox within w_rf
+end type
+end forward
+
+global type w_rf from Window
+int X=1056
+int Y=484
+int Width=2569
+int Height=1516
+boolean TitleBar=true
+string Title="Test_Rf"
+long BackColor=80269524
+boolean ControlMenu=true
+boolean MinBox=true
+boolean MaxBox=true
+boolean Resizable=true
+cb_3 cb_3
+cb_2 cb_2
+cb_1 cb_1
+lb_1 lb_1
+end type
+global w_rf w_rf
+
+on w_rf.create
+this.cb_3=create cb_3
+this.cb_2=create cb_2
+this.cb_1=create cb_1
+this.lb_1=create lb_1
+this.Control[]={this.cb_3,&
+this.cb_2,&
+this.cb_1,&
+this.lb_1}
+end on
+
+on w_rf.destroy
+destroy(this.cb_3)
+destroy(this.cb_2)
+destroy(this.cb_1)
+destroy(this.lb_1)
+end on
+
+type cb_3 from commandbutton within w_rf
+int X=1906
+int Y=704
+int Width=389
+int Height=108
+int TabOrder=30
+string Tent   IC_Authentication( long  icdev,int mode, int scenr) library "dcic32.dll"
+function int   IC_ReadMifare( long  icdev, int adr, ref string sdata ) library "dcic32.dll"
+function int   IC_ReadMifare_Hex( long  icdev, int adr, ref string sdata ) library "dcic32.dll"
+function int   IC_WriteMifare( long  icdev, int adr, ref string sdata) library "dcic32.dll"
+function int   IC_WriteMifare_Hex( long  icdev, int adr, ref string sdata) library "dcic32.dll"
+function int  IC_Init_Value (long  icdev, int adr) library "dcic32.dll"
+function int   IC_Read_Value( long  icdev, int adr,  ref long rvalue ) library "dcic32.dll"
+function int   IC_Increment( long  icdev, int adr, long rvalue ) library "dcic32.dll"
+function int   IC_Decrement( long  icdev, int adr, long rvalue ) library "dcic32.dll"
+function int   IC_Restore(long  icdev, int adr) library "dcic32.dll"
+function int   IC_Transfer(long  icdev, int adr) library "dcic32.dll"
+function int   IC_Halt(long  icdev) library "dcic32.dll"
+functi
+on int   IC_DevBeep(long  icdev,int mtime) library "dcic32.dll"
+
+
+end prototypes
+on rf.create
+appname = "rf"
+message = create message
+sqlca = create transaction
+sqlda = create dynamicdescriptionarea
+sqlsa = create dynamicstagingarea
+error = create error
+end on
+
+on rf.destroy
+destroy( sqlca )
+destroy( sqlda )
+destroy( sqlsa )
+destroy( error )
+destroy( message )
+end on
+
+event open;open(w_rf)
+end event
+
+
+xt="Exit"
+int TextSize=-12
+int Weight=400
+string FaceName="Arial"
+FontCharSet FontCharSet=Ansi!
+FontFamily FontFamily=Swiss!
+FontPitch FontPitch=Variable!
+end type
+
+event clicked;
+IC_ExitComm(icdev)
+end event
+type cb_2 from commandbutton within w_rf
+int X=1911
+int Y=396
+int Width=370
+int Height=108
+int TabOrder=20
+string Text="Test"
+int TextSize=-12
+int Weight=400
+string FaceName="Arial"
+FontCharSet FontCharSet=Ansi!
+FontFamily FontFamily=Swiss!
+FontPitch FontPitch=Variable!
+end type
+
+event clicked;int cardmode = 1
+int address = 1
+int sector = 0
+int count=0
+long snr
+int size
+UINT tagtype
+string data32,databuff32
+int st
+
+data32=space(50)
+databuff32=space(50)
+string hexkey = "ffffffffffff"
+
+
+st = ic_card( icdev, cardmode, ref snr)
+If st <> 0 Then
+      lb_1.AddItem ("调用 dc_card()函数出错")
+      return
+End If
+lb_1.AddItem ("调用 dc_card()函数成功")
+lb_1.additem (string(snr))
+ 
+
+st = ic_load_keyhex(icdev, 0, sector,  hexkey)
+If st <> 0 Then
+      lb_1.AddItem ("调用 dc_Load_key_hex()函数出错!")
+      return
+End If
+lb_1.AddItem ("调用 dc_Load_key_hex()函数成功!")
+
+ 
+st = ic_authentication( icdev, 0, sector)
+If st <> 0 Then
+      lb_1.AddItem ("调用 dc_authentication()函数出错!")
+		return
+End If
+lb_1.AddItem( "调用 dc_authentication()函数成功!")
+ 
+
+
+address=sector*4+2
+data32 = "1234567890abcdef1234567890abcdef"
+st = IC_WriteMifare_Hex( icdev, address,  ref data32)
+If st <> 0 Then
+      lb_1.AddItem ("调用 dc_write_hex()函数出错!")
+      return
+End If
+lb_1.AddItem ("调用 dc_write_hex()函数成功!")
+
+
+ 
+
+
+st = IC_ReadMifare_Hex( icdev, address, ref databuff32)
+If st <> 0 Then
+     lb_1.AddItem ("调用 dc_read_hex函数出错")
+     //return
+End If
+lb_1.AddItem( "调用  h  dc_read_hex函数成功")
+lb_1.additem(databuff32)
+ 
+end event
+type cb_1 from commandbutton within w_rf
+int X=1906
+int Y=112
+int Width=384
+int Height=108
+int TabOrder=10
+string Text="Init"
+int TextSize=-12
+int Weight=400
+string FaceName="Arial"
+FontCharSet FontCharSet=Ansi!
+FontFamily FontFamily=Swiss!
+FontPitch FontPitch=Variable!
+end type
+
+event clicked;
+int st
+icdev = IC_InitComm_Baud(0,19200)
+If icdev <= 0 Then
+   lb_1.AddItem ("Init COM Error!")
+   return
+End If
+
+st = IC_DevBeep(icdev,10)
+if st <>0 then
+	lb_1.additem("beep error")
+	return
+end if
+end event
+type lb_1 from listbox within w_rf
+int X=233
+int Y=128
+int Width=1518
+int Height=928
+int TabOrder=20
+BorderStyle BorderStyle=StyleLowered!
+boolean VScrollBar=true
+boolean Sorted=false
+long TextColor=33554432
+int TextSize=-12
+int Weight=400
+string FaceName="Arial"
+FontCharSet FontCharSet=Ansi!
+FontFamily FontFamily=Swiss!
+FontPitch FontPitch=Variable!
+end type
+
+
+ic_exitcomm
+fontcharset
+fontfamily
+databuff32
+ffffffffffff
+调用 dc_card()函数出错
+调用 dc_card()函数成功
+调用 dc_Load_key_hex()函数出错!
+调用 dc_Load_key_hex()函数成功!
+调用 dc_authentication()函数出错!
+调用 dc_authentication()函数成功!
+1234567890abcdef1234567890abcdef
+调用 dc_write_hex()函数出错!
+调用 dc_write_hex()函数成功!
+调用 dc_read_hex函数出错
+调用  h  dc_read_hex函数成功
+ic_load_keyhex
+ic_authentication
+ic_writemifare_hex
+ic_readmifare_hex
+transaction
+dynamicdescriptionarea
+dynamicstagingarea
+application
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+ic_initcomm_baud
+ic_exitcomm
+ic_request
+ic_anticoll
+ic_load_key
+ic_load_keyhic_authentication
+ic_readmifare
+ic_readmifare_hex
+ic_writemifare
+ic_writemifare_hex
+ic_init_value
+ic_read_value
+ic_increment
+ic_decrement
+ic_restore
+ic_transfer
+ic_devbeep
+ic_initcomm_baud
+dcic32.dll
+IC_InitComm_Baud
+ic_exitcomm
+IC_ExitComm
+ic_request
+IC_Request
+ic_anticoll
+IC_Anticoll
+ic_load_key
+IC_Load_Key
+ic_load_keyhex
+IC_Load_Keyhex
+ic_authentication
+IC_Authentication
+ic_readmifare
+IC_ReadMifare
+ic_readmifare_hex
+IC_ReadMifare_Hex
+ic_writemifare
+IC_WriteMifare
+ic_writemifare_hex
+IC_WriteMifare_Hex
+ic_init_value
+IC_Init_Value
+ic_read_value
+IC_Read_Value
+ic_increment
+IC_Increment
+ic_decrement
+IC_Decrement
+ic_restore
+IC_Restore
+ic_transfeIC_Transfer
+ic_devbeep
+IC_DevBeep
+commandline
+transaction
+dynamicdescriptionarea
+dynamicstagingarea
+application
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+transaction
+dynamicdescriptionarea
+dynamicstagingarea
+commandline
+ic_initcomm_baud
+ic_exitcomm
+ic_request
+ic_anticoll
+ic_load_key
+ic_load_keyhex
+ic_authentication
+ic_readmifare
+ic_readmifare_hex
+ic_writemific_writemifare_hex
+ic_init_value
+ic_read_value
+ic_increment
+ic_decrement
+ic_restore
+ic_transfer
+ic_devbeep
+fontcharset
+fontfamily
+Init COM Error!
+beep error
+ic_initcomm_baud
+ic_devbeep
+fontcharset
+fontfamily
+borderstyle
+vscrollbar
+fontcharset
+fontfamily
+forward
+global type w_rf from Window
+end type
+type cb_3 from commandbutton within w_rf
+end type
+type cb_2 from commandbutton within w_rf
+end type
+type cb_1 from commandbutton within w_rf
+end type
+type lb_1 from listbox within w_rf
+end type
+end forward
+
+global type w_rf from Window
+int X=1056
+int Y=484
+int Width=2569
+int Height=1516
+boolean TitleBar=true
+string Title="Test_Rf"
+long BackColor=80269524
+boolean ControlMenu=true
+boolean MinBox=true
+boolean MaxBox=true
+boolean Resizable=true
+cb_3 cb_3
+cb_2 cb_2
+cb_1 cb_1
+lb_1 lb_1
+end type
+global w_rf w_rf
+
+on w_rf.create
+this.cb_3=create cb_3
+this.cb_2=create cb_2
+this.cb_1=create cb_1
+this.lb_1=create lb_1
+this.Control[]={this.cb_3,&
+this.cb_2,&
+this.cb_1,&
+this.lb_1}
+end on
+
+on w_rf.destroy
+destroy(this.cb_3)
+destroy(this.cb_2)
+destroy(this.cb_1)
+destroy(this.lb_1)
+end on
+
+type cb_3 from commandbutton within w_rf
+int X=1906
+int Y=704
+int Width=389
+int Height=108
+int TabOrder=30
+string Text="Exit"
+int TextSize=-12
+int Weight=400
+string FaceName="Arial"
+FontCharSet FontCharSet=Ansi!
+FontFamily FontFamily=Swiss!
+FontPitch FontPitch=Variable!
+end type
+
+event clicked;
+IC_ExitComm(icdev)
+end event
+type cb_2 from commandbutton within w_rf
+int X=1911
+int Y=396
+int Width=370
+int Height=108
+int TabOrder=20
+string Text="Test"
+int TextSize=-12
+int Weight=400
+string FaceName="Arial"
+FontCharSet FontCharSet=Ansi!
+FontFamily FontFamily=Swiss!
+FontPitch FontPitch=Variable!
+end type
+
+event clicked;int cardmode = 1
+int address = 1
+int sector = 0
+int count=0
+long snr
+int size
+UINT tagtype
+string data32,databuff32
+int st
+
+data32=space(50)
+databuff32=space(50)
+string hexkey = "ffffffffffff"
+
+
+st = ic_card( icdev, cardmode, ref snr)
+If st <> 0 Then
+      lb_1.AddItem ("调用 dc_card()函数出错")
+      //return
+End If
+lb_1.AddItem ("调用 dc_card()函数成功")
+lb_1.additem (string(snr))
+ 
+
+st = ic_load_keyhex(icdev, 0, sector,  hexkey)
+If st <> 0 Then
+      lb_1.AddItem ("调用 dc_Load_key_hex()函数出错!")
+      //return
+End If
+lb_1.AddItem ("调用 dc_Load_key_hex()函数成功!")
+
+ 
+st = ic_authentication( icdev, 0, sector)
+If st <> 0 Then
+      lb_1.AddItem ("调用 dc_authentication()函数出错!")
+		//return
+End If
+lb_1.AddItem( "调用 dc_authentication()函数成功!")
+ 
+
+
+address=sector*4+2
+data32 = "1234567890abcdef1234567890abcdef"
+st = IC_WriteMifare_Hex( icdev, address,  ref data32)
+If st <> 0 Then
+      lb_1.AddItem ("调用 dc_write_hex()函数出错!")
+      //return
+End If
+lb_1.AddItem ("调用 dc_write_hex()函数成功!")
+
+
+ 
+
+
+st = IC_ReadMifare_Hex( icdev, address, ref databuff32)
+If st <> 0 Then
+     lb_1.AddItem ("调用 dc_read_hex函数出错")
+     //return
+End If
+lb_1.AddItem( "调用  h  dc_read_hex函数成功")
+lb_1.additem(databuff32)
+ 
+end event
+type cb_1 from commandbutton within w_rf
+int X=1906
+int Y=112
+int Width=384
+int Height=108
+int TabOrder=10
+string Text="Init"
+int TextSize=-12
+int Weight=400
+string FaceName="Arial"
+FontCharSet FontCharSet=Ansi!
+FontFamily FontFamily=Swiss!
+FontPitch FontPitch=Variable!
+end type
+
+event clicked;
+int st
+icdev = IC_InitComm_Baud(0,19200)
+If icdev <= 0 Then
+   lb_1.AddItem ("Init COM Error!")
+   return
+End If
+
+st = IC_DevBeep(icdev,10)
+if st <>0 then
+	lb_1.additem("beep error")
+	return
+end if
+end event
+type lb_1 from listbox within w_rf
+int X=233
+int Y=128
+int Width=1518
+int Height=928
+int TabOrder=20
+BorderStyle BorderStyle=StyleLowered!
+boolean VScrollBar=true
+boolean Sorted=false
+long TextColor=33554432
+int TextSize=-12
+int Weight=400
+string FaceName="Arial"
+FontCharSet FontCharSet=Ansi!
+FontFamily FontFamily=Swiss!
+FontPitch FontPitch=Variable!
+end type
+
+
+windowtype
+windowstate
+windowobject
+toolbaralignment
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+commandbutton
+fontcharset
+fontfamily
+borderstyle
+dragobject
+ic_exitcomm
+ic_load_keyhex
+ic_authentication
+ic_writemifare_hex
+ic_readmifare_hex
+ic_initcomm_baud
+ic_devbeep
+windowtype
+windowstate
+windowobject
+toolbaralignment
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindolistviewitem
+treeviewitem
+connectioninfo
+powerobject
+commandbutton
+fontcharset
+fontfamily
+borderstyle
+dragobject
+controlmenu
+ic_exitcomm
+fontcharset
+fontfamily
+databuff32
+ffffffffffff
+调用 dc_card()函数出错
+调用 dc_card()函数成功
+调用 dc_Load_key_hex()函数出错!
+调用 dc_Load_key_hex()函数成功!
+调用 dc_authenticati
+on()函数出错!
+调用 dc_authentication()函数成功!
+1234567890abcdef1234567890abcdef
+调用 dc_write_hex()函数出错!
+调用 dc_write_hex()函数成功!
+调用 dc_read_hex函数出错
+调用  h  dc_read_hex函数成功
+ic_load_keyhex
+ic_authentication
+ic_writemifare_hex
+ic_readmifare_hex
+fontcharset
+fontfamily
+Init COM Error!
+beep error
+ic_initcomm_baud
+ic_devbeep
+fontcharset
+fontfamily
+borderstyle
+vscrollbar
+fontcharset
+fontfamily

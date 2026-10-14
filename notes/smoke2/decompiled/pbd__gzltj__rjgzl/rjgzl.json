@@ -1,0 +1,525 @@
+{
+  "file": "D:\\ynsoft\\gzltj\\rjgzl.pbd",
+  "size": 478208,
+  "version": "0600",
+  "entries": [
+    {
+      "name": "d_gzltj",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1080
+    },
+    {
+      "name": "d_gzl_jzxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1116
+    },
+    {
+      "name": "d_pbxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1155
+    },
+    {
+      "name": "d_gzl_jzxx2",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1190
+    },
+    {
+      "name": "d_syxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1230
+    },
+    {
+      "name": "d_ypfy",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1265
+    },
+    {
+      "name": "d_wfxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1300
+    },
+    {
+      "name": "d_grtj",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1372
+    },
+    {
+      "name": "d_grtj_myd",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1407
+    },
+    {
+      "name": "d_qn_jzrc",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1446
+    },
+    {
+      "name": "d_zfy",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1484
+    },
+    {
+      "name": "d_gzltj_cs",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1518
+    },
+    {
+      "name": "d_jzrc_sqlold",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1557
+    },
+    {
+      "name": "d_ypfy_sql",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1599
+    },
+    {
+      "name": "d_yjfy_sql",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1638
+    },
+    {
+      "name": "d_ghxx_x",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1677
+    },
+    {
+      "name": "d_sycs",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1748
+    },
+    {
+      "name": "d_syxx_js",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1783
+    },
+    {
+      "name": "d_syrc_jzks",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1821
+    },
+    {
+      "name": "d_kjypfy",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1861
+    },
+    {
+      "name": "d_mzks_kz",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1898
+    },
+    {
+      "name": "d_send_import",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1936
+    },
+    {
+      "name": "w_dx",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 1978
+    },
+    {
+      "name": "d_ks_kz",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2011
+    },
+    {
+      "name": "w__test",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 2047
+    },
+    {
+      "name": "w__test",
+      "suffix": ".bin",
+      "kind": "binary",
+      "offset": 2083
+    },
+    {
+      "name": "w_ghxx",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 2119
+    },
+    {
+      "name": "d_pbxx_all",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2154
+    },
+    {
+      "name": "d_ghxx_jzlb",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2193
+    },
+    {
+      "name": "d_jzrc_tiaoz",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2233
+    },
+    {
+      "name": "w_gzltj",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 2274
+    },
+    {
+      "name": "d_tj1",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2310
+    },
+    {
+      "name": "w_tj1",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 2344
+    },
+    {
+      "name": "d_tj2",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2378
+    },
+    {
+      "name": "d_pbxx_bcsz",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2412
+    },
+    {
+      "name": "d_cfk",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2452
+    },
+    {
+      "name": "d_ghxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2486
+    },
+    {
+      "name": "d_ghxx_3",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2521
+    },
+    {
+      "name": "d_ghxx_gh",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2558
+    },
+    {
+      "name": "d_ghxx_et",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 2596
+    }
+  ],
+  "sql": [
+    {
+      "offset": 24117,
+      "text": "SELECT \"MZ_GZLTJ\".\"ZZRQ\",   \r\n         \"MZ_GZLTJ\".\"YYBZ\",   \r\n         \"MZ_GZLTJ\".\"BCLB\",   \r\n         \"MZ_GZLTJ\".\"JZKS\",   \r\n         \"MZ_GZLTJ\".\"YSBM\",   \r\n         \"MZ_GZLTJ\".\"SZSJ\",   \r\n         \"MZ_GZLTJ\".\"MZSJ\",   \r\n         \"MZ_GZLTJ\".\"GHRC\",   \r\n         \"MZ_GZLTJ\".\"SWJZRC\",   \r\n         \"MZ_GZLTJ\".\"XWJZRC\",   \r\n         \"MZ_GZLTJ\".\"GZL\",   \r\n         \"MZ_GZLTJ\".\"JZLB\",   \r\n         \"MZ_GZLTJ\".\"RJSC\",   \r\n         \"MZ_GZLTJ\".\"SYRC\",   \r\n        DAT*"
+    },
+    {
+      "offset": 30412,
+      "text": "SELECT distinct(MZ_JZXX.YSBM),\r\n\t\t\tmz_jzxx.jzks,\r\n\t\t\tmz_jzxx.jzlb,\r\nnvl(mz_jzxx.zlxz,0) as zlxz\r\n    FROM MZ_JZXX\r\n   WHERE ( MZ_JZXX.JZSJ >="
+    },
+    {
+      "offset": 39280,
+      "text": "SELECT MZ_PBXX.BC, \r\n\t\t\tMZ_PBXX.RQ, \r\n\t\t\tMZ_PBXX.zzlb,  \r\n\t\t\tMZ_PBXX.KSBM, \r\n         MZ_PBXX.YSBM,\r\n\t\t\tMZ_PBXX.XBSJ, \r\n\t\t\tMZ_PBXX.SBSJ, \r\n\t\t\tDAT*"
+    },
+    {
+      "offset": 47228,
+      "text": "SELECT count(mz_jzxx.ghlsh) as jzrs,\r\n\t\t\tsum(mz_jzxx.gzl) as gzl,\r\n\t\t\tMZ_JZXX.YYBZ,   \r\n         MZ_JZXX.JZKS,   \r\n         MZ_JZXX.JZLB,     \r\n         MZ_JZXX.YSBM,\r\n\t\t\tmax(MZ_JZXX.JSSJ) as jzsj_max,\r\n\t\t\tmin(MZ_JZXX.JZSJ) as jzsj_min\r\n    FROM MZ_JZXX\r\n   WHERE ( MZ_JZXX.JZSJ >="
+    },
+    {
+      "offset": 51542,
+      "text": "Select Count(Distinct brbm) As syrc\r\n From mz_dz01\r\n Where ysbm ="
+    },
+    {
+      "offset": 56148,
+      "text": "SELECT sum(MZ_SFMX.XMDJ * MZ_SFMX.XMSL) as je,  \r\n         MZ_SFMX.YSBM\r\n    FROM MZ_SFMX \r\n   WHERE ( MZ_SFMX.SFSJ >="
+    },
+    {
+      "offset": 61175,
+      "text": "SELECT count(\"MZ_CFCWXX\".\"CFLSH\") as wfsl,   \r\n         \"MZ_CFCWXX\".\"YSBM\" \r\n    FROM \"MZ_CFCWXX\"  \r\n   WHERE ( \"MZ_CFCWXX\".\"YSBM\" ="
+    },
+    {
+      "offset": 78726,
+      "text": "SELECT zsm,sum(FSRC),sum(CGRC),sum(FKRC),sum(HPS),sum(CPS),\r\n       (CASE WHEN sum(CGRC)=0 THEN\r\n\t\t       0 \r\n        ELSEDAT*"
+    },
+    {
+      "offset": 78858,
+      "text": "sum(HPS) END) AS HPS,\r\n       (CASE WHEN sum(CGRC) = 0 THEN\r\n             0\r\n        ELSE sum(CPS) END) AS CPS,\r\n       (CASE WHEN sum(CGRC) = 0 THEN\r\n             0\r\n        ELSE sum(FKRC)/sum(CGRC) END) AS FKL \r\nFROM \r\n(SELECT QTXT.DXHF_FSXX.ZSM as zsm,\r\n        1 as FSRC, \r\n        0 as CGRC,\r\n        0 as FKRC,\r\n        0 as HPS,\r\n        0 as CPS\r\n FROM QTXT.DXHF_FSXX\r\n WHERE (DXHF_FSXX.YWLB ="
+    },
+    {
+      "offset": 79697,
+      "text": "= 'ALL')AND\r\n        H_SMS_SEND.STATEID='2')\r\nUNION ALL\r\n(SELECT QTXT.DXHF_FSXX.ZSM as zsm,\r\n        0 AS FSRC,\r\n        0 as CGRC,\r\n        1 as FKRC,\r\n        1 AS HPS,\r\n  DAT*"
+    },
+    {
+      "offset": 80082,
+      "text": "= 'ALL') AND\r\n       DXHF_HFXX.HFJG='1')\r\nUNION ALL\r\n(SELECT QTXT.DXHF_FSXX.ZSM as zsm,\r\n        0 AS FSRC,\r\n        0 as CGRC,\r\n        1 as FKRC,\r\n        0 AS HPS,\r\n        0 AS CPS\r\n FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX\r\n WHERE (DXHF_FSXX.FSXH = DXHF_HFXX.FSXH)  AND\r\n       (DXHF_FSXX.FWSJ>="
+    },
+    {
+      "offset": 80464,
+      "text": "= 'ALL') \r\n       AND (DXHF_HFXX.HFJG<>'1' and DXHF_HFXX.HFJG<>'3'))\r\nUNION ALL\r\n(SELECT QTXT.DXHF_FSXX.ZSM as zsm,\r\n        0 AS FSRC,\r\n        0 as CGRC,\r\n        1 as FKRC,\r\n        0 AS HPS,\r\n        1 AS CPS\r\n FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX\r\n WHERE (DXHF_FSXX.FSXH = DXHF_HFXX.FSXH)  AND\r\n       (DXHF_FSXX.FWSJ>="
+    },
+    {
+      "offset": 95649,
+      "text": "SELECT zsm,sum(FSRC),sum(CGRC),sum(FKRC),sum(HPS),sum(CPS),\r\n       (CASE WHEN sum(CGRC)=0 THENDAT*"
+    },
+    {
+      "offset": 95754,
+      "text": "0 \r\n        ELSE sum(HPS)/sum(CGRC) END) AS HPL,\r\n       (CASE WHEN sum(CGRC) = 0 THEN\r\n             0\r\n        ELSE sum(CPS)/sum(CGRC) END) AS CPL,\r\n       (CASE WHEN sum(CGRC) = 0 THEN\r\n             0\r\n        ELSE sum(FKRC)/sum(CGRC) END) AS FKL \r\nFROM \r\n(SELECT QTXT.DXHF_FSXX.ZSM as zsm,\r\n        1 as FSRC, \r\n        0 as CGRC,\r\n        0 as FKRC,\r\n        0 as HPS,\r\n        0 as CPS\r\n FROM QTXT.DXHF_FSXX\r\n WHERE (DXHF_FSXX.YWLB ="
+    },
+    {
+      "offset": 96297,
+      "text": ")\r\nUNION ALL\r\n(SELECT QTXT.DXHF_FSXX.ZSM as zsm,\r\n        0 as FSRC,\r\n        1 as CGRC,\r\n        0 as FKRC,\r\n        0 as HPS,\r\n        0 as CPS\r\n FROM QTXT.DXHF_FSXX,QTXT.H_SMS_SEND\r\n WHERE  (H_SMS_SEND.smsid = QTXT.DXHF_FSXX.smsid)  AND\r\n        (DXHF_FSXX.FWSJ >="
+    },
+    {
+      "offset": 96640,
+      "text": "= 'ALL')AND\r\n        H_SMS_SEND.STATEID='2')\r\nUNION ALL\r\n(SELECT QTXT.DXHF_FSXX.ZSM as zsm,\r\n        0 AS FSRC,\r\n        0 as CDAT*"
+    },
+    {
+      "offset": 97025,
+      "text": "= 'ALL') AND\r\n       DXHF_HFXX.HFJG='1')\r\nUNION ALL\r\n(SELECT QTXT.DXHF_FSXX.ZSM as zsm,\r\n        0 AS FSRC,\r\n        0 as CGRC,\r\n        1 as FKRC,\r\n        0 AS HPS,\r\n        0 AS CPS\r\n FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX\r\n WHERE (DXHF_FSXX.FSXH = DXHFDAT*"
+    },
+    {
+      "offset": 97407,
+      "text": "= 'ALL') \r\n       AND (DXHF_HFXX.HFJG<>'1' and DXHF_HFXX.HFJG<>'3'))\r\nUNION ALL\r\n(SELECT QTXT.DXHF_FSXX.ZSM as zsm,\r\n        0 AS FSRC,\r\n        0 as CGRC,\r\n        1 as FKRC,\r\n        0 AS HPS,\r\n        1 AS CPS\r\n FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX\r\n WHERE (DXHF_FSXX.FSXH = DXHF_HFXX.FSXH)  AND\r\n       (DXHF_FSXX.FWSJ>="
+    },
+    {
+      "offset": 103340,
+      "text": "select count(a.ghlsh) ghrc,\r\n\t    b.czybm,\r\n\t\t b.zgbm\r\nfrom mz_ghxx a,zgk b\r\nwhere aDAT*"
+    },
+    {
+      "offset": 108218,
+      "text": "SELECT sum(MZ_SFMX.XMDJ * MZ_SFMX.XMSL) as zje,  \r\n         MZ_SFMX.YSBM\r\n    FROM MZ_SFMX \r\n   WHERE ( MZ_SFMX.SFSJ >="
+    },
+    {
+      "offset": 130505,
+      "text": "SELECT  \"MZ_GZLTJ\".\"ZZRQ\" ,\r\n           \"MZ_GZLTJ\".\"YYBDAT*"
+    },
+    {
+      "offset": 136941,
+      "text": "select count(a.ghlsh) jzrc,\r\n\t    b.czybm,\r\n\t\t b.zgbm\r\nfrom mz_jzxx a,zgk b\r\nwhere a.ysbm = b.zgbm\r\n and (a.jzsj >="
+    },
+    {
+      "offset": 141399,
+      "text": "select sum(xmzje) ypje,\r\n\t\tzgk.czybm\r\n from mz_fpk,mz_cfk,zgk\r\nwhere mz_fpk.fplsh = mz_cfk.fplsh and\r\n\t\t(mz_fpk.kpsj >="
+    },
+    {
+      "offset": 146007,
+      "text": "select sum(jzje + zfje) fyje,\r\n\t\tzgk.czybm\r\n from mz_yjk1,zgk\r\nwhere (mz_yjk1.kpsj >="
+    },
+    {
+      "offset": 155482,
+      "text": "SELECT MZ_GHXX.BRBM,   \r\n         MZ_GHXX.GHRQ,   \r\n         MZ_GHXX.YSBM,   \r\n         MZ_GHXX.JZSJ,   \r\n         MZ_GHXX.JZKS,   \r\n         MZ_GHXX.JZYS,   \r\n    DAT*"
+    },
+    {
+      "offset": 166791,
+      "text": "Select Sum(zdcs) sycs,ysbm,ksbm\r\nFrom\r\n(\r\nSelect Max(zdzcs) zdcs ,mz_dz01.cflsh,mz_dz01.ysbm ysbm, ksbm\r\n From mz_dz01,mzDAT*"
+    },
+    {
+      "offset": 171282,
+      "text": "Select Count(Distinct brbm) As syrc,ysbm\r\n From mz_dz01\r\n Where \r\n czsj >="
+    },
+    {
+      "offset": 175786,
+      "text": "Select Count(Distinct mz_dz01.cflsh) syrc, mz_cfk.ksbm\r\nFrom mz_cfk,mz_dz01\r\n Where mz_dz01.cflsh  = mz_cfk.cflsh \r\nAnd mz_dz01.ysbm = mz_cfk.ysbm \r\nand mz_dz01.ysbm ="
+    },
+    {
+      "offset": 181625,
+      "text": "Select Sum(round(mz_cfmx.jzje+mz_cfmx.zfje,2)) kjypfy,\r\nysbm,\r\nmz_cfk.ksbm\r\n From mz_cfk,mz_cfmx,yk_typk\r\nWhere mz_cfk.cflsh = mz_cfmx.DAT*"
+    },
+    {
+      "offset": 188430,
+      "text": "select ksbm,\r\n\tcssw_xl,\r\ncsxw_xl,\r\ncssw_dl,\r\ncsxw_dl\r\nfrom mzxt.mz_ks_kz"
+    },
+    {
+      "offset": 215877,
+      "text": "update"
+    },
+    {
+      "offset": 226068,
+      "text": "SELECT \"MZ_KS_KZ\".\"KSBM\", \r\nmz_ks.mc,  \r\n         \"MZ_KS_KZ\".\"CSSW_XL\",   \r\n         \"MZ_KS_KZ\".\"CSXW_XL\",   \r\n         \"MZ_KS_KZ\".\"CSSW_DL\",   \r\n         \"MZ_KS_KZ\".\"CSXW_DL\"  \r\n    FROM \"MZ_KS_KZ\" ,mz_ks\r\n\twhere\tmz_ks_kz.ksbm = mz_kDAT*"
+    },
+    {
+      "offset": 251029,
+      "text": "select count ( yjlsh ) from mz_yjk1 where ghlsh =0 and brbm =' ' and kpsj is null and kdrq >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS')"
+    },
+    {
+      "offset": 251308,
+      "text": "select count ( cflsh ) from mz_cfk where ghlsh =0 and brbm =' '"
+    },
+    {
+      "offset": 251510,
+      "text": "select count ( cflsh ) from mz_cfk where ghlsh =0 and brbm =' ' and kpsj is null and cfsj >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS')"
+    },
+    {
+      "offset": 267420,
+      "text": "SELECT \"MZ_PBXX\".\"YSBM\",   \r\n         \"MZ_PBXX\".\"RQ\",   \r\n         \"MZ_PBXX\".\"KSBM\",   \r\n         \"MZ_PBXX\".\"BC\",   \r\n         \"MZ_PBXX\".\"ZZLB\",   \r\n         \"MZ_PBXX\".\"ZXBZ\",   \r\n         \"MZ_PBXX\".\"XHRS\" ,\r\nmz_pbxx.czsj \r\n    FROM \"MZ_PBXX\"  \r\nwhere zxbz ='0' \r\nand rq ="
+    },
+    {
+      "offset": 273907,
+      "text": "SELECT counDAT*"
+    },
+    {
+      "offset": 282875,
+      "text": "Select b.thbz,\r\nb.ghlx,b.jsbz,a.ysbm,a.gzl,a.jzsj,a.jssj ,a.jzlb\r\n From mz_jzxx a,mz_ghxx b\r\n Where a.ghlsh = b.ghlsh And\r\n a.jzsj <"
+    },
+    {
+      "offset": 286128,
+      "text": "SELECT count ( *) From mz_gzltj Where zzrq =TO_DATE('18-04-2018','DD-MM-YYYY')"
+    },
+    {
+      "offset": 286340,
+      "text": "DELETE From mz_gzltj Where zzrq =TO_DATE('18-04-2018','DD-MM-YYYY')"
+    },
+    {
+      "offset": 286651,
+      "text": "SELECT Min ( jlsj ) FROM ss_xtrz a , mz_jqm b WHERE a.jqm =b.jqh AND DAT*"
+    },
+    {
+      "offset": 287070,
+      "text": "SELECT Min ( jlsj ) From ss_xtrz Where xtsb =10 And czgh =' ' And rzlx ='XTDR' And jlsj >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And jlsj < TO_DADAT*"
+    },
+    {
+      "offset": 287424,
+      "text": "SELECT MAX ( jlsj ) FROM ss_xtrz a , mz_jqm b WHERE a.jqm =b.jqh AND czgh =' ' And rzlx ='XTTC' And jlsj >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And jlsj < TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And b.ServerName Is Not Null And b.Id Is Not Null"
+    },
+    {
+      "offset": 287842,
+      "text": "SELECT Max ( jlsj ) From ss_xtrz Where xtsb =10 And czgh =' ' And rzlx ='XTTC' And jlsj >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And jlsj < TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS')"
+    },
+    {
+      "offset": 288186,
+      "text": "SELECT count ( mz_yyxx.lxdh ) From mz_yyxx Where ( mz_yyxx.yysj >= TO_DAT*"
+    },
+    {
+      "offset": 288628,
+      "text": "SELECT sum ( nvl ( yyrs , 0 ) + nvl ( wwyyrs , 0 ) ) From mz_pbxx Where ( mz_pbxx.RQ =TO_DATE('18-04-2018','DD-MM-YYYY') ) And mz_pbxx.zxbz DAT*"
+    },
+    {
+      "offset": 289376,
+      "text": "SELECT sum ( nvl ( yyrs , 0 ) + nvl ( wwyyrs , 0 ) ) From mz_pbxx Where ( mz_pbxx.RQ =TO_DATE('18-04-2018','DD-MM-YYYY') ) And mz_pbxx.zxbz ='0' And mz_pbxx.ysbm =' ' And bc ='02'"
+    },
+    {
+      "offset": 289684,
+      "text": "select csz from gy_xtcs where xtsb =92 and csmc ='HFSJ-GZL'"
+    },
+    {
+      "offset": 289874,
+      "text": "select csz from gy_xtcs where xtsb =92 and csmc ='HFSJ'"
+    },
+    {
+      "offset": 290050,
+      "text": "update gy_xtcs set csz =' ' where xtsb =92 and csmc ='HFSJ-GZL'"
+    },
+    {
+      "offset": 290178,
+      "text": "SELECT sum ( nvl ( yyrs , 0 ) + nvl ( wwyyrs , 0 ) ) From mz_pbxx Where ( mz_pbxx.RQ =TO_DATE('18-04-2018','DD-MM-YYYY') ) AndDAT*"
+    },
+    {
+      "offset": 290496,
+      "text": "select zzlb from mz_pbxx where ysbm =' ' and rq =TO_DATE('18-04-2018','DD-MM-YYYY') and zxbz ='0'"
+    },
+    {
+      "offset": 309106,
+      "text": "update"
+    },
+    {
+      "offset": 321170,
+      "text": "update"
+    },
+    {
+      "offset": 325241,
+      "text": "update"
+    },
+    {
+      "offset": 373789,
+      "text": "update"
+    },
+    {
+      "offset": 386591,
+      "text": "update"
+    },
+    {
+      "offset": 391208,
+      "text": "update"
+    },
+    {
+      "offset": 394365,
+      "text": "update"
+    },
+    {
+      "offset": 401854,
+      "text": "update"
+    },
+    {
+      "offset": 408218,
+      "text": "Select Count(Distinct( a.brbm)) As swl,to_char(a.jzsj,'yyyy.mm.dd') As jzsj From mz_ghxx a,mz_ghxx b Where a.brbm = b.brbm And a.thbz In ('0','3') And b.thbz In ('0','3')\r\nAnd a.jzsj>="
+    },
+    {
+      "offset": 427674,
+      "text": "Select Count(Distinct( a.brbm)) As swl,to_char(a.jzsj,'yyyy.mm.dd') As jzsj From mz_ghxx a,mz_ghxx b Where a.brbm = b.brbm And a.thbz In ('0','3') And b.thbz In ('0','3')\r\nAnd a.jzsj>="
+    },
+    {
+      "offset": 437110,
+      "text": "SELECT MZ_PBXX.BC, \r\n\t\t\tMZ_PBXX.RQ, \r\n\t\t\tMZ_PBXX.zzlb,  \r\n\t\t\tMZ_PBXX.KSBM, \r\n         MZ_PBXX.YSBM,\r\n\t\t\tMZ_PBXX.XBSJ, \r\n\t\t\tMZ_PBXX.SBSJ,DAT*"
+    },
+    {
+      "offset": 442766,
+      "text": "SELECT   \r\n         count(distinct mz_cfk.brbm) as cfsl,   \r\n         mz_cfk.ysbm,\r\n\t\t\tzgk.czybm as zsm\r\n    FRODAT*"
+    },
+    {
+      "offset": 454154,
+      "text": "SELECT MZ_GHXX.GHLSH ,\r\n\tMZ_JZXX.YSBM,\r\n\tMZ_JZXX.YYBZ,\r\n\tMZ_GHXX.THBZ,\r\n\tMZ_GHXX.GHLX,\r\n\tMZ_JZXX.JZSJ,\r\n\tMZ_JZXX.JSSJ,\r\n\tMZ_GHXX.JSBZ,\r\n\tmz_jzxx.gzl,\r\n\tmz_jzxx.jzks,\r\nmz_jzxx.jzlb\r\nFROM MZ_JZXX,MZ_GHXX\r\nWHERE MZ_GHXX.GHLSH = MZ_JZXX.GHLSH  AND\r\n\tMZ_JZXX.JZSJ >="
+    },
+    {
+      "offset": 458988,
+      "text": "Select ghlsh,brbm\r\n From mz_ghxx\r\n Where thbz ='3' And ghlx =90 \r\nAnd ghrq >="
+    },
+    {
+      "offset": 464885,
+      "text": "SELECT coDAT*"
+    },
+    {
+      "offset": 476560,
+      "text": "SELECT MZ_GHXX.GHLSH ,\r\n\tMZ_JZXX.YSBM,\r\n\tMZ_JZXX.YYBZ,\r\n\tMZ_GHXX.THBZ,\r\n\tMZ_GHXX.GHLX,\r\n\tMZ_JZXX.JZSJ,\r\n\tMZ_JZXXDAT*"
+    },
+    {
+      "offset": 477049,
+      "text": "and\r\n\tmz_jzxx.jzlb In (Select hzbm From MZ_GHJS,cw_yhzc,cw_yhzcmx \r\n\t\t\t\t\t\t\tWhere  mz_ghjs.fylsh = cw_yhzcmx.xmlsh and\r\n\t\t\t\t\t\t cw_yhzcmDAT*"
+    }
+  ]
+}

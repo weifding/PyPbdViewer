@@ -1,0 +1,1805 @@
+HDR*PowerBuilder
+n_netresult_rtx.udo
+n_netresult_rtx.sru
+n_rtxsdk.udo
+n_rtxsdk.sru
+n_getmemorystatus_api.udo
+n_getmemorystatus_api.sru
+n_netapi_rtx.udo
+n_netapi_rtx.sru
+str_rect_win.str
+str_rect_win.srs
+str_rect_win
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+str_rect_win
+accessiblestate
+essibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+n_getmemorystatus_api
+nonvisualobject
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+globalmemorystatus
+balmemorystatus
+kernel32.DLL
+GlobalMemoryStatus
+al_memoryload
+al_totalphys
+al_availphys
+al_totalpagefile
+al_availpagefile
+al_totalvirtual
+al_availvirtual
+uf_globalmemorystatus
+QRCmemorystatus.
+QRURURURURURURU
+nonvisualobject
+n_getmemorystatus_api
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfile
+forward
+global type n_netresult_rtx from internetresult
+end type
+end forward
+
+global type n_netresult_rtx from internetresult
+end type
+global n_netresult_rtx n_netresult_rtx
+
+type variables
+protected:
+string is_html
+blob ib_html
+end variables
+forward prototypes
+public function integer internetdata (blob data)
+public function string uf_gethtml ()
+public function blob uf_getblob ()
+end prototypes
+
+public function integer internetdata (blob data);is_html= String(data)
+ib_html=data
+RETURN 1
+end function
+
+public function string uf_gethtml ();return is_html
+end function
+
+public function blob uf_getblob ();return ib_html
+end function
+
+on n_netresult_rtx.create
+call super::create
+TriggerEvent( this, "constructor" )
+end on
+
+on n_netresult_rtx.destroy
+TriggerEvent( this, "destructor" )
+call super::destroy
+end on
+
+
+description
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+memorystatus
+forward
+global type n_rtxsdk from nonvisualobject
+end type
+end forward
+
+global type n_rtxsdk from nonvisualobject
+end type
+global n_rtxsdk n_rtxsdk
+
+type prototypes
+Function ulong FindWindow(ulong lpClassName,string lpWindowName) LIBRARY "user32.dll" ALIAS FOR "FindWindowA"
+Function Long FindWindowEx(Long hWnd1, ulong hWnd2, ulong lpClassName, ref String lpWindowName) Library "user32.dll" ALIAS FOR "FindWindowExA"
+Function ulong FindWindowEx(ulong hWnd1,ulong hWnd2,ref string lpszClassal_memoryload al_totalphys al_availphys al_totalpagefile
+al_availpagefile
+al_totalvial_availvirtual
+ls_memorystatus
+globalmemorystatus
+dwmemoryload
+dwtotalphys
+0Adwavailphys
+0Adwtotalpagefile
+0Adwavailpagefile
+0Adwtotalvirtual
+0Adwavailvirtual
+n_netapi_rtx
+nonvisualobject
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+formatmessage
+wsacleanup
+wsagetlasterror
+wsastartup
+gethostbyname
+gethostname
+rtlmovememory
+dwmessageid
+dwlanguageid
+formatmessage
+kernel32.dll
+FormatMessageA
+wsacleanup
+wsock32.dll
+WSACleanup
+wsagetlasterror
+WSAGetLastError
+wversionrequired
+wsastartup
+WSAStartup
+gethostbyname
+gethostname
+rtlmovememory
+RtlMoveMemory
+of_hexchar
+of_geterrormsg
+as_hostname
+ULRCwsadata.
+URChostent.LL
+nonvisualobject
+n_netapi_rtx
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+0@of_tohex
+of_hexchar
+format_message_from_system
+lang_neutral
+formatmessage
+as_hostname
+ls_hostname
+lst_wsadata
+ws_version_reqd
+ll_lphostip
+n_netresult_rtx
+internetresult
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+n_netresult_rtx
+internetdata
+uf_gethtml
+uf_getblob
+internetresult
+n_netresult_rtx
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+nonvisualobject
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+findwindow
+findwindowex
+sendmessage
+setwindowpos
+mouse_event
+getwindowrect
+str_rect_win
+getmessageextrainfo
+n_getmemorystatus_api
+n_netapi_rtx
+application
+n_netresult_rtx
+lpclassname
+lpwindowname
+findwindow
+user32.dll
+FindWindowA
+findwindowex
+FindWindowExA
+lpszclassname
+SendMessageA
+hwndinsertafter
+setwindowpos
+SetWindowPos
+dwextralnfo
+mouse_event
+USER32.DLL
+getwindowrect
+GetWindowRect
+getmessageextrainfo
+GetMessageExtraInfo
+uf_rtxlogout
+as_rtxserverip
+as_rtxuser
+uf_rtxlogin
+as_webport
+al_rtxport
+uf_closertx
+of_connecterrormsg
+uf_dectohex
+uf_encodertx
+of_getcomputer
+al_hwndedit
+of_post_text
+al_decimal
+of_bitwiseand
+Name,ulong lpWindowName) LIBRARY "user32.dll" ALIAS FOR "FindWindowExA"
+Function ulong SendMessage(ulong hwnd,ulong wMsg,ulong wParam,ulong lParam) LIBRARY "user32.dll" ALIAS FOR "SendMessageA"
+
+Function ulong SetWindowPos(ulong hwnd,ulong hWndInsertAfter,ulong wx,ulong wy,ulong cx,ulong cy,ulong wFlags) LIBRARY "user32.dll"
+
+Subroutine mouse_event(ulong dwFlags,ulong dx,ulong dy,ulong dwData,ulong dwExtralnfo) Library "USER32.DLL"
+Function ulong GetWindowRect(ulong hwnd,ref str_rect_win lpRconstructor triggerevent destructor triggerevent
+as_errtext
+as_serverip
+as_msgtitle
+uf_sendmsg
+as_delaytime
+uf_sendnotify
+uf_getdept
+UURCstr_rect_win.
+nonvisualobject
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobjectstr_rect_win
+n_getmemorystatus_api
+n_netapi_rtx
+application
+n_netresult_rtx
+ls_account
+ole_rtxapi
+ole_kernalroot
+ole_helper
+RTXClient.RTXAPI
+connecttonewobject
+of_connecterrormsg
+__invoke_method
+getappobject
+KernalRoot
+ect) LIBRARY "user32.dll"
+Function ulong GetMessageExtraInfo()  LIBRARY "user32.dll"
+end prototypes
+
+type variables
+/*
+n_rtxsdk ln_rtxsdk
+ln_rtxsdk=create n_rtxsdk
+ln_rtxsdk.uf_rtxlogin( '202.202.0.127', '666666')
+//ln_rtxsdk.uf_sendmsg( '202.202.0.127', '600177',' /*string as_msgtitle*/', '/*string as_msg */')
+
+ln_rtxsdk.uf_rtxlogout( )
+ln_rtxsdk.uf_closertx()
+destroy ln_rtxsdk
+
+*/
+end variables
+
+forward prototypes
+public subroutine uf_rtxlogout ()
+public subroutine uf_rtxlogin (string as_rtxserverip, string as_rtxuser)
+public subroutine uf_rtxlogin (string as_rtxserverip, string as_webport, long al_rtxport, string as_rtxuser)
+public subroutine uf_delay (long al_delay)
+public subroutine uf_closertx ()
+private subroutine of_connecterrormsg (integer ai_i, string as_title)
+public function character uf_dectohex (integer ai_dec)
+public function string uf_encodertx (string as_str)
+public function string of_getcomputer ()
+public function boolean of_post_text (unsignedlong al_hwndedit, string as_text)
+protected function boolean of_getbit (long al_decimal, unsignedinteger ai_bit)
+protected function long of_bitwiseand (long al_value1, long al_value2)
+public subroutine uf_sendim (string as_receiver, string as_msg)
+public subroutine uf_log (string as_errtext)
+public function string uf_sendmsg (string as_serverip, string as_webport, string as_receiver, string as_msgtitle, string as_msg)
+public function string uf_sendmsg (string as_serverip, string as_receiver, string as_msgtitle, string as_msg)
+public function string uf_sendnotify (string as_serverip, string as_webport, string as_receiver, string as_msgtitle, string as_msg, string as_delaytime)
+public function string uf_sendnotify (string as_serverip, string as_receiver, string as_msgtitle, string as_msg, string as_delaytime)
+public function string uf_getdept ()
+end prototypes
+
+public subroutine uf_rtxlogout ();//====================================================================
+// 函数: n_rtxsdk.uf_rtxlogout()
+//--------------------------------------------------------------------
+// 描述:注销当前用户
+//--------------------------------------------------------------------
+// 参数:
+//--------------------------------------------------------------------
+// 返回:  (none)
+//--------------------------------------------------------------------
+// 作者:	syc		日期: 2010年07月20日
+//====================================================================
+
+long ll_rtn
+string ls_dept,ls_Account
+oleobject ole_RTXAPI
+oleobject ole_KernalRoot
+oleobject ole_App
+oleobject ole_Helper
+
+ole_RTXAPI=create oleobject
+ll_rtn=ole_RTXAPI.ConnectToNewObject("RTXClient.RTXAPI")//("RTXCAPI.RTXCRoot")//("RTXClient.RTXAPI")
+if ll_rtn<>0 then
+	of_connecterrormsg(ll_rtn,"RTXClient.RTXAPI")
+	destroy ole_RTXAPI
+	return
+end if
+TRY
+	
+ 	ole_App=create oleobject
+	ole_App = ole_RTXAPI.GetObject("AppRoot")
+	
+	ole_Helper=create oleobject
+	ole_Helper = ole_App.GetAppObject("RTXHelper")
+	
+	ole_KernalRoot=create oleobject
+	ole_KernalRoot = ole_RTXAPI.GetObject("KernalRoot")
+	ls_Account=ole_KernalRoot.Account
+	
+	ls_dept = ole_Helper.GetBuddyDept(ls_Account)
+	
+	if pos(ls_dept,'信息技术科')=0 then	
+		ole_KernalRoot.Logout()
+	end if
+	
+CATCH (throwable rtxloge)
+FINALLY 
+END TRY
+
+if isvalid(ole_App) then destroy ole_App
+if isvalid(ole_Helper) then destroy ole_Helper
+if isvalid(ole_KernalRoot) then destroy ole_KernalRoot
+ole_RTXAPI.disconnectobject()
+destroy ole_RTXAPI
+	
+
+end subroutine
+
+public subroutine uf_rtxlogin (string as_rtxserverip, string as_rtxuser);this.uf_rtxlogin(as_rtxserverip,'8012', 8000, as_rtxuser)
+end subroutine
+
+public subroutine uf_rtxlogin (string as_rtxserverip, string as_webport, long al_rtxport, string as_rtxuser);//====================================================================
+// 函数: n_rtxsdk.uf_rtxlogin()
+//--------------------------------------------------------------------
+// 描述:单点登录，再其它系统登录成功后调用该篋AT*
+�数，可以自动登录rtx。该函数会自动安装rtx（不支持win98），自动运行rtx。
+//--------------------------------------------------------------------
+// 参数:
+// 	string	as_rtxserverip	 服务器地址
+// 	string	as_webport    	web服务端口(默认'8012')
+// 	long  	al_rtxport   登录端口(默认8000) 	
+// 	string	as_rtxuser    	账号
+
+//--------------------------------------------------------------------
+// 返回:  (none)
+//--------------------------------------------------------------------
+// 作者:	syc		菵AT*
+: 2010年07月20日
+//====================================================================
+if not isnumber(as_rtxuser) then return
+ulong ll_hwnd
+long ll_i,ll_recount
+long ll_rtn
+
+string ls_Session,ls_url
+string ls_curpath
+string ls_rtxpath,ls_rtxtitle
+string ls_Account
+string ls_ver
+string ls_errmsg
+string ls_svradder
+
+n_getmemorystatus_api ln_getmemorystatus_api
+ulong	ll_MemoryLoad  // 	已装入内存
+ulong	ll_TotalPhys   // 	总物理内存
+ulong	ll_AvailPhys   // 	可用物理内存
+ulong	ll_TotalPageFile//	分页大小
+ulong	ll_AvailPageFile//	可用分页大小
+ulong	ll_TotalVirtual //	虚拟内存大小
+ulong	ll_AvailVirtual //	可用虚拟内存大小
+	
+n_netapi_rtx ln_netapi_rtx
+string ls_serverip
+
+string ls_appname
+ls_appname=getapplication().appname
+
+INet linet
+n_netresult_rtx lir_data
+
+
+Environment le_Env
+if FileExists( "c:\Program Files\Venturcom\BXP\BNClient.exe") then 
+	return
+end if
+
+ln_getmemorystatus_api.uf_globalmemorystatus( ll_memoryload,ll_totalphys,ll_availphys,ll_totalpagefile,ll_availpagefile,ll_totalvirtual,ll_availvirtual)
+if ll_TotalPhys <=1024 then//内存小于400M不允许
+	return
+end if
+if RegistryGet( "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{5EEEA87D-160E-4A2D-8427-B6C333FEDA4D}\InprocServer32", "", RegString!, ls_rtxpath )=-1 then
+	//rtx未安装
+	
+	GetEnvironment(le_Env)
+	if le_Env.OSMajorRevision<5 then//98 NT
+	else
+		//run("\\fey02\wyhis\wyhis\RTX\rtxcsetup.exe /S")
+	end if
+	
+	return
+else
+	ls_rtxpath=left(ls_rtxpath,lastpos(ls_rtxpath,'\'))
+end if
+
+//'C:\Program Files\Tencent\RTXC\Accounts\rtx.cfg'
+//[Default]nAutoLogin=0 basicconfig_page_bCloseToMin=0 nSavePwd=0
+if ProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','nAutoLogin','1')='1' then
+	setProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','nAutoLogin','0')
+end if
+if ProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','basicconfig_page_bCloseToMin','1')='1' then
+	setProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','basicconfig_page_bCloseToMin','0')
+end if
+if ProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','nSavePwd','1')='1' then
+	setProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','nSavePwd','0')
+end if
+
+ls_svradder=uf_encodertx( as_rtxserverip)
+
+if ProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','strSvrAddr','')<>ls_svradder then
+	setProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','strSvrAddr',ls_svradder)
+end if
+if ProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','nSvrPort','')<>string(al_rtxport) then
+	setProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','nSvrPort',string(al_rtxport))
+end if
+
+ls_rtxtitle=ProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','Server_page_etrunk_name','RTX 2009')
+
+oleobject ole_RTXAPI
+oleobject ole_KernalRoot
+oleobject ole_Ver,ole_AppRoot
+
+ole_RTXAPI=create oleobject
+ll_rtn=ole_RTXAPI.ConnectToNewObject("RTXClient.RTXAPI")
+if ll_rtn<>0 then
+	of_connecterrormsg(ll_rtn,"RTXClient.RTXAPI")
+	destroy ole_RTXAPI
+	return
+end if
+TRY
+	
+	ll_hwnd=FindWindow(0,ls_rtxtitle)
+	if ll_hwnd<=0 then
+		
+				
+		if le_Env.OSMajorRevision<5 then//98 NT
+			ls_curpath=GetCurrentDirectory()
+			ChangeDirectory(ls_rtxpath)
+			run(ls_rtxpath  + "RTX.exe")
+			if ls_appname='rtxlogin' then
+				ll_recount=15
+				for ll_i=1 to ll_recount
+					uf_delay(1)
+					yield()
+					ll_hwnd=FindWindow(0,ls_rtxtitle)
+					if ll_hwnd>0 then exit
+					
+				next
+			end if
+			ChangeDirectory(ls_curpath)
+		else
+			run('start /D "' + ls_rtxpath + '" "' + ls_rtxpath  + '"RTX.exe')
+			if ls_appname='rtxlogin' then
+				ll_recount=15
+				for ll_i=1 to ll_recount
+					uf_delay(1)
+					yield()
+					ll_hwnd=FindWindow(0,ls_rtxtitle)
+					if ll_hwnd>0 then exit
+					
+				next
+			end if
+		end if
+		
+		ole_AppRoot=create oleobject
+		ole_AppRoot = ole_RTXAPI.GetObject("AppRoot")
+	
+		ole_Ver=create oleobject
+		ole_Ver = ole_AppRoot.GetAppObject("Version")//在AppRoot中获取Version对象
+		
+		ls_ver = ole_Ver.GetCompileVer
+		if isvalid(ole_Ver) then destroy ole_Ver
+		if isvalid(ole_AppRoot) then destroy ole_AppRoot
+		
+		if ls_ver<'8.0.546.202' then//自动升级
+		
+			if not FileExists( "c:\Program Files\Venturcom\BXP\BNClient.exe") then 
+				if ll_hwnd>0 then post(ll_hwnd, 16, 0, 0)
+				//run("\\fey02\wyhis\wyhis\RTX\rtxcsetup.exe /S")
+				return
+			end if
+			
+		end if
+		
+			
+			
+	end if
+	
+
+	
+	ole_KernalRoot=create oleobject
+	ole_KernalRoot = ole_RTXAPI.GetObject("KernalRoot")
+	
+	if isnull(ole_KernalRoot) then
+		ole_KernalRoot.disconnectobject()
+		destroy ole_KernalRoot
+		
+		ole_RTXAPI.disconnectobject()
+		destroy ole_RTXAPI
+		//this.uf_sendmsg( as_rtxserverip, as_webport, '信息技术科', "登录腾讯通出错" + getapplication().appname,"KernalRoot isnull")
+		this.uf_log("登录腾讯通出错" + getapplication().appname + " KernalRoot isnull")
+		return
+	
+	end if
+	
+	try
+		ls_Account=ole_KernalRoot.Account
+	CATCH (throwable Accounte)
+		
+		//this.uf_sendmsg( as_rtxserverip, as_webport, '信息技术緿AT*
+', "登录腾讯通出错出错" + getapplication().appname,'ole_KernalRoot.Account error:' + Accounte.text) 		this.uf_log( "登录腾讯通出错出错" + getapplication().appname + ' ole_KernalRoot.Account error:' + Accounte.text) 		 	FINALLY  	END TRY
+
+	if ls_Account=as_rtxuser then
+		if ole_KernalRoot.MyPresence<>0 then//0 离线 2 离开 1 在线
+			ole_KernalRoot.disconnectobject()
+			destroy ole_KernalRoot
+			
+			ole_RTXAPI.disconnectobject()
+			destroy ole_RTXAPI
+		
+			return
+		end if
+	elseif ls_Account<>'' then
+		ole_KernalRoot.Logout()
+	end if
+		
+	if ole_KernalRoot.MyPresence=0 then
+		ls_url="http://" +as_rtxserverip + ":"+as_webport+"/GetSession.cgi?receiver=" + as_rtxuser
+		linet=create inet
+		lir_data = CREATE n_netresult_rtx
+		linet.GetURL(ls_url, lir_data)
+		ls_Session=lir_data.uf_gethtml()
+		if pos(ls_Session,'用户不存在')=0 then
+		
+			if pos(ls_Session,'<html')>0 or pos(ls_Session,'Fatal error')>0 then
+				linet.GetURL(ls_url, lir_data)
+				ls_Session=lir_data.uf_gethtml()
+				if pos(ls_Session,'<html')>0 or pos(ls_Session,'Fatal error')>0 then
+					//this.uf_sendmsg( as_rtxserverip, as_webport, '信息技术科', "取Session出错" + getapplication().appname,"返回结果：" + ls_Session)
+					this.uf_log(  "取Session出错" + getapplication().appname + " 返回结果：" + ls_Session)
+				end if
+		
+			end if
+		else
+			if pos(ls_Session,'用户不存在')>0 then this.uf_sendmsg( as_rtxserverip, as_webport, '信息技术科', "取Session出错" + getapplication().appname,"返回结笵AT* " + as_rtxuser + " " + ls_Session)
+			this.uf_log("取Session出错" + getapplication().appname + " 返回结果：" + ls_Session)
+		end if
+		destroy lir_data
+		destroy linet 
+		
+		ls_serverip=as_rtxserverip
+		if len(ls_serverip)<=15 then
+			ll_i=pos(ls_serverip,'.')
+			do while ll_i>0
+				ls_serverip=replace(ls_serverip,ll_i,1,'')
+				ll_i=pos(ls_serverip,'.',ll_i)
+			loop
+		end if
+		if not isnumber(ls_serverip) then
+			
+			ls_serverip=ln_netapi_rtx.uf_getip(ls_serverip)
+			if ls_serverip<>'0.0.0.0' and ls_serverip<>'' then
+				as_rtxserverip=ls_serverip
+			end if
+		end if
+		if not (pos(ls_Session,'<html')>0 or pos(ls_Session,'Fatal error')>0) then
+			ole_KernalRoot.LoginSessionKey(as_rtxserverip,al_rtxport,as_rtxuser,ls_Session)
+		end if
+//		ls_Account=ole_KernalRoot.Account
+//		if ls_Account<>'' then
+//			if ole_KernalRoot.MyPresence=0 then
+//				this.uf_log( "账号：" + as_rtxuser + " 服务器：" + as_rtxserverip + " 端口：" + string(al_rtxport) + " 登陆失败！")
+//			end if
+//		end if 
+	end if
+	
+	
+CATCH (throwable rtxloge)
+	ll_hwnd=FindWindow(0,ls_rtxtitle)
+	if ll_hwnd=0 then
+		
+	else
+		
+		ls_errmsg=rtxloge.text + " FindRTXWindow=" + string(ll_hwnd) + " Session=" + ls_Session
+		//this.uf_sendmsg( as_rtxserverip, as_webport, '信息技术科', "登录腾讯通出错" + getapplication().appname,ls_errmsg)
+		this.uf_log( "登录腾讯通出错" + getapplication().appname + " " + ls_errmsg)
+	end if
+FINALLY 
+END TRY
+
+if isvalid(ole_KernalRoot) then destroy ole_KernalRoot
+ole_RTXAPI.disconnectobject()
+destroy ole_RTXAPI
+
+//if ls_errmsg<>'' then 
+//	//messagebox("登录腾讯通出错:",ls_errmsg)
+//	if not FileExists( "c:\Program Files\Venturcom\BXP\BNClient.exe") then 
+//		if pos(lower(ls_errmsg),'name not found calling external object function loginsessionkey')>0 then
+//			//run("\\fey02\wyhis\wyhis\RTX\rtxcsetup.exe /S")
+//		end if
+//	end if
+//end if
+end subroutine
+
+public subroutine uf_delay (long al_delay);long ll_delay, ll_cpu
+
+ll_delay = al_delay * 1000
+ll_cpu = cpu()
+do until cpu() - ll_cpu > ll_delay
+	yield()
+loop
+
+return
+end subroutine
+
+public subroutine uf_closertx ();//====================================================================
+// 函数: n_rtxsdk.uf_closertx()
+//--------------------------------------------------------------------
+// 描述:
+//--------------------------------------------------------------------
+// 参数:
+//--------------------------------------------------------------------
+// 返回:  (none)
+//--------------------------------------------------------------------
+// 作者:	syc		日期: 2010年07月20日
+//====================================================================
+
+ulong ll_hwnd
+
+string ls_rtxpath,ls_rtxtitle
+
+
+if RegistryGet( "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{5EEEA87D-160E-4A2D-8427-B6C333FEDA4D}\InprocServer32", "", RegString!, ls_rtxpath )=-1 then
+	//未安装
+	return
+else
+	ls_rtxpath=left(ls_rtxpath,lastpos(ls_rtxpath,'\'))
+end if
+
+ls_rtxtitle=ProfileString(ls_rtxpath + 'Accounts\rtx.cfg','Default','Server_page_etrunk_name','RTX 2009')
+
+
+ll_hwnd=FindWindow(0,ls_rtxtitle)
+if ll_hwnd>0 then
+	if pos(uf_getdept(),'信息技术科')=0 then
+		post(ll_hwnd, 16, 0, 0)
+	end if
+end if
+ 
+end subroutine
+
+private subroutine of_connecterrormsg (integer ai_i, string as_title);choose case ai_i
+	case -1  
+		messagebox(as_title,"Invalid Call: the argument is the Object property of a control")
+	case -2
+		messagebox(as_title,"Class name not found")
+	case -3
+		messagebox(as_title,"Object could not be created")
+	case -4
+		messagebox(as_title,"Could not connect to object")
+	case -9 
+		messagebox(as_title,"Other error")
+	case -15  
+		messagebox(as_title,"MTS is not loaded on this computer")
+	case -16
+		messagebox(as_title,"Invalid Call: this function not applicable")
+end choose
+
+end subroutine
+
+public function character uf_dectohex (integer ai_dec);choose case ai_dec
+	case 0 to 9
+		return string(ai_dec)
+	case 10 to 15
+		return char(__get_attribute getbuddydept 信息技术科 disconnectobject
+as_rtxserverip
+as_rtxuser
+uf_rtxlogin
+forward
+global type n_getmemorystatus_api from nonvisualobject
+end type
+type memorystatus from structure within n_getmemorystatus_api
+end type
+end forward
+
+type MEMORYSTATUS from structure
+	ulong		dwLength
+	ulong		dwMemoryLoad
+	ulong		dwTotalPhys
+	ulong		dwAvailPhys
+	ulong		dwTotalPageFile
+	ulong		dwAvailPageFile
+	ulong		dwTotalVirtual
+	ulong		dwAvailVirtual
+end type
+
+global type n_getmemorystatus_api from nonvisualobject autoinstantiate
+end type
+
+type prototypes
+protected:
+
+SUBROUTINE GlobalMemoryStatus ( ref MEMORYSTATUS lpBuffer ) LIBRARY "kernel32.DLL"
+
+end prototypes
+
+forward prototypes
+public subroutine uf_globalmemorystatus (ref unsignedlong al_memoryload, ref unsignedlong al_totalphys, ref unsignedlong al_availphys, ref unsignedlong al_totalpagefile, ref unsignedlong al_availpagefile, ref unsignedlong al_totalvirtual, ref unsignedlong al_availvirtual)
+end prototypes
+
+public subroutine uf_globalmemorystatus (ref unsignedlong al_memoryload, ref unsignedlong al_totalphys, ref unsignedlong al_availphys, ref unsignedlong al_totalpagefile, ref unsignedlong al_availpagefile, ref unsignedlong al_totalvirtual, ref unsignedlong al_availvirtual);//====================================================================
+// 函数: n_getmemorystatus_api.uf_globalmemorystatus()
+//--------------------------------------------------------------------
+// 描述:
+//--------------------------------------------------------------------
+// 参数:(单位MB)
+// 	reference	long	al_MemoryLoad   	已装入内存
+// 	reference	long	al_TotalPhys    	总物理内存
+// 	reference	long	al_AvailPhys    	可用物理内存
+// 	reference	long	al_TotalPageFile	分页大小
+// 	reference	long	al_AvailPageFile	可用分页大小
+// 	reference	long	al_TotalVirtual 	虚拟内存大小
+// 	reference	long	al_AvailVirtual 	可用虚拟内存大小
+//--------------------------------------------------------------------
+// 返回:  (none)
+//--------------------------------------------------------------------
+// 作者:	syc		日期: 2010年07月26日
+//====================================================================
+
+
+//Type MEMORYSTATUS
+//        dwLength As Long 系统字长
+//        dwMemoryLoad As Long 已装入内存
+//        dwTotalPhys As Long 总物理内存
+//        dwAvailPhys As Long 可用物理内存
+//        dwTotalPageFile As Long 分页大小
+//        dwAvailPageFile As Long 可用分页大小
+//        dwTotalVirtual As Long  虚拟内存大小
+//        dwAvailVirtual As Long  可用虚拟内存大小
+//End Type
+
+MEMORYSTATUS ls_MEMORYSTATUS
+GlobalMemoryStatus(ls_MEMORYSTATUS)
+
+al_MemoryLoad=ls_MEMORYSTATUS.dwMemoryLoad
+al_TotalPhys=ls_MEMORYSTATUS.dwTotalPhys /1048576
+al_AvailPhys=ls_MEMORYSTATUS.dwAvailPhys /1048576
+al_TotalPageFile=ls_MEMORYSTATUS.dwTotalPageFile /1048576
+al_AvailPageFile=ls_MEMORYSTATUS.dwAvailPageFile /1048576
+al_TotalVirtual=ls_MEMORYSTATUS.dwTotalVirtual /1048576
+al_AvailVirtual=ls_MEMORYSTATUS.dwAvailVirtual /1048576
+
+end subroutine
+
+on n_getmemorystatus_api.create
+call super::create
+TriggerEvent( this, "constructor" )
+end on
+
+on n_getmemorystatus_api.destroy
+TriggerEvent( this, "destructor" )
+call super::destroy
+end on
+
+
+internetdata
+uf_gethtml
+uf_getblob
+as_rtxserverip
+as_webport
+al_rtxport
+as_rtxuser
+ll_recount
+ls_session
+ls_curpath
+ls_rtxpath
+ls_rtxtitle
+ls_account
+ls_errls_svradder
+ln_getmemorystatus_api
+ll_memoryload
+ll_totalphys
+ll_availphys
+ll_totalpagefile
+ll_availpagefile
+ll_totalvirtual
+ll_availvirtual
+ln_netapi_rtx
+ls_serverip
+ls_appname
+ole_rtxapi
+ole_kernalroot
+ole_approot
+c:\Program Files\Venturcom\BXP\BNClient.exe
+uf_globalmemorystatus
+HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{5EEEA87D-160E-4A2D-8427-B6C333FEDA4D}\InprocServer32
+Accounts\rtx.cfg
+nAutoLogin
+basicconfig_page_bCloseToMin
+uf_encodertx
+strSvrAddr
+Server_page_etrunk_name
+RTXClient.RTXAPI
+connecttonewobject
+of_connecterrormsg
+findwindow
+start /D " __invoke_method getappobject getcompilever __get_attribute
+8.0.546.202
+KernalRoot
+disconnectobject
+登录腾讯通出错
+ KernalRoot isnull
+登录腾讯通出错出错
+ ole_KernalRoot.Account error:
+mypresence
+http:///GetSession.cgi?receiver=
+n_netresult_rtx
+uf_gethtml
+用户不存在
+Fatal error
+取Session出错
+ 返回结果：
+信息技术科
+返回结果：
+uf_sendmsg
+loginsessionkey
+ FindRTXWindow=
+ls_rtxpath
+ls_rtxtitle
+HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{5EEEA87D-160E-4A2D-8427-B6C333FEDA4D}\InprocServer32
+Accounts\rtx.cfg
+Server_page_etrunk_name
+findwindow
+uf_getdept
+信息技术科
+Invalid Call: the argument is the Object property of a control
+Class name not found
+Object could not be created
+Could not connect to object
+Other error
+MTS is not loaded on this computer
+Invalid Call: this function not applicable
+0@uf_dectohex
+ls_computer
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\control\Computername\Computername
+ComputerName
+al_hwndedit
+of_bitwiseand
+al_decimal
+global type str_rect_win from structure
+	ulong		b_left
+	ulong		b_top
+	ulong		b_right
+	ulong		b_bottom
+end type
+
+
+as_receiver
+ole_rtxapi
+ole_approot
+forward
+global type n_netapi_rtx from nonvisualobject
+end type
+type wsadata from structure within n_netapi_rtx
+end type
+type hostent from structure within n_netapi_rtx
+end type
+end forward
+
+type wsadata from structure
+	integer		wversion
+	integer		whighversion
+	character		szdescription[257]
+	character		szsystemstatus[129]
+	integer		wmaxsockets
+	integer		wmaxudpdg
+	long		dwvendorinfo
+end type
+
+type hostent from structure
+	long		hname
+	long		haliases
+	integer		haddrtype
+	integer		hlen
+	long		haddrlist
+end type
+
+global type n_netapi_rtx from nonvisualobject autoinstantiate
+end type
+
+type prototypes
+//Function ulong GetAdaptersInfo ( &
+//	Ref blob pAdapterInfo, &
+//	Ref ulong pOutBufLen &
+//	) Library "iphlpapi.dll" Alias For "GetAdaptersInfo"
+//
+Function ulong FormatMessage( & 	ulong dwFlags, & 	ulong lpSource, & 	ulong dwMessageId, & 	ulong dwLanguageId, &
+	Ref string lpBuffer, &
+	ulong nSize, &
+	ulong Arguments &
+	) Library "kernel32.dll" Alias For "FormatMessageA"
+
+
+//IP
+FUNCTION uLong WSACleanup() Library "wsock32.dll" 
+FUNCTION uLong WSAGetLastError() Library "wsock32.dll" 
+FUNCTION uLong WSAStartup(long wVersionRequired,ref WSAData lpWSADATA) Library "wsock32.dll" alias for "WSAStartup" 
+FUNCTION uLong gethostbyname(string sHost) Library "wsock32.dll" alias for "gethostbyname" 
+FUNCTION uLong gethostname( ref string szHost,long dwHostlen) Library "wsock32.dll" //alias for "gethostname;ansi" 
+FUNCTION uLong RtlMoveMemory(ref hostent hpvDest,long hpvSource,long cbCopy) Library "kernel32.dll" alias for "RtlMoveMemory" 
+FUNCTION uLong RtlMoveMemory(ref Long hpvDest,long hpvSource,long cbCopy) Library "kernel32.dll" 
+FUNCTION uLong RtlMoveMemory(ref blob hpvDest,long hpvSource,long cbCopy) Library "kernel32.dll" 
+
+end prototypes
+
+forward prototypes
+public function string of_tohex (long al_num)
+public function string of_hexchar (integer ai_num)
+public function string of_geterrormsg (unsignedlong aul_error)
+public function string uf_getip (string as_hostname)
+end prototypes
+
+public function string of_tohex (long al_num);// -----------------------------------------------------------------------------
+// SCRIPT:     n_adapter.of_ToHex
+//
+// PURPOSE:    This function translates a long to string Hex.
+//
+// ARGUMENTS:  al_num	- Number to convert
+//
+// DATE        PROG/ID		DESCRIPTION OF CHANGE / REASON
+// ----------  --------		-----------------------------------------------------
+// 01/21/2006	RolandS		Initial coding
+// -----------------------------------------------------------------------------
+
+If al_num > 15 Then
+	// recursive call to self
+	Return of_ToHex(al_num / 16) + &
+					of_HexChar(Mod(al_num,16))
+Else
+	Return of_HexChar(al_num)
+End If
+
+end function
+
+public function string of_hexchar (integer ai_num);// -----------------------------------------------------------------------------
+// SCRIPT:     n_adapter.of_HexChar
+//
+// PURPOSE:    This function converts a number from 0-15 to Hex character.
+//
+// ARGUMENTS:  ai_num	- Number to convert
+//
+// DATE        PROG/ID		DESCRIPTION OF CHANGE / REASON
+// ----------  --------		-----------------------------------------------------
+// 01/21/2006	RolandS		Initial coding
+// -----------------------------------------------------------------------------
+
+String ls_hex
+
+If ai_num < 10 Then
+	ls_hex = String(ai_num)
+Else
+	ls_hex = String(Char(ai_num + 55))
+End If
+
+Return ls_hex
+
+end function
+
+public function string of_geterrormsg (unsignedlong aul_error);// -----------------------------------------------------------------------------
+// SCRIPT:     n_adapter.of_GetErrorMsg
+//
+// PURPOSE:    This function returns the error message that goes
+//					with the error code from GetLastError.
+//
+// ARGUMENTS:  aul_error - Error code from GetLastError
+//
+// DATE        PROG/ID		DESCRIPTION OF CHANGE / REASON
+// ----------  --------		-----------------------------------------------------
+// 01/21/2006	RolandS		Initial coding
+// -----------------------------------------------------------------------------
+
+Constant ULong FORMAT_MESSAGE_FROM_SYSTEM = 4096
+Constant ULong LANG_NEUTRAL = 0
+String ls_buffer
+ULong lul_rtn
+
+ls_buffer = Space(200)
+
+lul_rtn = FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, 0, & 				aul_error, LANG_NEUTRAL, ls_buffer, 200, 0)
+
+Return Trim(ls_buffer)
+
+end function
+
+public function string uf_getip (string as_hostname);//====================================================================
+// 函数: n_adapter.uf_getip()
+//--------------------------------------------------------------------
+// 描述:获取as_hostname的IP地址 
+//--------------------------------------------------------------------
+// 参数:
+// 	value	string	as_hostname	
+//--------------------------------------------------------------------
+// 返回:  string
+//--------------------------------------------------------------------
+// 作者:	syc		日期: 2010年09月09日
+//====================================================================
+
+
+string ls_HostName 
+WSAData lst_wsadata
+long WS_VERSION_REQD= 257
+IF WSAStartup(WS_VERSION_REQD, lst_wsadata) <> 0 THEN
+	GOTO error_out 
+END IF
+ls_hostname=as_hostname
+STRING ls_ipaddr 
+long ll_lpHost,ll_lphostip
+HOSTENT lst_host 
+blob{4} lbt_ip
+
+ll_lpHost = gethostbyname(ls_hostname) 
+IF ll_lphost = 0 THEN 
+	GOTO Error_out 
+END IF 
+RtlMoveMemory(lst_host,ll_lphost,16) 
+RtlMoveMemory(ll_lphostip,lst_host.haddrlist,4) 
+RtlMoveMemory(lbt_ip,ll_lphostip,lst_host.hLen) 
+
+ls_ipaddr = string(asc(string(blobmid(lbt_ip,1,1)))) + "."
+ls_ipaddr += string(asc(string(blobmid(lbt_ip,2,1)))) + "."
+ls_ipaddr += string(asc(string(blobmid(lbt_ip,3,1)))) + "."
+ls_ipaddr += string(asc(string(blobmid(lbt_ip,4,1))))
+
+WSACleanup()
+RETURN ls_ipaddr 
+Error_out: 
+WSACleanup()
+return '0.0.0.0' 
+end function
+
+on n_netapi_rtx.create
+call super::create
+TriggerEvent( this, "constructor" )
+end on
+
+on n_netapi_rtx.destroy
+TriggerEvent( this, "destructor" )
+call super::destroy
+end on
+
+
+ls_edittitle
+em_replacesel
+ll_screenw
+ll_screenh
+hwnd_topmost
+swp_nosize
+swp_nomove
+RTXClient.RTXAPI
+connecttonewobject
+of_connecterrormsg
+__invoke_method
+RTXPlugin.IM
+getappobject
+RichEdit20W
+findwindowex
+setwindowpos
+getwindowrect
+getmessageextrainfo
+mouse_event
+腾讯通SendIM出错:
+disconnectobject
+as_errtext
+ls_errinfo
+li_filenum
+yyyy.mm.dd
+as_serverip
+as_webport
+as_receiver
+as_msgtitle
+ls_rtxuser
+ls_appname
+发送失败：as_msg为空
+发送失败：as_receiver为空
+发送失败：as_serverip为空
+/SendNotifyUserName.cgi
+&okurl=about:blank&errurl=about:blank
+Content-Type: 
+application/x-www-form-urlencoded
+
+Content-Length: 
+n_netresult_rtx
+uf_gethtml
+发送失败：
+/SendRTXerror.cgi?receiver=
+&title=RTX发送失败&okurl=about:blank&errurl=about:blank
+as_serverip
+as_receiver
+as_msgtitle
+uf_sendmsg
+as_serverip
+as_webport
+as_receiver
+as_msgtitle
+as_delaytime
+ls_rtxuser
+发送失败：as_msg为空
+发送失败：as_receiver为空
+发送失败：as_serverip为空
+/SendNotifyUserName2.cgi
+?receiver=
+&delaytime=
+n_netresult_rtx
+uf_gethtml
+发送失败：
+as_serverip
+as_receiveas_msgtitle
+as_delaytime
+uf_sendnotify
+ls_account
+ole_rtxapi
+ole_kernalroot
+ole_helper
+RTXClient.RTXAPI
+connecttonewobject
+of_connecterrormsg
+__invoke_method
+getappobject
+KernalRoot
+__get_attribute
+getbuddydept
+disconnectobject
+constructor
+triggerevent
+destructor
+triggerevent
+findwindow
+findwindowex
+sendmessage
+setwindowpos
+mouse_event
+getwindowrect
+getmessageextrainfo
+uf_rtxlogout
+uf_rtxlogin
+uf_closertx
+of_connecterrormsg
+uf_dectohex
+uf_encodertx
+of_getcomputer
+of_post_text
+of_bitwiseand
+uf_sendmsg
+uf_sendnotify
+uf_getdept
+constructor
+triggerevent
+destructor
+triggerevent
+globalmemorystatus
+uf_globalmemorystatus
+dwmemoryload
+dwtotalphys
+dwavailphys
+dwtotalpagefile
+dwavailpagefile
+dwtotalvirtual
+dwavailvirtual
+wsastartup
+gethostbyname
+rtlmovememory
+wsacleanup
+constructor
+triggerevent
+destructor
+triggerevent
+formatmessage
+wsacleanup
+wsagetlasterror
+wsastartup
+gethostbyname
+gethostname
+rtlmovememory
+of_hexchar
+of_geterrormsg
+whighversion
+szdescription
+szsystemstatus
+wmaxsockets
+dwvendorinfo
+as_receiver
+ole_rtxapi
+ole_approot
+ls_edittitle
+em_replacesel
+ll_screenw
+ll_screenh
+hwnd_topmost
+swp_nosize
+swp_nomove
+RTXClient.RTXAPI
+connecttonewobject
+of_connecterrormsg
+__invoke_method
+RTXPlugin.IM
+getappobject
+RichEdit20W
+findwindowex
+setwindowpos
+getwindowrect
+getmessageextrainfo
+mouse_event
+腾讯通SendIM出错:
+disconnectobject
+as_errtext
+ls_errinfo
+li_filenum
+yyyy.mm.dd
+as_serverip
+as_webport
+as_receiver
+as_msgtitle
+ls_rtxuser
+ls_appname
+发送失败：as_msg为空
+发送失败：as_receiver为空
+发送失败：as_serverip为空
+/SendNotifyUserName.cgi
+&okurl=about:blank&errurl=about:blank
+Content-Type: 
+application/x-www-form-urlencoded
+
+Content-Length: 
+n_netresult_rtx
+uf_gethtml
+发送失败：
+/SendRTXerror.cgi?receiver=
+&title=RTX发送失败&okurl=about:blank&errurl=about:blank
+as_serverip
+as_receiver
+as_msgtitle
+uf_sendmsg
+as_serverip
+as_webport
+as_receiver
+as_msgtitle
+as_delaytime
+ls_rtxuser
+发送失败：as_msg为空
+发送失败：as_receiver为空
+发送失败：as_serverip为空
+/SendNotifyUserName2.cgi
+?receiver=
+&delaytime=
+n_netresult_rtx
+uf_gethtml
+发送失败：
+as_serverip
+as_receiveas_msgtitle
+as_delaytime
+uf_sendnotify
+ls_account
+ole_rtxapi
+ole_kernalroot
+ole_helper
+RTXClient.RTXAPI
+connecttonewobject
+of_connecterrormsg
+__invoke_method
+getappobject
+KernalRoot
+__get_attribute
+getbuddydept
+disconnectobject
+constructor
+triggerevent
+destructor
+triggerevent
+findwindow
+findwindowex
+sendmessage
+setwindowpos
+mouse_event
+getwindowrect
+getmessageextrainfo
+uf_rtxlogout
+uf_rtxlogin
+uf_closertx
+of_connecterrormsg
+uf_dectohex
+uf_encodertx
+of_getcomputer
+of_post_text
+of_bitwiseand
+uf_sendmsg
+uf_sendnotify
+uf_getdept
+55 + ai_dec)
+end choose
+return ''
+end function
+
+public function string uf_encodertx (string as_str);int li_asc
+long ll_i,ll_len,ll_addasc=0
+char lc_char
+string ls_encode
+ll_len=len(as_str)
+
+for ll_i=1 to ll_len
+	lc_char=mid(as_str,ll_i,1)
+	li_asc=asc(lc_char)
+	ll_addasc=ll_addasc+li_asc
+	
+	ls_encode=ls_encode + uf_dectohex(int(li_asc/16)) + uf_dectohex(mod(li_asc,16)) + "00"
+	
+next
+li_asc=mod(ll_addasc,128)
+ls_encode=ls_encode + fill('0',1024 - len(ls_encode)) + uf_dectohex(int(li_asc/16)) + uf_dectohex(mod(li_asc,16))
+
+return ls_encode
+end function
+
+public function string of_getcomputer ();string ls_key
+string ls_computer
+ls_key = "HKEY_LOCAL_MACHINE\System\CurrentControlSet\control\Computername\Computername"
+RegistryGet(ls_key,"ComputerName",ls_computer)
+return ls_computer
+end function
+
+public function boolean of_post_text (unsignedlong al_hwndedit, string as_text);long ll_i
+boolean lb_post
+
+if isnull(as_text) or as_text ='' then
+	return false
+ end if
+
+ for ll_i = 1 to len(as_text)
+	 lb_post=Post(al_hwndedit, 258, of_bitwiseand(asc(mid(as_text,ll_i,1)), 255), 0)
+	  if lb_post=false then exit
+	 
+ next
+
+ return lb_post
+
+end function
+
+protected function boolean of_getbit (long al_decimal, unsignedinteger ai_bit);Boolean lb_null
+
+If IsNull(al_decimal) or IsNull(ai_bit) then
+    SetNull(lb_null)
+    Return lb_null
+End If
+
+If Int(Mod(al_decimal / (2 ^(ai_bit - 1)), 2)) > 0 Then
+    Return True
+End If
+
+Return False
+end function
+
+protected function long of_bitwiseand (long al_value1, long al_value2);Integer   li_Cnt
+Long    ll_Result
+Boolean   lb_Value1[32], lb_Value2[32]
+
+
+If IsNull(al_Value1) Or IsNull(al_Value2) Then
+	SetNull(ll_Result)
+	Return ll_Result
+End If
+
+For li_Cnt = 1 To 32
+	lb_Value1[li_Cnt] = of_getbit(al_Value1, li_Cnt)
+	lb_Value2[li_Cnt] = of_getbit(al_Value2, li_Cnt)
+Next
+
+For li_Cnt = 1 To 32
+	If lb_Value1[li_Cnt] And lb_Value2[li_Cnt] Then
+		ll_Result = ll_Result + (2^(li_Cnt - 1))
+	End If
+Next
+
+Return ll_Result
+
+end function
+
+public subroutine uf_sendim (string as_receiver, string as_msg);//====================================================================
+// 函数: n_rtxsdk.uf_sendim()
+//--------------------------------------------------------------------
+// 描述:弹出IM窗口,直接发送消息，需要登录腾讯通
+//--------------------------------------------------------------------
+// 参数:
+// 	string	as_receiver	接收人，以逗号隔开
+// 	string	as_msg     	
+//--------------------------------------------------------------------
+// 返回:  (none)
+//--------------------------------------------------------------------
+// 作者:	syc		日期: 2010年11月11日
+//====================================================================
+
+long ll_rtn
+oleobject ole_RTXAPI
+oleobject ole_AppRoot
+oleobject ole_IM
+
+ole_RTXAPI=create oleobject
+ll_rtn=ole_RTXAPI.ConnectToNewObject("RTXClient.RTXAPI")//("RTXCAPI.RTXCRoot")//("RTXClient.RTXAPI")
+if ll_rtn<>0 then
+	of_connecterrormsg(ll_rtn,"RTXClient.RTXAPI")
+	destroy ole_RTXAPI
+	return
+end if
+TRY
+	ole_AppRoot=create oleobject
+	ole_AppRoot = ole_RTXAPI.GetObject("AppRoot")
+
+	ole_IM=create oleobject
+	ole_IM = ole_AppRoot.GetAppObject("RTXPlugin.IM")
+	/*
+	弹出IM窗口。
+
+HRESULT SendIM([in] VARIANT Receiver, [in] VARIANT Parameter,[in] VARIANT Extra, [out, retval] VARIANT* Result); 
+
+
+Parameters 
+　 Receiver [in] 即时消息的接受者，如果是多人，中间采用“；”隔开，如要同时跟benchen和Mike发送短信，接受者应该为“benchen；Mike” 
+
+Return Values 
+　IM窗口 hwnd
+
+	*/
+	uLong ll_IMHwnd,ll_setpos
+	
+	//RichEdit20W
+	uLong ll_edit
+	String ls_edittitle
+//	long VK_Return=13
+//	long VK_CONTROL = 17
+//	long WM_KEYDOWN = 256
+//	long WM_KEYUP = 257
+	long EM_REPLACESEL = 194
+
+	long ll_ScreenW,ll_ScreenH
+	long HWND_TOPMOST = -1,HWND_TOP = 0,SWP_NOSIZE = 1,SWP_NOMOVE =2
+	str_rect_win lpRect
+	
+	
+	Environment	le_Env
+	GetEnvironment(le_Env)
+	ll_ScreenW = le_Env.ScreenWidth 
+	ll_ScreenH = le_Env.ScreenHeight
+
+	ll_IMHwnd=ole_IM.SendIM(as_Receiver,"","")
+//	messagebox("",string(ll_IMHwnd))
+	if ll_IMHwnd>0 then
+		//RTX 获取 输入信息框 句柄
+		
+		//#32770' ---  AfxWnd42 -- RichEdit20A
+		ls_edittitle = 'RichEdit20W'
+		
+		ll_edit=FindWindowEx(ll_IMHwnd, 0,ls_edittitle,0 ) //FindWindowExA(ll_IMHwnd, ll_null,ls_null,ls_text ) 
+		if ll_edit>0 then
+			if send(ll_edit,EM_REPLACESEL,1,as_msg)>0 then
+				ll_setpos=SetWindowPos(ll_IMHwnd,HWND_TOPMOST,0,0,1,1,SWP_NOSIZE + SWP_NOMOVE)
+				if ll_setpos>0 then
+					GetWindowRect(ll_IMHwnd,ref lpRect)
+					mouse_event(32775,(lprect.b_right -163) * 65535/ le_Env.ScreenWidth ,(lpRect.b_bottom -24) * 65535/ le_Env.ScreenHeight  ,0,GetMessageExtraInfo())
+				end if
+			//MOUSEEVENTF_ABSOLUTE +   MOUSEEVENTF_LEFTDOWN +  MOUSEEVENTF_LEFTUP=32775
+				SetWindowPos(ll_IMHwnd,HWND_TOP,0,0,1,1,SWP_NOSIZE + SWP_NOMOVE)
+				
+			end if
+		end if
+	end if
+	 
+CATCH (throwable SendIMe)
+	messagebox("腾讯通SendIM出错:"+ getapplication().appname,SendIMe.text)
+FINALLY 
+END TRY
+
+if isvalid(ole_AppRoot) then destroy ole_AppRoot
+if isvalid(ole_IM) then destroy ole_IM
+
+ole_RTXAPI.disconnectobject()
+destroy ole_RTXAPI
+
+end subroutine
+
+public subroutine uf_log (string as_errtext);//------------------------------------------------------------------------------
+// 功能: 写文件文本信息，向log.txt文件
+//------------------------------------------------------------------------------
+// 返回: Integer 
+//------------------------------------------------------------------------------
+// 备注: 
+//==============================================================================
+
+String   ls_ErrInfo
+
+ls_ErrInfo =  as_errtext
+//==============================================================================
+// 在文件中写错误日志
+//==============================================================================
+Integer li_FileNum 
+
+li_FileNum = FileOpen(getapplication().appname + "log.txt",LineMode!,Write!,LockWrite!,Append!)
+
+FileWrite(li_FileNum,String(Today(),"yyyy.mm.dd") + " " + String(Now(),"hh:mm:ss") + "  RTXSDK " + ls_ErrInfo )
+FileClose(li_FileNum)
+RETURN 
+
+end subroutine
+
+public function string uf_sendmsg (string as_serverip, string as_webport, string as_receiver, string as_msgtitle, string as_msg);//提醒助手,无需安装rtx和登录rtx
+//====================================================================
+// 函数: n_rtxsdk.uf_sendmsg()
+//--------------------------------------------------------------------
+// 描述:
+//--------------------------------------------------------------------
+// 参数:
+// 	string	as_serverip	//服务器ip(rtx.fey.com)
+// 	string	as_webport 	//Rtx http服务端口默认：8012
+// 	string	as_receiver	//接收人，以逗号隔开
+// 	string	as_msgtitle	
+// 	string	as_msg     	
+//--------------------------------------------------------------------
+// 返回:  (none)
+//--------------------------------------------------------------------
+// 作者:	syc		日期: 2010年07月20日
+//====================================================================
+
+string ls_rtxurl
+string ls_rtxuser
+string ls_appname
+string ls_args
+blob lblb_args
+long ll_length
+string ls_header
+
+
+INet linet
+n_netresult_rtx lir_data
+
+if isnull(as_msg) or as_msg='' then return '发送失败：as_msg为空'
+if isnull(as_receiver) or as_receiver='' then return '发送失败：as_receiver为空'
+if isnull(as_serverip) or as_serverip='' then return '发送失败：as_serverip为空'
+
+if ls_rtxurl='' then ls_rtxurl='http://'+ as_serverip +':'+as_webport+'/SendNotifyUserName.cgi'
+
+ls_appname=getapplication().appname
+ls_args = 'receiver=' + as_receiver + '&title='+ as_msgtitle + ' ' + ls_appname + '&appname=' + ls_appname +'&okurl=about:blank&errurl=about:blank' + '&msg=' + as_msg + '   ' + string(today(),'yyyymmdd')+string(now(),'hhmmss')
+
+lblb_args = Blob( ls_args )
+
+ll_length = Len( lblb_args )
+
+ls_header = "Content-Type: " + &
+"application/x-www-form-urlencoded~n" + &
+"Content-Length: " + String( ll_length ) + "~n~n"
+
+linet=create inet
+lir_data = CREATE n_netresult_rtx
+
+ll_length=linet.PostURL( ls_rtxurl, lblb_args, & 	ls_header, long(as_webport),lir_data )
+	
+/*
+ls_rtxurl=ls_rtxurl + '?receiver=' + as_receiver + '&title='+ as_msgtitle + ' ' + ls_appname + '&appname=' + ls_appname +'&okurl=about:blank&errurl=about:blank' + '&msg=' + as_msg + '   ' + string(today(),'yyyymmdd')+string(now(),'hhmmss')
+		
+linet=create inet
+lir_data = CREATE n_netresult_rtx
+linet.GetURL(ls_rtxurl, lir_data)*/
+if pos(lir_data.uf_gethtml(),'操作成功')>0 then
+	ls_rtxurl=''
+else
+	ls_rtxurl='发送失败：' + lir_data.uf_gethtml()
+	
+	ls_rtxurl='http://'+ as_serverip +':'+as_webport+'/SendRTXerror.cgi?receiver=' + as_receiver + '&title=RTX发送失败&okurl=about:blank&errurl=about:blank' + '&msg=' + ls_rtxurl + '   ' + string(today(),'yyyymmdd')+string(now(),'hhmmss')
+	
+end if
+destroy lir_data
+destroy linet 
+return ls_rtxurl
+end function
+
+public function string uf_sendmsg (string as_serverip, string as_receiver, string as_msgtitle, string as_msg);//提醒助手,无需安装rtx和登录rtx
+return this.uf_sendmsg(as_serverip, '8012', as_receiver,as_msgtitle, as_msg)
+end function
+
+public function string uf_sendnotify (string as_serverip, string as_webport, string as_receiver, string as_msgtitle, string as_msg, string as_delaytime);//
+//====================================================================
+// 函数: n_rtxsdk.uf_SendNotify()
+//--------------------------------------------------------------------
+// 描述:提醒助手,无需安装rtx和登录rtx发送连接格式[院内网|www.fey.com]
+//--------------------------------------------------------------------
+// 参数:
+// 	string	as_serverip	//服务器ip(rtx.fey.com)
+// 	string	as_webport 	//Rtx http服务端口默认：8012
+// 	string	as_receiver	//接收人，以逗号隔开
+// 	string	as_msgtitle	//标题
+// 	string	as_msg    
+// 	string	as_delaytime 消息提醒框的停留时间（毫秒），0表示不自动消失。
+//--------------------------------------------------------------------
+// 返回:  (none)
+//--------------------------------------------------------------------
+// 作者:	syc		日期: 2010年07月20日
+//====================================================================
+
+string ls_rtxurl
+string ls_rtxuser
+
+INet linet
+n_netresult_rtx lir_data
+
+if isnull(as_msg) or as_msg='' then return '发送失败：as_msg为空'
+if isnull(as_receiver) or as_receiver='' then return '发送失败：as_receiver为空'
+if isnull(as_serverip) or as_serverip='' then return '发送失败：as_serverip为空'
+
+if ls_rtxurl='' then ls_rtxurl='http://'+ as_serverip +':'+as_webport+'/SendNotifyUserName2.cgi'
+
+ls_rtxurl=ls_rtxurl + '?receiver=' + as_receiver + '&delaytime=' +as_delaytime+ '&title='+ as_msgtitle + '&msg=' + as_msg + '   ' + string(today(),'yyyymmdd')+string(now(),'hhmmss')
+		
+linet=create inet
+lir_data = CREATE n_netresult_rtx
+linet.GetURL(ls_rtxurl, lir_data)
+if pos(lir_data.uf_gethtml(),'操作成功')>0 then
+	ls_rtxurl=''
+else
+	ls_rtxurl='发送失败：' + lir_data.uf_gethtml()
+end if
+destroy lir_data
+destroy linet 
+return ls_rtxurl
+
+end function
+
+public function string uf_sendnotify (string as_serverip, string as_receiver, string as_msgtitle, string as_msg, string as_delaytime);//提醒助手,无需安装rtx和登录rtx
+return this.uf_sendnotify(as_serverip, '8012', as_receiver,as_msgtitle, as_msg,as_delaytime)
+end function
+
+public function string uf_getdept ();long ll_rtn
+string ls_dept,ls_Account
+oleobject ole_RTXAPI
+oleobject ole_KernalRoot
+oleobject ole_App
+oleobject ole_Helper
+
+ole_RTXAPI=create oleobject
+ll_rtn=ole_RTXAPI.ConnectToNewObject("RTXClient.RTXAPI")//("RTXCAPI.RTXCRoot")//("RTXClient.RTXAPI")
+if ll_rtn<>0 then
+	of_connecterrormsg(ll_rtn,"RTXClient.RTXAPI")
+	destroy ole_RTXAPI
+	return ""
+end if
+TRY
+	
+ 	ole_App=create oleobject
+	ole_App = ole_RTXAPI.GetObject("AppRoot")
+	
+	ole_Helper=create oleobject
+	ole_Helper = ole_App.GetAppObject("RTXHelper")
+	
+	ole_KernalRoot=create oleobject
+	ole_KernalRoot = ole_RTXAPI.GetObject("KernalRoot")
+	ls_Account=ole_KernalRoot.Account
+	
+	ls_dept = ole_Helper.GetBuddyDept(ls_Account)
+	 
+	
+CATCH (throwable rtxloge)
+FINALLY 
+END TRY
+
+if isvalid(ole_App) then destroy ole_App
+if isvalid(ole_Helper) then destroy ole_Helper
+if isvalid(ole_KernalRoot) then destroy ole_KernalRoot
+ole_RTXAPI.disconnectobject()
+destroy ole_RTXAPI
+
+return ls_dept
+
+end function
+
+on n_rtxsdk.create
+call super::create
+TriggerEvent( this, "constructor" )
+end on
+
+on n_rtxsdk.destroy
+TriggerEvent( this, "destructor" )
+call super::destroy
+end on
+

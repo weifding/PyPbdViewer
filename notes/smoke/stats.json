@@ -1,0 +1,47 @@
+[
+  {
+    "file": "D:\\ynsoft\\ljp\\源程序\\tjxt\\hiscom_public.pbl",
+    "kind": "pbl",
+    "size": 92160,
+    "objects": 3,
+    "functions": 10,
+    "events": 20,
+    "unparsed": 0,
+    "external": 5,
+    "truncated": 2,
+    "variables_blocks": 3,
+    "prototypes_blocks": 3,
+    "globals": 0,
+    "status": "ok"
+  },
+  {
+    "file": "D:\\ynsoft\\mzsf_cx20241128\\mz_ghcl.pbl",
+    "kind": "pbl",
+    "size": 31232,
+    "objects": 1,
+    "functions": 0,
+    "events": 2,
+    "unparsed": 0,
+    "external": 0,
+    "truncated": 0,
+    "variables_blocks": 0,
+    "prototypes_blocks": 0,
+    "globals": 0,
+    "status": "ok"
+  },
+  {
+    "file": "D:\\ynsoft\\mzsf_cx20241128\\rf.pbl",
+    "kind": "pbl",
+    "size": 40448,
+    "objects": 2,
+    "functions": 0,
+    "events": 8,
+    "unparsed": 0,
+    "external": 19,
+    "truncated": 0,
+    "variables_blocks": 1,
+    "prototypes_blocks": 0,
+    "globals": 0,
+    "status": "ok"
+  }
+]

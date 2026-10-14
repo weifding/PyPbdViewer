@@ -1,0 +1,3946 @@
+HDR*PowerBuilder
+0600RブZ
+ENT*0600
+d_gzltj.dwo
+ENT*0600
+d_gzl_jzxx.dwo
+ENT*0600
+d_pbxx.dwo
+ENT*0600
+d_gzl_jzxx2.dwo
+ENT*0600
+d_syxx.dwo
+ENT*0600
+d_ypfy.dwo
+ENT*0600
+d_wfxx.dwo
+ENT*0600
+str_brxx.str
+ENT*0600
+d_grtj.dwo
+ENT*0600
+d_grtj_myd.dwo
+ENT*0600
+d_qn_jzrc.dwo
+ENT*0600
+d_zfy.dwo
+ENT*0600
+d_gzltj_cs.dwo
+ENT*0600
+d_jzrc_sqlold.dwo
+ENT*0600
+d_ypfy_sql.dwo
+ENT*0600
+d_yjfy_sql.dwo
+ENT*0600
+d_ghxx_x.dwo
+ENT*0600
+rjgzl.apl
+ENT*0600
+d_sycs.dwo
+ENT*0600
+d_syxx_js.dwo
+ENT*0600
+d_syrc_jzks.dwo
+ENT*0600
+d_kjypfy.dwo
+ENT*0600
+d_mzks_kz.dwo
+ENT*0600
+d_send_import.dwo
+ENT*0600
+w_dx.win
+ENT*0600
+d_ks_kz.dwo
+ENT*0600
+w__test.win
+ENT*0600
+w__test.bin
+ENT*0600
+w_ghxx.win
+ENT*0600
+d_pbxx_all.dwo
+ENT*0600
+d_ghxx_jzlb.dwo
+ENT*0600
+d_jzrc_tiaoz.dwo
+ENT*0600
+w_gzltj.win
+ENT*0600
+d_tj1.dwo
+ENT*0600
+w_tj1.win
+ENT*0600
+d_tj2.dwo
+ENT*0600
+d_pbxx_bcsz.dwo
+ENT*0600
+d_cfk.dwo
+ENT*0600
+d_ghxx.dwo
+ENT*0600
+d_ghxx_3.dwo
+ENT*0600
+d_ghxx_gh.dwo
+ENT*0600
+d_ghxx_et.dwo
+PDW0900
+zzrq_t
+新宋体
+新宋体
+536870912
+33554432
+ypjc_t
+药品均费
+药品均费
+满意度
+满意度
+mfjz_t
+免费就诊
+免稤AT*
+wfsl_t
+误方数量
+误方数量
+sbsj_t
+上班时DAT*
+上班时间
+xbsj_t
+下班时间
+下班时间
+bclb_t
+jzks_t
+就诊科室
+就诊科室
+ysbm_t
+szsj_t
+首诊时间
+首诊时间
+mzsj_t
+末诊时间
+末诊时间
+ghrc_t
+挂号人次
+挂号人次
+jzrc_t
+上午就诊人数
+上午就诊人数
+工作量
+工作量
+jzlb_t
+就诊类别
+就诊类别
+rjsc_t
+人均时长
+人均时长
+syrc_t
+输液人次
+输液人次
+[shortdate]
+[shortdate]
+xwjzrc
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+[general]
+[general]
+swjzrc
+kjypfy
+ghrcgd
+cdfive
+cdthirty
+MZ_GZLTJ
+mz_gzltj.zzrq
+mz_gzltj.yybz
+mz_gzltj.bclb
+z_gzltj.jzks
+mz_gzltj.ysbm
+mz_gzltj.szsj
+mz_gzltj.mzsj
+mz_gzltj.ghrc
+swjzrc
+mz_gzltj.swjzrc
+xwjzrc
+mz_gzltj.xwjzrc
+mz_gzltj.gzl
+mz_gzltj.jzlb
+mz_gzltj.rjsc
+mz_gzltj.syrc
+mz_gzltj.ypjc
+mz_gzltj.myd
+mz_gzltj.mfjz
+mz_gzltj.wfsl
+mz_gzltj.sbsj
+mz_gzltj.xbsj
+mz_gzltj.csrc
+mz_gzltj.cdbz
+mz_gzltj.rjfy
+mz_gzltj.ztbz
+mz_gzltj.ywlsDAT*
+mz_gzltj.kyrs
+mz_gzltj.xhrs
+mz_gzltj.yyrs
+mz_gzltj.pbks
+mz_gzltj.sycs
+cdfive
+mz_gzltj.cdfive
+cdthirty
+mz_gzltj.cdthirty
+kjypfy
+mz_gzltj.kjypfy
+ghrcgd
+mz_gzltj.ghrcgd
+mz_gzltj.zlxz
+mz_gzltj.etgzl
+  SELECT "MZ_GZLTJ"."ZZRQ",   
+         "MZ_GZLTJ"."YYBZ",   
+         "MZ_GZLTJ"."BCLB",   
+         "MZ_GZLTJ"."JZKS",   
+         "MZ_GZLTJ"."YSBM",   
+         "MZ_GZLTJ"."SZSJ",   
+         "MZ_GZLTJ"."MZSJ",   
+         "MZ_GZLTJ"."GHRC",   
+         "MZ_GZLTJ"."SWJZRC",   
+         "MZ_GZLTJ"."XWJZRC",   
+         "MZ_GZLTJ"."GZL",   
+         "MZ_GZLTJ"."JZLB",   
+         "MZ_GZLTJ"."RJSC",   
+         "MZ_GZLTJ"."SYRC",   
+        DAT*
+ "MZ_GZLTJ"."YPJC",   
+         "MZ_GZLTJ"."MYD",   
+         "MZ_GZLTJ"."MFJZ",   
+         "MZ_GZLTJ"."WFSL",   
+         "MZ_GZLTJ"."SBSJ",   
+         "MZ_GZLTJ"."XBSJ",   
+         "MZ_GZLTJ"."CSRC",   
+         "MZ_GZLTJ"."CDBZ",   
+         "MZ_GZLTJ"."RJFY",   
+         "MZ_GZLTJ"."ZTBZ",   
+         "MZ_GZLTJ"."YWLSH",   
+         "MZ_GZLTJ"."KYRS",   
+         "MZ_GZLTJ"."XHRS",   
+         "MZ_GZLTJ"."YYRS",   
+         "MZ_GZLTJ"."PBKS",   
+         "MZ_GZLTJ"."SYCS",   DAT*
+
+			"MZ_GZLTJ"."CDFIVE",
+			"MZ_GZLTJ"."CDTHIRTY",
+         "MZ_GZLTJ"."KJYPFY"  ,
+mz_gzltj.ghrcgd,
+mz_gzltj.zlxz,
+mz_gzltj.etgzl
+    FROM "MZ_GZLTJ"   
+
+PDW0900
+ysbm_t
+536870912
+33554432
+[general]
+[general]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+mz_jzxx.jzks
+mz_jzxx.jzlb
+  SELECT distinct(MZ_JZXX.YSBM),
+			mz_jzxx.jzks,
+			mz_jzxx.jzlb,
+nvl(mz_jzxx.zlxz,0) as zlxz
+    FROM MZ_JZXX
+   WHERE ( MZ_JZXX.JZSJ >= 
+ AND  
+			 MZ_JZXX.JZSJ <= 
+)
+ORDER BY MZ_JZXX.YSBM
+
+            
+
+PDW0900
+536870912
+33554432
+ysbm_t
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+ [time]
+ [time]
+kssj_xl
+zzsj_DAT*
+[time]
+[time]
+compute_kssj
+1073741824
+[SHORTDATE] [TIME]
+[SHORTDATE] [TIME]
+min(  kssj  for all )
+compute_zzsj
+max(  zzsj  for all DAT*
+:adt_rq
+:as_ysbm
+adt_rq
+as_ysbm
+mz_pbxx.bc
+mz_pbxx.rq
+mz_pbxx.zzlb
+mz_pbxx.ksbm
+mz_pbxxDAT*
+mz_pbxx.xbsj
+mz_pbxx.sbsj
+fz_bcsz.kssj
+fz_bcsz.zzsj
+kssj_xl
+fz_bcsz.kssj_xl
+zzsj_xl
+fz_bcsz.zzsj_xl
+  SELECT MZ_PBXX.BC, 
+			MZ_PBXX.RQ, 
+			MZ_PBXX.zzlb,  
+			MZ_PBXX.KSBM, 
+         MZ_PBXX.YSBM,
+			MZ_PBXX.XBSJ, 
+			MZ_PBXX.SBSJ, 
+			DAT*
+fz_bcsz.kssj,
+			fz_bcsz.zzsj,  
+			fz_bcsz.kssj_xl,
+			fz_bcsz.zzsj_xl 
+    FROM MZ_PBXX  ,FZ_BCSZ
+   WHERE ( MZ_PBXX.RQ = 
+ ) AND  
+         ( MZ_PBXX.YSBM = 
+ ) AND  
+         ( MZ_PBXX.ZXBZ <> '1' )  And
+ 			mz_pbxx.bc = fz_bcsz.bclb  
+
+PDW0900
+yybz_t
+536870912
+33554432
+jzks_t
+jzlb_t
+ysbm_t
+[general]
+[general]
+[general]
+[general]
+jzsj_max
+[shortdate] [time]
+[shortdate] [time]
+jzsj_min
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+mz_jzxx.yybz
+mz_jzxx.jzks
+mz_jzxx.jzlb
+mz_jzxx.ysbm
+jzsj_max
+jzsj_max
+jzsj_min
+jzsj_min
+  SELECT count(mz_jzxx.ghlsh) as jzrs,
+			sum(mz_jzxx.gzl) as gzl,
+			MZ_JZXX.YYBZ,   
+         MZ_JZXX.JZKS,   
+         MZ_JZXX.JZLB,     
+         MZ_JZXX.YSBM,
+			max(MZ_JZXX.JSSJ) as jzsj_max,
+			min(MZ_JZXX.JZSJ) as jzsj_min
+    FROM MZ_JZXX
+   WHERE ( MZ_JZXX.JZSJ >= 
+ AND  
+          MZ_JZXX.JZSJ <= 
+) 
+group by mz_jzxx.ysbm,
+			mz_jzxx.yybz,
+			mz_jzxx.jzks,
+			mDAT*
+z_jzxx.jzlb
+ORDER BY MZ_JZXX.YSBM
+
+            
+
+PDW0900
+syrc_t
+536870912
+33554432
+[general]
+[general]
+:as_ysbm
+:adt_begin
+:Adt_end
+adt_begin
+adt_end
+as_ysbm
+Select Count(Distinct brbm) As syrc
+ From mz_dz01
+ Where ysbm =
+ and
+ czsj >= 
+ and
+czsj <= 
+ and
+kplb = 4 and
+clbz >=1 
+PDW0900
+ypfy_t
+536870912
+33554432
+1073741824
+[general]
+[general]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+mz_sfmx.ysbm
+ SELECT sum(MZ_SFMX.XMDJ * MZ_SFMX.XMSL) as je,  
+         MZ_SFMX.YSBM
+    FROM MZ_SFMX 
+   WHERE ( MZ_SFMX.SFSJ >= 
+  AND  
+         MZ_SFMX.SFSJ <= 
+ ) AND YWLX = 'CDAT*
+F' 
+group by MZ_SFMX.YSBM
+PDW0900
+ysbm_t
+536870912
+33554432
+wfsl_t
+1073741824
+22DAT*
+[general]
+[general]
+[general]
+[general]
+:as_ysbm
+:adt_begin
+:adt_end
+as_ysbm
+adt_begin
+adt_end
+mz_cfcwxx.ysbm
+  SELECT count("MZ_CFCWXX"."CFLSH") as wfsl,   
+         "MZ_CFCWXX"."YSBM" 
+    FROM "MZ_CFCWXX"  
+   WHERE ( "MZ_CFCWXX"."YSBM" = 
+ ) AND  
+         ( "MZ_CFCWXX"."FYRQ" >= 
+ ) AND  
+         ( "MZ_CFCWXX"."FYRQ" <= 
+ )  
+group by   "MZ_CFCWXX"."YSBM" 
+ordDAT*
+er by   "MZ_CFCWXX"."YSBM" 
+       
+str_brxx
+structure
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+       
+       
+       
+       
+structure
+str_brxx
+accessiblestate
+accessibiliDAT*
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+       
+       
+       
+tsbdjzt
+tsbbz_by
+tsbxmmc
+fmsfzh
+fmlxdz
+ai_mode
+dnzhye
+PDW0900
+t_title
+16777215
+温州医学院附属二院手机短信评价个人统计----
+温州医学院附属二院手机短信评价个人统计----
+fsrc_t
+536870912
+33554432
+发送人次
+发送人次
+fkrc_t
+反馈人次
+反馈人次
+cgrc_t
+成功人次
+成功人次
+好评人次
+好评人次
+中评人数
+中评人数
+差评人数
+差评人数
+反馈率
+反馈率
+jhpl_t
+净好评率
+净好评率
+[General]
+[General]
+getrow() +' '
+[general]
+[general]
+[general]
+[general]
+dd_ygdm
+fkrc - hps - cps
+/*  hpl  -  cpl  */
+制表时间:
+制表时间:
+date_1
+yyyy-mm-dd hh:mm:ss
+yyyy-mm-dd hh:mm:ss
+today()
+compute_1
+[GENERAL]
+[GENERAL]
+sum(  fsrc  for all )
+compute_2
+sum(  cgrc  for all )
+compute_3
+sum(  fkrc  for all )
+compute_4
+/* avg(  hpl  for all ) */
+compute_5
+avg(  zpl  for all )
+compute_6
+/* avg(  cpl  for all ) */
+compute_8
+avg(  jhpl for all )
+compute_7
+avg(  DAT*
+fkl  for all )
+:as_ywlb
+:as_ywlb
+:adt_start
+:adt_end
+:adt_start
+:adt_end
+:as_ywlb
+:as_ywlb
+:adt_start
+:adt_end
+:as_ywlb
+:as_ywlb
+:adt_start
+:adt_end
+:as_ywlb
+:as_ywlb
+:adt_start
+:adt_end
+:as_ywlb
+:as_ywlb
+:an_fkrs
+as_ywlb
+an_fkrs
+adt_DAT*
+adt_end
+compute_0002
+compute_0003
+compute_0004
+compute_0005
+compute_0006
+SELECT zsm,sum(FSRC),sum(CGRC),sum(FKRC),sum(HPS),sum(CPS),
+       (CASE WHEN sum(CGRC)=0 THEN
+		       0 
+        ELSEDAT*
+ sum(HPS) END) AS HPS,
+       (CASE WHEN sum(CGRC) = 0 THEN
+             0
+        ELSE sum(CPS) END) AS CPS,
+       (CASE WHEN sum(CGRC) = 0 THEN
+             0
+        ELSE sum(FKRC)/sum(CGRC) END) AS FKL 
+FROM 
+(SELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        1 as FSRC, 
+        0 as CGRC,
+        0 as FKRC,
+        0 as HPS,
+        0 as CPS
+ FROM QTXT.DXHF_FSXX
+ WHERE (DXHF_FSXX.YWLB = 
+ = 'ALL') AND
+       (DXHF_FSXX.FWSJ >= 
+)  AND
+       (DXHF_FSXX.FWSJ <= 
+)
+UNION ALL
+(SDAT*
+ELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        0 as FSRC,
+        1 as CGRC,
+        0 as FKRC,
+        0 as HPS,
+        0 as CPS
+ FROM QTXT.DXHF_FSXX,QTXT.H_SMS_SEND
+ WHERE  (H_SMS_SEND.smsid = QTXT.DXHF_FSXX.smsid)  AND
+        (DXHF_FSXX.FWSJ >=
+)  AND
+        (DXHF_FSXX.FWSJ <= 
+) And
+        (DXHF_FSXX.YWLB = 
+ = 'ALL')AND
+        H_SMS_SEND.STATEID='2')
+UNION ALL
+(SELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        0 AS FSRC,
+        0 as CGRC,
+        1 as FKRC,
+        1 AS HPS,
+  DAT*
+      0 AS CPS
+ FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX
+ WHERE (DXHF_FSXX.FSXH = DXHF_HFXX.FSXH)  AND
+       (DXHF_FSXX.FWSJ>=
+)  AND
+       (DXHF_FSXX.FWSJ <= 
+) AND
+       (DXHF_FSXX.YWLB = 
+ = 'ALL') AND
+       DXHF_HFXX.HFJG='1')
+UNION ALL
+(SELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        0 AS FSRC,
+        0 as CGRC,
+        1 as FKRC,
+        0 AS HPS,
+        0 AS CPS
+ FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX
+ WHERE (DXHF_FSXX.FSXH = DXHF_HFXX.FSXH)  AND
+       (DXHF_FSXX.FWSJ>=
+)  ADAT*
+ND
+        (DXHF_FSXX.FWSJ <= 
+) AND
+       (DXHF_FSXX.YWLB = 
+ = 'ALL') 
+       AND (DXHF_HFXX.HFJG<>'1' and DXHF_HFXX.HFJG<>'3'))
+UNION ALL
+(SELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        0 AS FSRC,
+        0 as CGRC,
+        1 as FKRC,
+        0 AS HPS,
+        1 AS CPS
+ FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX
+ WHERE (DXHF_FSXX.FSXH = DXHF_HFXX.FSXH)  AND
+       (DXHF_FSXX.FWSJ>=
+) AND
+        (DXHF_FSXX.FWSJ <= 
+) AND
+       (DXHF_FSXX.YWLB = 
+ = 'ALL') AND
+		 DXHF_HFXX.HFJG=DAT*
+'3')
+ ) 
+Group By zsm
+HAVING sum(CGRC) >= 
+PDW0900
+t_title
+16777215
+温州医学院附属二院手机短信评价个人统计----
+温州医学院附属二院手机短信评价个人统计----
+fsrc_t
+536870912
+33554432
+发送人次
+发送人次
+fkrc_t
+反馈人次
+反馈人次
+cgrc_t
+成功人次
+成功人次
+好评率
+好评率
+中评率
+中评率
+差评率
+差评率
+反馈率
+反馈率
+jhpl_t
+净好评率
+净好评率
+[General]
+[General]
+getrow() DAT*
+[general]
+[general]
+[general]
+[general]
+dd_ygdm
+1 -  hpl  -  cpl 
+ hpl  -  cpl 
+1073741824
+制表时间:
+制表时间:
+date_1
+yyyy-mm-dd hh:mm:ss
+yyyy-mm-dd hh:mm:ss
+today()
+compute_1
+[GENERAL]
+[GENERAL]
+sum(  fsrc  for all )
+compute_2
+sum(  cgrc  for all )
+compute_3
+sum(  fkrc  for all )
+compute_4
+avg(  hpl  for all )
+compute_5
+avg(  zpl  for all )
+compute_6
+avg(  cpl  for all )
+compute_8
+avg(  jhpl for all )
+compute_7
+avg(  fkl  for all )
+:as_ywlb
+:as_ywlb
+:adt_start
+:adt_end
+:adt_start
+:adt_end
+:as_ywlb
+:as_ywlb
+:adt_start
+:adt_end
+:as_ywlb
+:as_ywlb
+:adt_start
+:adt_end
+:as_ywlb
+:as_ywlb
+:adt_start
+:adt_end
+:as_ywlb
+:as_ywlb
+:an_fkrs
+as_ywlb
+an_fkrs
+adt_start
+adt_end
+compute_0002
+compute_0003
+compute_0004
+compute_0005
+compute_0006
+SELECT zsm,sum(FSRC),sum(CGRC),sum(FKRC),sum(HPS),sum(CPS),
+       (CASE WHEN sum(CGRC)=0 THENDAT*
+
+		       0 
+        ELSE sum(HPS)/sum(CGRC) END) AS HPL,
+       (CASE WHEN sum(CGRC) = 0 THEN
+             0
+        ELSE sum(CPS)/sum(CGRC) END) AS CPL,
+       (CASE WHEN sum(CGRC) = 0 THEN
+             0
+        ELSE sum(FKRC)/sum(CGRC) END) AS FKL 
+FROM 
+(SELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        1 as FSRC, 
+        0 as CGRC,
+        0 as FKRC,
+        0 as HPS,
+        0 as CPS
+ FROM QTXT.DXHF_FSXX
+ WHERE (DXHF_FSXX.YWLB = 
+ = 'ALL') AND
+       (DXHF_FSXX.FWSJ >= 
+)  ADAT*
+ND
+       (DXHF_FSXX.FWSJ <= 
+)
+UNION ALL
+(SELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        0 as FSRC,
+        1 as CGRC,
+        0 as FKRC,
+        0 as HPS,
+        0 as CPS
+ FROM QTXT.DXHF_FSXX,QTXT.H_SMS_SEND
+ WHERE  (H_SMS_SEND.smsid = QTXT.DXHF_FSXX.smsid)  AND
+        (DXHF_FSXX.FWSJ >=
+)  AND
+        (DXHF_FSXX.FWSJ <= 
+) And
+        (DXHF_FSXX.YWLB = 
+ = 'ALL')AND
+        H_SMS_SEND.STATEID='2')
+UNION ALL
+(SELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        0 AS FSRC,
+        0 as CDAT*
+GRC,
+        1 as FKRC,
+        1 AS HPS,
+        0 AS CPS
+ FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX
+ WHERE (DXHF_FSXX.FSXH = DXHF_HFXX.FSXH)  AND
+       (DXHF_FSXX.FWSJ>=
+)  AND
+       (DXHF_FSXX.FWSJ <= 
+) AND
+       (DXHF_FSXX.YWLB = 
+ = 'ALL') AND
+       DXHF_HFXX.HFJG='1')
+UNION ALL
+(SELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        0 AS FSRC,
+        0 as CGRC,
+        1 as FKRC,
+        0 AS HPS,
+        0 AS CPS
+ FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX
+ WHERE (DXHF_FSXX.FSXH = DXHFDAT*
+_HFXX.FSXH)  AND
+       (DXHF_FSXX.FWSJ>=
+)  AND
+        (DXHF_FSXX.FWSJ <= 
+) AND
+       (DXHF_FSXX.YWLB = 
+ = 'ALL') 
+       AND (DXHF_HFXX.HFJG<>'1' and DXHF_HFXX.HFJG<>'3'))
+UNION ALL
+(SELECT QTXT.DXHF_FSXX.ZSM as zsm,
+        0 AS FSRC,
+        0 as CGRC,
+        1 as FKRC,
+        0 AS HPS,
+        1 AS CPS
+ FROM QTXT.DXHF_FSXX,  QTXT.DXHF_HFXX
+ WHERE (DXHF_FSXX.FSXH = DXHF_HFXX.FSXH)  AND
+       (DXHF_FSXX.FWSJ>=
+) AND
+        (DXHF_FSXX.FWSJ <= 
+) AND
+       (DXHF_FSXXDAT*
+.YWLB = 
+ = 'ALL') AND
+		 DXHF_HFXX.HFJG='3')
+ ) 
+Group By zsm
+HAVING sum(CGRC) >= 
+PDW0900
+zgk_czybm_t
+536870912
+33554432
+终身码
+终身码
+zgk_zgbm_t
+1073741824
+Zgk Zgbm
+Zgk Zgbm
+ghrc_t
+[general]
+[general]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+zgk.czybm
+zgk.zgbm
+select count(a.ghlsh) ghrc,
+	    b.czybm,
+		 b.zgbm
+from mz_ghxx a,zgk b
+where aDAT*
+.ysbm = b.zgbm
+ and (a.ghrq >= 
+ and a.ghrq <= 
+)
+and (a.jzxh<=0 or a.jzxh>1 )  and thbz not in ('s','t','r','1')  
+group by b.czybm ,
+	b.zgbm
+PDW0900
+536870912
+33554432
+ysbm_t
+1073741824
+[generDAT*
+[general]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+mz_sfmx.ysbm
+  SELECT sum(MZ_SFMX.XMDJ * MZ_SFMX.XMSL) as zje,  
+         MZ_SFMX.YSBM
+    FROM MZ_SFMX 
+   WHERE ( MZ_SFMX.SFSJ >= 
+  AND  
+         MZ_SFMX.SFSJ <= 
+ ) 
+group by MZ_SFMX.YSBM
+
+PDW0900
+zzrq_t
+新宋体
+新宋体
+536870912
+33554432
+yybz_t
+bclb_t
+jzks_t
+就诊科室
+就诊科室
+ysbm_t
+szsj_t
+首诊时间
+首诊时间
+mzsj_t
+末诊时间
+末诊时间
+ghrc_t
+挂号人次
+挂号人次
+jzrc_t
+上午就诊人数
+上午就诊人数
+工作量
+工作量
+jzlb_t
+就诊类别
+就诊类别
+rjsc_t
+人均时长
+人均时长
+syrc_t
+输液人次
+输液人次
+ypjc_t
+药品均费
+药品均费
+满意度
+满意度
+mfjz_t
+免费就诊
+免费就诊
+wfsl_t
+误方数量
+误方数量
+sbsj_t
+上班时间
+上班时间
+xbsj_t
+下班时间
+下班时间
+[shortdate]
+[shortdate]
+yyDAT*
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+[general]
+[general]
+swjzrc
+xwjzrc
+[general]
+[general]
+kjypfy
+ghrcgd
+cdfive
+cdthirty
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+MZ_GZLTJ
+mz_gzltj.zzrq
+mz_gzltj.yybz
+mz_gzltj.bclb
+mz_gzltj.jzks
+mz_gzltj.ysbm
+mz_gzltj.szsj
+mz_gzDAT*
+ltj.mzsj
+mz_gzltj.ghrc
+swjzrc
+swjzrc
+xwjzrc
+xwjzrc
+mz_gzltj.gzl
+mz_gzltj.jzlb
+mz_gzltj.rjsc
+mz_gzltj.syrc
+mz_gzltj.ypjc
+mz_gzltj.myd
+mz_gzltj.mfjz
+mz_gDAT*
+zltj.wfsl
+mz_gzltj.sbsj
+mz_gzltj.xbsj
+mz_gzltj.csrc
+mz_gzltj.cdbz
+mz_gzltj.rjfy
+mz_gzltj.ztbz
+mz_gzltj.ywlsh
+mz_gzltj.kyrs
+mz_gzltj.xhrs
+mz_gzltj.yyrs
+mz_gzltj.pbks
+mz_gzltj.hprs
+mz_gzltj.cprs
+mz_gzltj.cgrs
+mz_gzltj.sycs
+kjypfy
+mz_gzltj.kjypfy
+ghrcgd
+mz_gzltj.ghrcgd
+cdfive
+mz_gzltj.cdfive
+cdthirty
+mz_gzltj.cdthirty
+SELECT  "MZ_GZLTJ"."ZZRQ" ,
+           "MZ_GZLTJ"."YYBDAT*
+Z" ,
+           "MZ_GZLTJ"."BCLB" ,
+           "MZ_GZLTJ"."JZKS" ,
+           "MZ_GZLTJ"."YSBM" ,
+           "MZ_GZLTJ"."SZSJ" ,
+           "MZ_GZLTJ"."MZSJ" ,
+           "MZ_GZLTJ"."GHRC" ,
+           nvl("MZ_GZLTJ"."SWJZRC",0) as swjzrc ,
+           nvl("MZ_GZLTJ"."XWJZRC",0) as xwjzrc ,
+           "MZ_GZLTJ"."GZL" ,
+           "MZ_GZLTJ"."JZLB" ,
+           "MZ_GZLTJ"."RJSC" ,
+           "MZ_GZLTJ"."SYRC" ,
+           "MZ_GZLTJ"."YPJC" ,
+           "MZ_GZLTJ"."MYD" ,
+           "DAT*
+MZ_GZLTJ"."MFJZ" ,
+           "MZ_GZLTJ"."WFSL" ,
+           "MZ_GZLTJ"."SBSJ" ,
+           "MZ_GZLTJ"."XBSJ" ,
+           "MZ_GZLTJ"."CSRC" ,
+           "MZ_GZLTJ"."CDBZ" ,
+           "MZ_GZLTJ"."RJFY" ,
+           "MZ_GZLTJ"."ZTBZ" ,
+           "MZ_GZLTJ"."YWLSH" ,
+           "MZ_GZLTJ"."KYRS" ,
+           "MZ_GZLTJ"."XHRS" ,
+           "MZ_GZLTJ"."YYRS" ,
+           "MZ_GZLTJ"."PBKS" ,
+           "MZ_GZLTJ"."HPRS" ,
+           "MZ_GZLTJ"."CPRS" ,
+           "MZ_GZLTJ"."CGRS" ,
+ DAT*
+          "MZ_GZLTJ"."SYCS" ,
+           "MZ_GZLTJ"."KJYPFY" ,
+           "MZ_GZLTJ"."GHRCGD"  ,
+           "MZ_GZLTJ"."CDFIVE"  ,
+           "MZ_GZLTJ"."CDTHIRTY"  
+        FROM "MZ_GZLTJ"      
+        WHERE ( zzrq >= 
+ ) and          ( zzrq <= 
+PDW0900
+jzrc_t
+536870912
+33554432
+zgk_czybm_t
+终身码
+终身码
+zgk_zgbm_t
+职工编码
+职工编码
+[general]
+[general]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+zgk.czybm
+zgk.zgbm
+select count(a.ghlsh) jzrc,
+	    b.czybm,
+		 b.zgbm
+from mz_jzxx a,zgk b
+where a.ysbm = b.zgbm
+ and (a.jzsj >= 
+ and a.jzsj <= 
+)
+group by b.czybm ,
+	b.zgbm 
+PDW0900
+zgk_czybm_t
+536870912
+33554432
+终身码
+终身码
+ypje_t
+[general]
+[general]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+zgk.czybm
+select sum(xmzje) ypje,
+		zgk.czybm
+ from mz_fpk,mz_cfk,zgk
+where mz_fpk.fplsh = mz_cfk.fplsh and
+		(mz_fpk.kpsj >= 
+ and mz_fpk.kpsj <= 
+) and
+		mz_cfk.ysbm = zgk.zgbm 
+group by zgk.czybm
+
+PDW0900
+zgk_czybm_t
+536870912
+33554432
+终身码
+终身码
+fyje_t
+[general]
+[general]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+zgk.czybm
+select sum(jzje + zfje) fyje,
+		zgk.czybm
+ from mz_yjk1,zgk
+where (mz_yjk1.kpsj >= 
+ and mz_yjk1.kpsj <= 
+) and
+		mz_yjk1.ysbm = zgk.zgbm 
+group by zgk.czybm
+PDW0900
+brbm_t
+536870912
+33554432
+ghrq_t
+ysbm_t
+jzsj_t
+jzks_t
+jzys_t
+ghlsh_t
+mz_brda_brxb_t
+1073741824
+Mz Brda Brxb
+Mz Brda Brxb
+mz_brda_csny_t
+Mz Brda Csny
+Mz Brda Csny
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+mz_ghxx.brbm
+mz_ghxx.ghrq
+mz_ghxx.ysbm
+mz_ghxx.jzsj
+mz_ghxx.jzks
+mz_ghxx.jzys
+mz_ghxx.ghlsh
+mz_brda.brxb
+mz_brda.csny
+  SELECT MZ_GHXX.BRBM,   
+         MZ_GHXX.GHRQ,   
+         MZ_GHXX.YSBM,   
+         MZ_GHXX.JZSJ,   
+         MZ_GHXX.JZKS,   
+         MZ_GHXX.JZYS,   
+    DAT*
+     MZ_GHXX.GHLSH,	
+			mz_brda.brxb,
+			mz_brda.csny  
+    FROM MZ_GHXX,mz_brda
+   WHERE MZ_GHXX.brbm = mz_brda.brbm and 
+			( MZ_GHXX.GHRQ >= 
+ ) AND  
+         ( MZ_GHXX.GHRQ <= 
+ ) AND  
+         ( MZ_GHXX.THBZ not in ('s','t','r','i') ) and
+			 mz_ghxx.jzbz <> '0' and mz_ghxx.jzbz is not null
+
+軽NブZ
+       
+application
+structure
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+transaction
+dynamicdescriptDAT*
+ionarea
+dynamicstagingarea
+message
+u_datastore
+ids_pbxx
+u_supportclass
+uo_support
+u_loginclass
+uo_loginclass
+u_char
+gu_char
+gu_imm
+base_info
+u_api_function
+gdt_sysdatetime
+gs_rtxserver
+rtx.fey.com
+n_rtxsdk
+gn_rtx
+gs_zxbb
+gs_pzwj
+gs_ini
+gb_easerver
+u_transaction
+gu_transaction
+window
+gw_main
+gds_dblogin
+n_ws_routerservicecommonsoap
+gn_ws_routerservicecommonsoap
+gf_get_gyini
+w_gzltj
+       
+message
+ids_pbxx
+uo_support
+uo_loginclassDAT*
+gu_char
+gu_imm
+base_info
+gdt_sysdatetime
+gs_rtxserver
+gn_rtx
+gs_zxbb
+gs_pzwj
+gs_ini
+gb_easerver
+gu_transaction
+gw_main
+gds_dblogin
+gn_ws_routerservicecommonsoap
+       
++create
++destroy
+commandline
+       
+       
+_initsrc
+application
+structure
+accessiblestate
+accessibility
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+transaction
+dynamicdescriptionareaDAT*
+dynamicstagingarea
+message
+_globsrc
+u_datastore
+u_supportclass
+u_loginclass
+u_char
+base_info
+u_api_function
+n_rtxsdk
+u_transaction
+window
+n_ws_routerservicecommonsoap
+w_gzltj
+       
+       
+message
+       
+appname
+message
+transaction
+dynamicdescriptionarea
+dynamicstagingarea
+       
+message
+       
+       
+commandline
+ls_pzwj
+ls_ini
+w_gzltj
+       
+u_supportclass
+u_loginclass
+mzys.ini
+syscode
+settransobject
+Database
+dbconnect
+       
++create
++destroy
+gf_get_gyini
+       
+appname
+PDW0900
+ysbm_t
+536870912
+33554432
+sycs_t
+1073741824
+ksbm_t
+[general]
+[general]
+[general]
+[general]
+:ld_begin
+:ld_end
+ld_begin
+ld_end
+Select Sum(zdcs) sycs,ysbm,ksbm
+From
+(
+Select Max(zdzcs) zdcs ,mz_dz01.cflsh,mz_dz01.ysbm ysbm, ksbm
+ From mz_dz01,mzDAT*
+_cfk
+ Where 
+mz_dz01.cflsh  = mz_cfk.cflsh and
+mz_dz01.ysbm = mz_cfk.ysbm and
+ czsj >= 
+ and
+czsj <= 
+ and
+kplb = 4 and
+clbz >=1 and mz_cfk.fybz in ('f','a','b','t')
+Group By mz_dz01.cflsh,mz_dz01.ysbm, ksbm
+) Group By ysbm,ksbm
+
+PDW0900
+syrc_t
+536870912
+33554432
+[general]
+[general]
+[general]
+[general]
+:adt_begin
+:Adt_end
+adt_begin
+adt_end
+mz_dz01.ysbm
+Select Count(Distinct brbm) As syrc,ysbm
+ From mz_dz01
+ Where 
+ czsj >= 
+ and
+czsj <= 
+ and
+kplb = 4 and
+clbz >=1 
+group by ysbm
+PDW0900
+syrc_t
+536870912
+33554432
+ksbm_t
+Mz Cfk Ksbm
+Mz Cfk KDAT*
+[general]
+[general]
+[general]
+[general]
+:as_ysbm
+:as_ksbm
+:ad_begin
+:ad_end
+ad_begin
+ad_end
+as_ysbm
+as_ksbm
+mz_cfk.ksbm
+Select Count(Distinct mz_dz01.cflsh) syrc, mz_cfk.ksbm
+From mz_cfk,mz_dz01
+ Where mz_dz01.cflsh  = mz_cfk.cflsh 
+And mz_dz01.ysbm = mz_cfk.ysbm 
+and mz_dz01.ysbm = 
+
+and mz_cfk.ksbm = 
+
+And  mz_dz01.czsj >= 
+
+And  mz_dz01.czsj <= 
+
+And kplb = 4 and clbz>=1
+and mz_cfk.fybz in ('f','a','b','t')
+Group By mz_cfk.ksbm
+PDW0900
+ysbm_t
+536870912
+33554432
+mz_cfk_ksbm_t
+1073741824
+Mz Cfk Ksbm
+Mz Cfk Ksbm
+kjypfy_t
+Kjypfy
+Kjypfy
+[general]
+[general]
+kjypfy
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+kjypfy
+kjypfy
+mz_cfk.ysbm
+mz_cfk.ksbm
+Select Sum(round(mz_cfmx.jzje+mz_cfmx.zfje,2)) kjypfy,
+ysbm,
+mz_cfk.ksbm
+ From mz_cfk,mz_cfmx,yk_typk
+Where mz_cfk.cflsh = mz_cfmx.DAT*
+cflsh and 
+(kpsj >= 
+ and kpsj <= 
+ )
+And (yk_typk.ypdm like '0101010101%' or yk_typk.ypdm like '0101010102%' or yk_typk.ypdm like '0101010104%') 
+and  yk_typk.ypxh = mz_cfmx.ypxh And 
+mz_cfk.fybz in ('f','a','b','t') And
+mz_cfmx.yfbz > 0  
+group by ysbm,mz_cfk.ksbm
+PDW0900
+ksbm_t
+536870912
+33554432
+cssw_xl_t
+Cssw Xl
+Cssw Xl
+csxw_xl_t
+Csxw Xl
+Csxw Xl
+cssw_dl_t
+Cssw Dl
+Cssw Dl
+csxw_dl_t
+Csxw Dl
+Csxw Dl
+[general]
+[general]
+cssw_xl
+[general]
+[general]
+csxw_xl
+cssw_dl
+csxw_dl
+mzxt.mz_ks_kz
+mz_ks_kz.ksbm
+cssw_xl
+mz_ks_kz.cssw_xl
+csxw_xl
+mz_ks_kz.csxw_xl
+cssw_dl
+mz_ks_kz.cssw_dl
+csxw_dl
+mz_ks_kz.csxw_dl
+select ksbm,
+	cssw_xl,
+csxw_xl,
+cssw_dl,
+csxw_dl
+from mzxt.mz_ks_kz
+PDW0900
+新宋体
+新宋体
+12632256
+33554432
+640DAT*
+536870912
+[general]
+[general]
+compute_1
+16777215
+[GENERAL]
+[GENERAL]
+getrow()
+hostid
+hostid
+袳誙NブZ
+       
+window
+accessibility
+windowtype
+windowstatDAT*
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+commandbutton
+fontcharset
+fontpitch
+fontfamily
+datawindow
+borderstyle
+dwobject
+Untitled
+AppIcon!
+2013-3
+2013-2
+d_ks_kz
+d_send_import
+dragobject
+transaction
+message
+gf_commit_transaction
+gf_rollback_tDAT*
+ransaction
+       
+       
++create
++destroy
++clicked
+       
+       
+_initsrc
+window
+accessibility
+windowtype
+windowstate
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+commandbutton
+fontcharset
+fontpitch
+fontfamily
+datawindow
+borderstDAT*
+dwobject
+dw_import
+dragobject
+transaction
+message
+       
+       
+       
+dw_import
+control
+       
+       
+dw_import
+       
+::message
+       
+dw_import
+settransobject
+retrieve
+       
++create
++destroy
+       
+height
+titlebar
+controlmenu
+minbox
+maxbox
+resizable
+backcolor
+center
+dw_import
+       
+ll_count
+ll_findDAT*
+ls_ksmc
+ls_ksbm
+ls_fybm
+ls_ksbm_old
+ls_fybm_old
+ls_fydj
+ls_temp
+ldc_fydj
+ldc_fydj_old
+::message
+       
+dw_import
+c1 a,c3 a,c6 a
+setsort
+rowcount
+object
+__get_attribute_item
+堾0000
+__set_attribute_item
+saveas
+       
++clicked
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+       
+ll_count
+ll_find
+ls_ksmc
+ls_ksbm
+ls_fybm
+ls_ksbm_oldDAT*
+ls_fybm_old
+ls_fydj
+ls_temp
+ldc_fydj
+ldc_fydj_old
+::message
+       
+dw_import
+c1 a,c3 a,c6 a
+setsort
+rowcount
+object
+__get_attribute_item
+堾__set_attribute_item
+saveas
+       
++clicked
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+       
+ll_count
+ll_find
+ls_ksmc
+ls_ksbm
+ls_fybm
+ls_ksbm_old
+ls_fybm_old
+ls_fydj
+ldc_fydj
+ldc_fydj_old
+::message
+       
+dw_import
+c1 a,c3 a,c6 a
+setsort
+rowcount
+object
+__get_attribute_item
+11020000101
+' and c3 ='
+' and c6 = '
+__set_attribute_item
+deleterow
+saveas
+       
++clicked
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitcDAT*
+fontfamily
+facename
+       
+       
+height
+taborder
+dataobject
+hscrollbar
+vscrollbar
+livescroll
+borderstyle
+       
+ll_count
+ll_count1
+ll_find
+ls_ksmc
+ls_ksbm
+::message
+       
+dw_import
+rowcount
+objecDAT*
+__get_attribute_item
+' and c2='上午'
+cssw_dl
+__set_attribute_item
+' and c2='下午'
+csxw_dl
+update
+       
++clicked
+gf_commit_transaction
+gf_rollback_transaction
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+       
+ls_smsfullfile
+ls_smsfilename
+li_cnt
+li_rtn
+li_filenum
+::message
+       
+请选择文本文件
+All Files (*.*),*.*
+dw_import
+rowcount
+已经有发送列表，要清空吗？
+importfile
+       
++clicked
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+       
+       
+height
+taborder
+dataDAT*
+object
+hscrollbar
+vscrollbar
+livescroll
+borderstyle
+PDW0900
+ksbm_t
+536870912
+33554432
+1073741824
+Mz Ks Mc
+Mz Ks Mc
+cssw_xl_t
+Cssw Xl
+Cssw Xl
+csxw_xl_t
+Csxw Xl
+Csxw Xl
+cssw_dl_t
+Cssw Dl
+Cssw Dl
+csxw_dl_t
+Csxw Dl
+Csxw Dl
+[general]
+[general]
+cssw_xl
+[general]
+[general]
+csxw_xl
+cssw_dl
+csxw_dl
+MZ_KS_KZ
+mz_ks_kz.ksbm
+mz_ks.mc
+cssw_xl
+mz_ks_kz.cssw_xl
+csxw_xl
+mz_ks_kz.csxw_xl
+cssw_dl
+mz_ks_kz.cssw_dl
+csxw_dl
+mz_ks_kz.csxw_dl
+  SELECT "MZ_KS_KZ"."KSBM", 
+mz_ks.mc,  
+         "MZ_KS_KZ"."CSSW_XL",   
+         "MZ_KS_KZ"."CSXW_XL",   
+         "MZ_KS_KZ"."CSSW_DL",   
+         "MZ_KS_KZ"."CSXW_DL"  
+    FROM "MZ_KS_KZ" ,mz_ks
+	where	mz_ks_kz.ksbm = mz_kDAT*
+s.ksbm  
+
+u礕XNブZ
+       
+w__test
+window
+accessibilityDAT*
+windowtype
+windowstate
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+singlelineedit
+fontcharset
+fontpitch
+fontfamily
+textcase
+borderstyle
+commandbutton
+datawindow
+dwobject
+olecustomcontrol
+omobject
+alignment
+Untitled
+AppIcon!
+d_gzltj_cs
+w__test.win
+dragobject
+message
+exceptionaction
+       
+w__test
+       
++oncomm
++create
++destroy
++close
++clicked
+errornumber
+errortext
+errorwindowmenu
+errorobject
+errorscript
+errorline
+action
+returnvalue
++error
+       
+NXSXSXSXSNRCexceptionaction.RA
+       
+_initsrc
+window
+w__test
+accessibility
+windowtype
+windowstate
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+singlelineedit
+fontcharset
+fontpitch
+fontfamily
+textcase
+borderstyle
+commandbutton
+datawindow
+dwobject
+olecustomcontrol
+ole_comm
+omobject
+alignmentDAT*
+dragobject
+message
+exceptionaction
+       
+       
+       
+ole_comm
+control
+       
+       
+ole_comm
+       
+::message
+       
+ole_comm
+object
+|@9600,N,8,1
+settings
+__set_attribute
+|@commport
+|@inbuffersize
+|@handshaking
+|@inputmode
+|@portopen
+|@rtsenable
+       
+::message
+      DAT*
+ole_comm
+object
+|@portopen
+__set_attribute
+       
++create
++destroy
++close
+       
+height
+titlebar
+controlmenu
+minbox
+maxbox
+resizable
+backcolor
+center
+ole_comm
+       
+       
+wiDAT*
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+textcolor
+borderstyle
+       
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+textcolor
+borderstyle
+       
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+textcolor
+borderstyle
+       
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+textcolor
+borderstyle
+       
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+textcolor
+borDAT*
+derstyle
+       
+::message
+       
+ole_comm
+object
+|@output
+__set_attribute
+       
++clicked
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+       
+       
+height
+taborder
+dataobject
+hscrollbar
+vscrollbar
+livescroll
+borderstyle
+    DAT*
+::message
+       
+ole_comm
+object
+|@portopen
+__get_attribute
+|@__set_attribute
+|@output
+       
++clicked
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+       
+ls_str
+lb_str
+ll_file
+       
+object
+|@commevent
+__get_attribute
+|@input
+c:\ggg.txt
+   DAT*
+errornumber
+errortext
+errorwindowmenu
+errorobject
+errorscript
+errorline
+action
+returnvalue
+       
+       
++oncomm
++error
+       
+height
+taborder
+borderstyle
+focusrectangle
+binarykey
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facDAT*
+textcolor
+岣鞸NブZ
+       
+w_ghxx
+window
+accessibility
+windowtDAT*
+windowstate
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+editmask
+fontcharset
+fontpitch
+fontfamily
+alignment
+textcase
+borderstyle
+maskdatatype
+commandbutton
+Untitled
+AppIcon!
+yyyy.mm.dd 
+yyyy.mm.dd
+dragobject
+datastore
+transaction
+select count ( yjlsh ) from mz_yjk1 where ghlsh =0 and brbm =' ' and kpsj is null and kdrq >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') 
+select count ( cflsh ) from mz_cfk where ghlsh =0 and brbm =' ' 
+select count ( cflsh ) from mz_cfk where ghlsh =0 and brbm =' ' and kpsj is null and cfsj >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') 
+message
+       
+w_ghxx
+       
++create
++destroy
++clicked
+       
+       
+_initsrc
+window
+w_ghxx
+accessibility
+windowtype
+windowstate
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+editmask
+fontcharset
+fontpitch
+fontfamily
+alignment
+textcase
+borderstyleDAT*
+maskdatatype
+commandbutton
+dragobject
+datastore
+transaction
+message
+       
+       
+       
+control
+       
+       
+       
++create
++destroy
+       
+height
+titlebar
+controlmenu
+minbox
+maxbox
+resizable
+backcolor
+center
+       
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+facename
+textcolor
+borderstyle
+maskdatatype
+       
+       
+heDAT*
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+facename
+textcolor
+borderstyle
+maskdatatype
+       
+ld_begin
+ld_end
+ll_count
+ldc_ghlsh
+ls_brbm
+lds_ghxx
+::message
+       
+00:00:00
+23:59:59
+datastore
+d_ghxx_3
+settransobject
+retrieve
+堾ghlsh
+__get_attribute_item
+堾brbm
+       
++clicked
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+PDW0900
+ysbm_t
+536870912
+33554432
+ksbm_t
+zzlb_t
+zxbz_t
+xhrs_t
+czsj_t
+1073741824
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+[general]
+[general]
+:adt_rq
+adt_rq
+mz_pbxx.ysbm
+mz_pbxx.rq
+mz_pbxx.ksbm
+mz_pbxx.bc
+mz_pbxx.zzlb
+mz_pbxx.zxbz
+mz_pbxx.xhrs
+mz_pbxx.czsj
+  SELECT "MZ_PBXX"."YSBM",   
+         "MZ_PBXX"."RQ",   
+         "MZ_PBXX"."KSBM",   
+         "MZ_PBXX"."BC",   
+         "MZ_PBXX"."ZZLB",   
+         "MZ_PBXX"."ZXBZ",   
+         "MZ_PBXX"."XHRS" ,
+mz_pbxx.czsj 
+    FROM "MZ_PBXX"  
+where zxbz ='0' 
+and rq =  
+PDW0900
+ysbm_t
+536870912
+33554432
+ghrc_t
+1073741824
+hzlb_t
+jzks_t
+[general]
+[general]
+[general]
+[general]
+compute_1
+[GENERAL]
+[GENERAL]
+sum(  ghrc  for all )
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+mz_ghxx.hzlb
+  SELECT counDAT*
+t(MZ_GHXX.GHLSH) ghrc,    
+         nvl(MZ_GHXX.YSBM,MZ_GHXX.JZYS) AS YSBM,
+nvl(mz_ghxx.jzks,mz_ghxx.ksbm) as jzks,
+hzlb
+    FROM MZ_GHXX
+	where (MZ_GHXX.GHRQ >= 
+ AND
+	MZ_GHXX.GHRQ <= 
+) AND
+	MZ_GHXX.THBZ NOT IN ('s','t','r','i') and
+	jsbz ='1'
+group by to_char(MZ_GHXX.GHRQ,'yyyy.mm.dd'),     
+        nvl(MZ_GHXX.YSBM,MZ_GHXX.JZYS),
+nvl(mz_ghxx.jzks,mz_ghxx.ksbm) ,
+hzlb
+	
+PDW0900
+mz_ghxx_thbz_t
+536870912
+33554432
+Mz Ghxx
+Thbz
+Mz Ghxx
+Thbz
+mz_ghxx_ghlx_t
+Mz Ghxx
+Ghlx
+Mz Ghxx
+Ghlx
+mz_ghxx_jsbz_t
+Mz Ghxx
+Jsbz
+Mz Ghxx
+Jsbz
+mz_jzxx_ysbm_t
+Mz Jzxx
+Ysbm
+Mz Jzxx
+Ysbm
+mz_jzxx_gzl_t
+Mz Jzxx
+Gzl
+Mz Jzxx
+Gzl
+mz_jzxx_jzsj_t
+Mz Jzxx
+Jzsj
+Mz Jzxx
+Jzsj
+mz_jzxx_jssj_t
+Mz Jzxx
+Jssj
+Mz Jzxx
+JssDAT*
+mz_jzxx_jzlb_t
+Mz Jzxx
+Jzlb
+Mz Jzxx
+Jzlb
+[general]
+[general]
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+:adt_date1
+:adt_date2
+:adt_date1
+adt_date1
+adt_date2
+mz_ghxx.thbz
+mz_ghxx.ghlx
+mz_ghxx.jsbz
+mz_jzxx.ysbm
+mz_jzxx.gzl
+mz_jzxx.jzsj
+mz_jzxx.jssj
+mz_jzxx.jzlb
+Select b.thbz,
+b.ghlx,b.jsbz,a.ysbm,a.gzl,a.jzsj,a.jssj ,a.jzlb
+ From mz_jzxx a,mz_ghxx b
+ Where a.ghlsh = b.ghlsh And
+ a.jzsj < 
+ And 
+a.jzsj > 
+ And 
+a.jssj > 
+ and
+b.THBZ NOT IN ('s','t','r','i')
+6ブZNブZ
+       
+w_gzltj
+window
+accessibility
+windowtype
+windowstate
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+commandbutton
+fontcharset
+fontpitcDAT*
+fontfamily
+vu_datawindow
+borderstyle
+dwobject
+vu_buttonexit
+Admi,Guest,User
+退出(&E)
+picture\EXIT.gif
+picture\EXIT1.gif
+editmask
+alignment
+textcase
+maskdatatype
+datawindow
+checkbox
+每日工作量统计表
+AppIcon!
+u_datastore
+新宋体
+d_gzltj_cs
+yyyy.mm.dd
+yyyy.mm.dd 
+迟到早退
+超时计算
+d_gzl_jzxx
+d_gzltj
+transaction
+SELECT count ( *) From mz_gzltj Where zzrq =TO_DATE('18-04-2018','DD-MM-YYYY') 
+DELETE From mz_gzltj Where zzrq =TO_DATE('18-04-2018','DD-MM-YYYY') 
+gf_commit_transaction
+gf_begin_transaction
+gf_applog
+gf_rollback_transaction
+dragobject
+ids_pbxx
+gf_server_date
+gf_getpara
+message
+datastore
+dwbuffer
+n_rtxsdk
+gn_rtx
+gs_rtxserver
+SELECT Min ( jlsj ) FROM ss_xtrz a , mz_jqm b WHERE a.jqm =b.jqh AND DAT*
+czgh =' ' And rzlx ='XTDR' And jlsj >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And jlsj < TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And b.ServerName Is Not Null And b.Id Is Not Null 
+SELECT Min ( jlsj ) From ss_xtrz Where xtsb =10 And czgh =' ' And rzlx ='XTDR' And jlsj >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And jlsj < TO_DADAT*
+TE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') 
+SELECT MAX ( jlsj ) FROM ss_xtrz a , mz_jqm b WHERE a.jqm =b.jqh AND czgh =' ' And rzlx ='XTTC' And jlsj >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And jlsj < TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And b.ServerName Is Not Null And b.Id Is Not Null 
+SELECT Max ( jlsj ) From ss_xtrz Where xtsb =10 And czgh =' ' And rzlx ='XTTC' And jlsj >= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And jlsj < TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') 
+SELECT count ( mz_yyxx.lxdh ) From mz_yyxx Where ( mz_yyxx.yysj >= TO_DAT*
+DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') And mz_yyxx.yysj <= TO_DATE('18-04-2018 09:54:22','DD-MM-YYYY HH24:MI:SS') ) And ( mz_yyxx.lxdh Is Not Null ) And ( mz_yyxx.ksbm Is Not Null ) And mz_yyxx.czbz <> - 1 And ysbm =' ' 
+SELECT sum ( nvl ( yyrs , 0 ) + nvl ( wwyyrs , 0 ) ) From mz_pbxx Where ( mz_pbxx.RQ =TO_DATE('18-04-2018','DD-MM-YYYY') ) And mz_pbxx.zxbz DAT*
+='0' And mz_pbxx.ysbm =' ' And bc ='01' 
+gf_secondsafter
+gf_relativedatetime
+SELECT sum ( nvl ( yyrs , 0 ) + nvl ( wwyyrs , 0 ) ) From mz_pbxx Where ( mz_pbxx.RQ =TO_DATE('18-04-2018','DD-MM-YYYY') ) And mz_pbxx.zxbz ='0' And mz_pbxx.ysbm =' ' And bc ='02' 
+select csz from gy_xtcs where xtsb =92 and csmc ='HFSJ-GZL' 
+select csz from gy_xtcs where xtsb =92 and csmc ='HFSJ' 
+update gy_xtcs set csz =' ' where xtsb =92 and csmc ='HFSJ-GZL' 
+SELECT sum ( nvl ( yyrs , 0 ) + nvl ( wwyyrs , 0 ) ) From mz_pbxx Where ( mz_pbxx.RQ =TO_DATE('18-04-2018','DD-MM-YYYY') ) AndDAT*
+ mz_pbxx.zxbz ='0' And mz_pbxx.ysbm =' ' And bc =' ' 
+select zzlb from mz_pbxx where ysbm =' ' and rq =TO_DATE('18-04-2018','DD-MM-YYYY') and zxbz ='0' 
+       
+w_gzltj
+       
+ad_day
+wf_delete
+wf_check
+wf_myd
+lds_ghxx_et
+wf_ghxx_et
++create
++destroy
++timer
++clicked
+sqldbcode
+sqlerrtext
+sqlsyntax
+buffer
++dberror
++constructor
+       
+	QRCdatawindow.
+MCu_datastore.
+LLSSCdwbuffer.L
+       
+_initsrc
+window
+w_gzltj
+accessibility
+windowtype
+windowstate
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+commandbutton
+fontcharset
+fontpitch
+fontfamily
+vu_datawindow
+borderstyle
+dwobject
+vu_buttonexit
+editmask
+alignment
+textcase
+maskdatatype
+datawindow
+dw_DAT*
+checkbox
+u_datastore
+transaction
+dragobject
+message
+datastore
+dwbuffer
+n_rtxsdk
+       
+       
+ad_day
+ll_count
+       
+       
+ll_count
+ls_ysbm
+ls_jzks
+ls_jzlb
+ldt_rq
+       
+zzrq,ysbm,bclb
+setsort
+\奃AT*
+rowcount
+堾syrc
+__get_attribute_item
+堾zzrq
+堾ysbm
+堾bclb
+堾jzks
+object
+堾__set_attribute_item
+堾kyrs
+堾xhrs
+励DAT*
+堾ghrc
+堾yyrs
+堾csrc
+堾ypjc
+堾rjfy
+堾sycs
+       
+ldt_day
+ldt_rq
+ldt_begin
+ldt_end
+ll_count
+ll_count_myd
+ll_find
+ls_ysbm
+ls_error
+lds_dxmyd
+ld_myd_b
+ld_myd_e
+       
+u_datastore
+dataobject
+d_grtj_myd
+settransobject
+00:00:00
+23:59:59
+retrieve
+object
+堾ysbm
+__get_attribute_item
+zsm ='
+堾cgrc
+__set_attribute_item
+堾zzrq
+堾bclb
+update
+满意度成功！
+满意度回复时间更新失败
+满意度统计失败：
+       
+lds_ghxx_et
+       
+jsbz ='1' and (not (thbz ='3' and ghlx =80)) and brnl < 18
+setfilter
+filter
+rowcount
+object
+堾compute_gzl
+__get_attribute_item
+       
+       
+control
+       
+       
+       
+ids_pbxx
+::message
+       
+settransobject
+u_datastore
+dataobject
+d_pbxx
+ii_xl_ks
+夏令开始月份
+iiDAT*
+_xl_js
+夏令结束月份
+开始运行！
+       
+lt_time
+::message
+       
+01:00:00
+clicked
+       
+wf_delete
+wf_check
+wf_myd
+wf_ghxx_et
+gf_commDAT*
+it_transaction
+gf_begin_transaction
+gf_applog
+gf_rollback_transaction
++create
++destroy
+gf_server_date
+gf_getpara
++timer
+       
+height
+titlebar
+controlmenu
+minbox
+resizable
+backcolor
+center
+ii_xl_ks
+ii_xl_js
+       
+ld_begin
+ld_end
+lt_sbsj
+ldt_xtdr
+ll_count
+ll_pb_count
+ll_find
+lds_pbxx
+ls_bclb
+ls_bclb_txt
+::message
+       
+u_datastore
+dataobject
+d_pbxx_bcsz
+settransobject
+retrieve
+object
+堾cdbz
+__get_attribute_item
+堾bclb
+堾sbsj
+' and ysbm='
+堾ysbm
+' and string(rq,'yyyy-mm-dd')='
+堾zzrq
+yyyy-mm-dd
+堾kssj
+00:00:00
+__set_attribute_item
+堾cdfive
+cdthirty
+update
+       
++clicked
+gf_commit_transaction
+gf_applog
+gf_rollback_transaction
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+enabled
+       
+ldt_day
+ldt_day2
+ldt_begin
+ldt_end
+ll_count
+ll_day
+ll_find
+ll_count_dw3
+ls_ysbm
+ls_jzlb
+lds_jzrc
+::message
+       
+settransobject
+datastore
+d_jzrc_tiaoz
+00:00:00
+retrieve
+堾ysbm
+__get_attribute_item
+堾jzlb
+ysbm='
+' and jzlb ='
+' and (bclb ='下午' or bclb ='其他下')
+object
+堾xwjzrc
+__set_attribute_item
+update
+调整成功
+调整失败
+       
++clicked
+gf_commit_transaction
+gf_applog
+gf_rollback_transaDAT*
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+       
+sqldbcode
+sqlerrtext
+sqlsyntax
+buffer
+ancestorreturnvalue
+       
+dberror
+       
++dberror
+       
+height
+taborder
+dataobject
+       
+ancestorreturnvalue
+::message
+       
+constructor
+enabled
+       
++constructor
+       
+height
+taborder
+       
+       
+height
+taborder
+textsize
+weighDAT*
+fontcharset
+fontpitch
+facename
+textcolor
+borderstyle
+maskdatatype
+       
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+facename
+textcolor
+borderstyle
+maskdatatype
+rBDAT*
+笯DAT*
+笯DAT*
+.gDAT*
+       
+ldt_begin
+ldt_end
+ldt_begin1
+ldt_end1
+ldt_xtdr
+ldt_xttc
+ldt_cssj
+ldt_begin2
+ldt_swsj
+ldt_xwsj
+lt_sbsj
+lt_xbsj
+ldt_rq
+ldt_day
+ll_count
+ll_count_DAT*
+ll_row
+ll_find
+ll_mfjz
+ll_ghrs
+ll_pbcount
+ll_csrs
+ll_day
+ll_bc_find
+ll_yyrs
+ll_kyrs
+ll_xhrs
+ll_find_jzlb
+ll_cs_find
+ll_daynum
+ll_count_cfk
+ll_find_cfk
+ll_count_fy
+ll_find_fy
+ll_hprs
+ll_cprs
+ll_cgrs
+ll_count_myd
+ll_count_xh
+ll_jzlb_sw
+ll_jzlb_xw
+ll_count_gh
+ll_count_sw
+ll_count_xw
+ll_count_kjyp
+ll_cssw_xl
+ll_csxw_xl
+ll_cssw_dl
+ll_csxw_dl
+ll_count_ks
+ll_find_ks
+ll_csrs_bz
+ll_csrs_gh
+ls_ysbm
+ls_jzks
+ls_jzlb
+ls_ksbm
+ls_error
+ldc_mfjz_gzl
+ldc_myd
+ldc_sw
+ldc_xw
+ll_zlxz
+ll_count_DAT*
+lds_dxmyd
+lds_ypfy
+lds_fyxx
+lds_ghxx
+lds_syxx
+lds_wfxx
+lds_gh
+lds_sycs_sw
+lds_sycs_xw
+lds_syrc_new
+lds_kjypxx
+lds_mzks_kz
+lds_ghxx_cs
+lds_pbxx
+lds_ghxx_jzlb
+lds_ghxx_jzlbxw
+lds_ghxx_et
+gn_rtx
+gs_rtxserver
+ids_pbxx
+ld_myd_b
+ld_myd_e
+ls_hfsj
+ls_hfsj_y
+::message
+       
+u_datastore
+dataobject
+d_grtj_myd
+settransobject
+d_ghxx
+d_ghxx_et
+d_wfxx
+d_ypfy
+d_ghxx_gh
+d_sycs
+d_syrc_jzks
+d_mzks_kz
+retrieve
+d_pbxx_all
+d_ghxx_jzlb
+ii_xl_ks
+ii_xl_js
+06:30:00
+13:00:00
+13:39:59
+13:40:00
+07:00:00
+12:30:00
+13:09:59
+13:10:00
+00:00:00
+23:59:59
+限号人数
+uf_sendmsg
+wf_delete
+rowcount
+object
+堾ysbm
+__get_attribute_item
+堾jzks
+堾jzlb
+堾zlxz
+185010
+insertrow
+堾zzrq
+__set_attribute_item
+堾sbsj
+堾xbsj
+setfilter
+filter
+堾ghrc
+ysbm ='
+' and ksbm ='
+' and bc ='01' and zzlb ='
+堾xhrs
+堾czsj
+堾ghrcgd
+ysbm='
+' and jzks ='
+' and hzlb ='
+堾compuDAT*
+te_jzrs
+swjzrc
+堾compute_minjzsj
+堾compute_maxjzsj
+jsbz ='1' and not (thbz ='3' and ghlx =80)
+堾compute_gzl
+堾wf_ghxx_et
+jsbz ='1' and thbz ='3' and ghlx =80
+thbz ='3' and ghlx =80
+堾mfjz
+堾syrc
+堾wfsl
+堾kyrs
+堾yyrs
+堾sycs
+deleterow
+bc ='01'
+堾ksbm
+' and zzrq =datetime('
+') and bclb ='上午'
+MINUTE
+堾kssj_xl
+堾zzsj_xl
+堾kssj
+堾zzsj
+堾zzlb
+cdbDAT*
+堾cdfive
+cdthirty
+堾ztbz
+ksbm ='
+堾cssw_xl
+堾cssw_dl
+堾csrc
+堾pbks
+其他上
+堾bclb
+' and bc ='02' and zzlb ='
+xwjzrc
+bc ='02'
+') and bclb ='下午'
+堾csxw_xl
+堾csxw_dl
+其他下
+wf_check
+dw_1.rowcount=
+update
+统计成功！
+统计失败：
+zsm ='
+堾cgrc
+满意度成功！
+满意度回复时间更新失败
+满意度统计失败：
+程序退出！
+       
++clicked
+gf_applog
+gf_secondsafter
+gf_relativedatetime
+gf_commit_transaction
+gf_rollback_transaction
+gf_begin_transaction
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+笯DAT*
+       
+ll_day
+ll_row
+ll_syrc
+ll_find
+ll_count
+ll_yyrs
+ll_find_jzrc
+ll_count_ghrc
+ll_count_xh
+ldt_begin
+ldt_end
+ldt_swsj
+ldt_xwsj
+ldt_begin1
+ldt_end1
+ldt_begin_myd
+ldt_end_myd
+ldt_day
+ldt_zzrq
+ldt_day2
+ldt_rq
+ls_ini
+ls_ysbm
+ls_zsm
+ls_jzks
+ls_ksbm
+ls_bclb
+ls_jzlb
+ll_xhrs
+ll_kyrs
+ll_hprs
+ll_cprs
+ll_cgrs
+ll_find_zfy
+ll_count_ypfy
+ll_count_zfy
+ll_count_ypfy2
+ll_count_zfy2
+ll_csDAT*
+ldt_begin_xw
+ldt_end_xw
+ll_find_jzlb
+ll_jzlb_sw
+ll_jzlb_xw
+::message
+       
+settransobject
+retrieve
+object
+堾kyrs
+__get_attribute_item
+堾ghrcgd
+堾bclb
+堾ysbm
+堾zzrq
+堾__set_attribute_iteDAT*
+update
+       
++clicked
+gf_commit_transaction
+gf_applog
+gf_rollback_transaction
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+enabled
+       
+ldt_begin
+ldt_end
+ld_zzrq
+ls_ysbm
+ls_zzlb
+ls_bclb
+ldt_sbsj
+ldt_xbsj
+ldt_szsDAT*
+ldt_mzsj
+ll_row
+ll_count
+::message
+       
+settransobject
+retrieve
+rowcount
+object
+堾bclb
+__get_attribute_item
+堾sbsj
+堾xbsj
+堾szsj
+堾mzsj
+MINUTE
+堾cdbz
+08:10:00
+__set_attribute_item
+堾ztbz
+11:20:00
+13:40:00
+16:50:00
+update
+计算成功！
+       
++clicked
+gf_relativedatetime
+gf_commit_transaction
+gf_rollback_transaction
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+enabled
+       
+ldt_begin
+ldt_end
+ld_zzrq
+ls_ysbm
+ls_zzlb
+ll_roDAT*
+ll_count
+::message
+       
+settransobject
+retrieve
+object
+堾ysbm
+__get_attribute_item
+堾bclb
+堾zzrq
+堾csrc
+堾__set_attribute_item
+update
+计算成功！
+       
++clicked
+gf_commit_transaction
+gf_rollback_transaction
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+enabled
+       
+       
+visible
+height
+taborder
+dataobject
+livescroll
+borderstyle
+       
+sqldbcode
+sqlerrtext
+sqlsyntax
+buffer
+       
+       
++dberror
+       
+height
+taborder
+bringtotop
+dataobject
+hscrollbar
+vscrollbar
+livescroll
+borderstyle
+       
+       
+height
+textsize
+weight
+fontcharset
+fontpitch
+fontfamily
+facename
+textcolor
+backcolor
+checked
+       
+ldt_begin
+ldt_end
+ldt_rq
+ls_error
+ls_ysbm
+ll_count_myd
+ll_count
+ll_find
+lds_dxmyd
+::message
+       
+00:00:00
+23:59:59
+u_datastore
+dataobject
+d_grtj_myd
+settransobject
+retrieve
+object
+堾ysbm
+__get_attribute_item
+zsm ='
+堾cgrc
+__set_attribute_item
+堾zzrq
+堾bclb
+update
+满意度成功！
+满意度统计失败：
+       
++clicked
+gf_commit_transaction
+gf_applog
+gf_rollback_transaction
+       
+visible
+height
+taborder
+bringtotop
+textsize
+weight
+fontcharset
+fontpitch
+fontfamilyDAT*
+facename
+PDW0900
+536870912
+33554432
+jzsj_t
+[general]
+[general]
+[general]
+[general]
+compute_1
+1073741824
+[GENERAL]
+[GENERAL]
+sum(  swl  for all )
+:adt_begin
+:adt_end
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+Select Count(Distinct( a.brbm)) As swl,to_char(a.jzsj,'yyyy.mm.dd') As jzsj From mz_ghxx a,mz_ghxx b Where a.brbm = b.brbm And a.thbz In ('0','3') And b.thbz In ('0','3')
+And a.jzsj>=
+ And a.jzsj <
+
+And b.jzsj>=
+ And b.jzsj <
+
+And to_char(a.jzsj,'hh24:mi:ss') >='00:00:00' And to_char(a.jzsj,'hh24:mi:ss') <='12:00:00'
+And to_char(b.jzsj,'hh24:mi:ss') >=DAT*
+'00:00:00' And to_char(b.jzsj,'hh24:mi:ss') <='12:00:00'
+And a.jzks <> b.jzks 
+and a.yybz in ('3','4') and b.yybz in ('3','4')
+Group By to_char(a.jzsj,'yyyy.mm.dd')
+IXNブZ
+       
+window
+accessibility
+windowtype
+windowstate
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+datawindow
+borderstyle
+dwobject
+commandbutton
+fontcharset
+fontpitch
+fontfamily
+editmask
+alignment
+textcase
+maskdatatype
+Untitled
+AppIcon!
+另存为
+yyyy.mm.dd
+yyyy.mm.dd 
+dragobject
+transaction
+message
+       
+       
++create
++destroy
++clicked
+       
+       
+_initsrc
+window
+accessibility
+windowtype
+windowstate
+windowobject
+toolbaralignment
+structure
+accessiblestate
+mailrDAT*
+ecipient
+environment
+mailfiledescription
+mailmessage
+datawindowchild
+listviewitem
+treeviewitem
+connectioninfo
+powerobject
+datawindow
+borderstyle
+dwobject
+commandbutton
+fontcharset
+fontpitch
+fontfamily
+editmask
+alignment
+textcase
+maskdatatype
+dw_detail
+dw_main
+dragobject
+transaction
+message
+       
+       
+       
+dw_detail
+dw_main
+control
+       
+       
+dw_detail
+dw_main
+       
+::message
+       
+dw_detail
+settransobject
+dw_main
+       
++create
++destroy
+       
+height
+titlebar
+controlmenu
+minbox
+maxbox
+resizable
+backcolor
+center
+dw_detail
+dw_main
+       
+       
+height
+taborder
+dataobject
+livescroll
+borderstyle
+       
+::message
+       
+dw_main
+saveasDAT*
+       
++clicked
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+facename
+       
+ldt_day
+ll_day
+::message
+       
+00:00:00
+23:59:59
+dw_detail
+retrieve
+dw_main
+insertrow
+object
+__get_attribuDAT*
+te_item
+__set_attribute_item
+堾jzsj
+       
++clicked
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+facename
+       
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+facename
+textcolor
+borderstyle
+maskdatatype
+       
+       
+height
+taborder
+textsize
+weight
+fontcharset
+fontpitch
+facename
+textcolor
+borderstyle
+maskdatatype
+       
+       
+height
+taborder
+dataobject
+livescroll
+borderstyle
+       
+       
+height
+taborder
+dataobject
+hscrollbar
+vscrollbar
+livescroll
+borderstyle
+PDW0900
+536870912
+33554432
+jzsj_t
+[general]
+[general]
+[general]
+[general]
+compute_1
+1073741824
+[GENERAL]
+[GENERAL]
+sum(  swl  for all )
+:adt_begin
+:adt_end
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+Select Count(Distinct( a.brbm)) As swl,to_char(a.jzsj,'yyyy.mm.dd') As jzsj From mz_ghxx a,mz_ghxx b Where a.brbm = b.brbm And a.thbz In ('0','3') And b.thbz In ('0','3')
+And a.jzsj>=
+ And a.jzsj <
+
+And b.jzsj>=
+ And b.jzsj <
+
+And to_char(a.jzsj,'hh24:mi:ss') >='12:00:01' And to_char(a.jzsj,'hh24:mi:ss') <='23:59:59'
+And to_char(b.jzsj,'hh24:mi:ss') >=DAT*
+'12:00:01' And to_char(b.jzsj,'hh24:mi:ss') <='23:59:59'
+And a.jzks <> b.jzks 
+and a.yybz in ('3','4') and b.yybz in ('3','4')
+Group By to_char(a.jzsj,'yyyy.mm.dd')
+PDW0900
+536870912
+33554432
+ysbm_t
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+ [time]
+ [time]
+kssj_xl
+zzsj_DAT*
+[time]
+[time]
+compute_kssj
+1073741824
+[SHORTDATE] [TIME]
+[SHORTDATE] [TIME]
+min(  kssj  for all )
+compute_zzsj
+max(  zzsj  for all DAT*
+:adt_start
+:adt_end
+adt_start
+adt_end
+mz_pbxx.bc
+mz_pbxx.rq
+mz_pbxx.zzlb
+mz_pbxx.ksbm
+z_pbxx.ysbm
+mz_pbxx.xbsj
+mz_pbxx.sbsj
+fz_bcsz.kssj
+fz_bcsz.zzsj
+kssj_xl
+fz_bcsz.kssj_xl
+zzsj_xl
+fz_bcsz.zzsj_xl
+  SELECT MZ_PBXX.BC, 
+			MZ_PBXX.RQ, 
+			MZ_PBXX.zzlb,  
+			MZ_PBXX.KSBM, 
+         MZ_PBXX.YSBM,
+			MZ_PBXX.XBSJ, 
+			MZ_PBXX.SBSJ,DAT*
+ 
+			fz_bcsz.kssj,
+			fz_bcsz.zzsj,  
+			fz_bcsz.kssj_xl,
+			fz_bcsz.zzsj_xl 
+    FROM MZ_PBXX  ,FZ_BCSZ
+   WHERE ( MZ_PBXX.RQ >= 
+ ) AND  
+			( MZ_PBXX.RQ <= 
+ ) AND
+         ( MZ_PBXX.bc in ('01','02') ) AND  
+         ( MZ_PBXX.ZXBZ <> '1' )  And
+ 			mz_pbxx.bc = fz_bcsz.bclb  
+
+PDW0900
+ysbm_t
+536870912
+33554432
+医生编码
+医生编码
+cfsl_t
+1073741824
+zgk_zsm_t
+Zgk Zsm
+Zgk Zsm
+[general]
+[general]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+/*  zsm = '0' */
+mz_cfk.ysbm
+zgk.zsm
+  SELECT   
+         count(distinct mz_cfk.brbm) as cfsl,   
+         mz_cfk.ysbm,
+			zgk.czybm as zsm
+    FRODAT*
+M mz_cfk ,zgk 
+   WHERE ( mz_cfk.fplsh > '' ) AND  
+         ( mz_cfk.kpsj >= 
+ ) AND  
+         ( mz_cfk.kpsj <= 
+ ) AND  
+         ( mz_cfk.fybz <> 'z' )  and
+zgk.zgbm = mz_cfk.ysbm  
+    group by mz_cfk.ysbm,
+zgk.czybm
+
+PDW0900
+mz_ghxx_thbz_t
+536870912
+33554432
+Mz Ghxx
+Thbz
+Mz Ghxx
+Thbz
+mz_ghxx_ghlx_t
+Mz Ghxx
+Ghlx
+Mz Ghxx
+Ghlx
+mz_ghxx_ysbm_t
+Mz Ghxx
+Ysbm
+Mz Ghxx
+Ysbm
+mz_ghxx_yybz_t
+Mz Ghxx
+Yybz
+Mz Ghxx
+Yybz
+1073741824
+[general]
+[general]
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+compute_jzrs
+[General]
+[General]
+ count(  ghlsh  for all ) 
+compute_maxjzsj
+[SHORTDATE] [TIME]
+[SHORTDDAT*
+ATE] [TIME]
+max(  jssj  for all )
+compute_minjzsj
+min(  jzsj  for all )
+compute_gzl
+[GENERAL]
+[GENERAL]
+sum(  gzl  for all )
+:adt_begin
+:adt_end
+:asDAT*
+:as_jzlb
+:as_jzks
+:al_zlxz
+adt_begin
+adt_end
+as_ysbm
+as_jzlb
+as_jzks
+al_zlxz
+mz_ghxx.ghlsh
+mz_jzxDAT*
+x.ysbm
+mz_jzxx.yybz
+mz_ghxx.thbz
+mz_ghxx.ghlx
+mz_jzxx.jzsj
+mz_jzxx.jssj
+mz_ghxx.jsbz
+mz_jzxx.gzl
+mz_jzxx.jzks
+mz_jzxx.jzlb
+SELECT MZ_GHXX.GHLSH ,
+	MZ_JZXX.YSBM,
+	MZ_JZXX.YYBZ,
+	MZ_GHXX.THBZ,
+	MZ_GHXX.GHLX,
+	MZ_JZXX.JZSJ,
+	MZ_JZXX.JSSJ,
+	MZ_GHXX.JSBZ,
+	mz_jzxx.gzl,
+	mz_jzxx.jzks,
+mz_jzxx.jzlb
+FROM MZ_JZXX,MZ_GHXX
+WHERE MZ_GHXX.GHLSH = MZ_JZXX.GHLSH  AND
+	MZ_JZXX.JZSJ >= 
+ AND
+	MZ_JZXX.JZSJ <= 
+ AND
+	MZ_JZXX.YSBM = 
+ AND
+	mz_jzxx.jzlb = 
+ and
+	mz_jzxx.jzks = 
+ and
+	MZ_GHXX.THBZ NOT IN ('s','t','r','i') and
+nvl(mz_jzxx.zlxz,0) =
+ 
+	
+	
+
+PDW0900
+ghlsh_t
+536870912
+33554432
+brbm_t
+1073741824
+[general]
+[general]
+[general]
+[general]
+:adt_begin
+:adt_end
+adt_begin
+adt_end
+mz_ghxx
+mz_ghxx.ghlsh
+mz_ghxx.brbm
+Select ghlsh,brbm
+ From mz_ghxx
+ Where thbz ='3' And ghlx =90 
+And ghrq >= 
+
+and ghrq <= 
+PDW0900
+ghrq_t
+536870912
+33554432
+ysbm_t
+ghrc_t
+1073741824
+[general]
+[general]
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+compute_1
+[GENERAL]
+[GENERAL]
+sum(  ghrc  for all )
+:adt_begin
+:adt_end
+:as_ysbm
+adt_begin
+adt_end
+as_ysbm
+  SELECT coDAT*
+unt(MZ_GHXX.GHLSH) ghrc,    
+         to_char(MZ_GHXX.GHRQ,'yyyy.mm.dd') ghrq,     
+         nvl(MZ_GHXX.YSBM,MZ_GHXX.JZYS) AS YSBM
+    FROM MZ_GHXX
+	where (MZ_GHXX.GHRQ >= 
+ AND
+	MZ_GHXX.GHRQ <= 
+) AND
+	nvl(MZ_GHXX.YSBM,MZ_GHXX.JZYS) = 
+ and
+	MZ_GHXX.THBZ NOT IN ('s','t','r','i') and
+	jsbz ='1'
+group by to_char(MZ_GHXX.GHRQ,'yyyy.mm.dd'),     
+        nvl(MZ_GHXX.YSBM,MZ_GHXX.JZYS)
+	
+PDW0900
+mz_ghxx_thbz_t
+536870912
+33554432
+Mz Ghxx
+Thbz
+Mz Ghxx
+Thbz
+mz_ghxx_ghlx_t
+Mz Ghxx
+Ghlx
+Mz Ghxx
+Ghlx
+mz_ghxx_ysbm_t
+Mz Ghxx
+Ysbm
+Mz Ghxx
+Ysbm
+mz_ghxx_yybz_t
+Mz Ghxx
+Yybz
+Mz Ghxx
+Yybz
+1073741824
+[general]
+[general]
+[general]
+[general]
+[shortdate] [time]
+[shortdate] [time]
+[general]DAT*
+[general]
+compute_jzrs
+[General]
+[General]
+ count(  ghlsh  for all ) 
+compute_maxjzsj
+[SHORTDATE] [TIME]
+[SHORTDATE] [TIME]
+max(  jssj  for all )
+compute_minjzsj
+min(  jzsj  for all )
+compute_gzl
+[GENERAL]
+[GENERAL]
+sum(  gzl  for all )
+:adt_begin
+:adt_end
+:as_ysbm
+:as_jzlb
+:as_jzks
+:al_zlxz
+adt_begin
+adt_end
+as_ysbm
+as_jzlbDAT*
+as_jzks
+al_zlxz
+mz_ghxx.ghlsh
+mz_jzxx.ysbm
+mz_jzxx.yybz
+mz_ghxx.thbz
+mz_ghxx.ghlx
+mz_jzxx.jzsj
+mz_jzxx.jssj
+mz_ghxx.jsbz
+mz_jzxx.gzl
+mz_jzxx.jzks
+mz_jzxx.jzlb
+SELECT MZ_GHXX.GHLSH ,
+	MZ_JZXX.YSBM,
+	MZ_JZXX.YYBZ,
+	MZ_GHXX.THBZ,
+	MZ_GHXX.GHLX,
+	MZ_JZXX.JZSJ,
+	MZ_JZXXDAT*
+.JSSJ,
+	MZ_GHXX.JSBZ,
+	mz_jzxx.gzl,
+	mz_jzxx.jzks,
+mz_jzxx.jzlb,
+		((mz_jzxx.jzsj - mz_jzxx.csny ) / 365) As brnl
+FROM MZ_JZXX,MZ_GHXX
+WHERE MZ_GHXX.GHLSH = MZ_JZXX.GHLSH  AND
+	MZ_JZXX.JZSJ >= 
+ AND
+	MZ_JZXX.JZSJ <= 
+ AND
+	MZ_JZXX.YSBM = 
+ AND
+	mz_jzxx.jzlb = 
+ and
+	mz_jzxx.jzks = 
+ and
+	MZ_GHXX.THBZ NOT IN ('s','t','r','i') and
+nvl(mz_jzxx.zlxz,0) =
+ and
+	mz_jzxx.jzlb In (Select hzbm From MZ_GHJS,cw_yhzc,cw_yhzcmx 
+							Where  mz_ghjs.fylsh = cw_yhzcmx.xmlsh and
+						 cw_yhzcmDAT*
+x.zclsh=cw_yhzc.zclsh and
+						cw_yhzc.zcsm = '儿童')

@@ -1,0 +1,71 @@
+[
+  {
+    "file": "D:\\ynsoft\\gzltj\\rjgzl.pbl",
+    "kind": "pbl",
+    "size": 890368,
+    "objects": 6,
+    "functions": 4,
+    "events": 37,
+    "unparsed": 0,
+    "external": 0,
+    "truncated": 2,
+    "variables_blocks": 3,
+    "prototypes_blocks": 1,
+    "globals": 0,
+    "status": "ok"
+  },
+  {
+    "file": "D:\\ynsoft\\gzltj\\rtx_session.pbl",
+    "kind": "pbl",
+    "size": 103936,
+    "objects": 5,
+    "functions": 24,
+    "events": 8,
+    "unparsed": 1,
+    "external": 14,
+    "truncated": 1,
+    "variables_blocks": 2,
+    "prototypes_blocks": 4,
+    "globals": 0,
+    "status": "ok"
+  },
+  {
+    "file": "D:\\ynsoft\\gzltj\\UFC_Appobj.pbl",
+    "kind": "pbl",
+    "size": 989184,
+    "objects": 24,
+    "functions": 60,
+    "events": 123,
+    "unparsed": 0,
+    "external": 18,
+    "truncated": 14,
+    "variables_blocks": 17,
+    "prototypes_blocks": 18,
+    "globals": 21,
+    "status": "ok"
+  },
+  {
+    "file": "D:\\ynsoft\\gzltj\\pbdwr90.pbd",
+    "kind": "pbd",
+    "size": 152576,
+    "entries": 3,
+    "sql": 7,
+    "status": "ok"
+  },
+  {
+    "file": "D:\\ynsoft\\gzltj\\pbsoapclient90.pbd",
+    "kind": "pbd",
+    "size": 9728,
+    "entries": 2,
+    "sql": 0,
+    "status": "ok"
+  },
+  {
+    "file": "D:\\ynsoft\\gzltj\\rjgzl.pbd",
+    "kind": "pbd",
+    "size": 478208,
+    "entries": 40,
+    "sql": 69,
+    "status": "ok"
+  }
+]

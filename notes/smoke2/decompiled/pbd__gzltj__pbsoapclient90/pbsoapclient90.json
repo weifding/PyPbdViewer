@@ -1,0 +1,20 @@
+{
+  "file": "D:\\ynsoft\\gzltj\\pbsoapclient90.pbd",
+  "size": 9728,
+  "version": "0600",
+  "entries": [
+    {
+      "name": "soapexception",
+      "suffix": ".udo",
+      "kind": "userobject",
+      "offset": 1080
+    },
+    {
+      "name": "soapconnection",
+      "suffix": ".udo",
+      "kind": "userobject",
+      "offset": 1122
+    }
+  ],
+  "sql": []
+}

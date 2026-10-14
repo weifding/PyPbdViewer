@@ -1,0 +1,285 @@
+{
+  "file": "D:\\ynsoft\\20250605mzys01\\bs_nbjk.pbd",
+  "size": 369152,
+  "version": "0600",
+  "entries": [
+    {
+      "name": "f_brxxpb",
+      "suffix": ".fun",
+      "kind": "globalfunction",
+      "offset": 1198
+    },
+    {
+      "name": "d_zy_brgl_nbbr",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1235
+    },
+    {
+      "name": "d_nb_zysjsc",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1316
+    },
+    {
+      "name": "u_nbjk",
+      "suffix": ".udo",
+      "kind": "userobject",
+      "offset": 1356
+    },
+    {
+      "name": "d_nb_zyfymx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1391
+    },
+    {
+      "name": "d_nb_xzxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1431
+    },
+    {
+      "name": "w_nb_dzwj",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 1469
+    },
+    {
+      "name": "d_nb_readcard",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1507
+    },
+    {
+      "name": "w_nb_fykz",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 1549
+    },
+    {
+      "name": "d_nb_jyxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1587
+    },
+    {
+      "name": "d_nb_jsxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1625
+    },
+    {
+      "name": "w_nb_jbxx_cx",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 1663
+    },
+    {
+      "name": "d_nb_jssqb",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1704
+    },
+    {
+      "name": "w_nb_readcard",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 1743
+    },
+    {
+      "name": "d_nb_hzxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1785
+    },
+    {
+      "name": "d_nb_fykz_cx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1823
+    },
+    {
+      "name": "w_nb_zysjsc",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 1864
+    },
+    {
+      "name": "d_nb_dzxx",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1904
+    }
+  ],
+  "sql": [
+    {
+      "offset": 24818,
+      "text": "SELECT  \"ZY_BRRY\".\"ZYH\" ,\r\n           \"ZY_BRRY\".\"ZYHM\" ,\r\n           \"ZY_BRRY\".\"BRXM\" ,\r\n           \"ZY_BRRY\".\"BRXB\" ,\r\n           \"ZY_BRRY\".\"BRXZ\" ,\r\n           \"ZY_BRRY\".\"BRKS\" ,\r\n           \"ZY_BRRY\".\"BRBQ\" ,\r\n           \"ZY_BRRY\".\"BRCH\" ,\r\n           \"ZY_BRRY\".\"GZDWDAT*"
+    },
+    {
+      "offset": 25098,
+      "text": "\" ,\r\n           \"ZY_BRRY\".\"RYRQ\" ,\r\n           \"ZY_BRRY\".\"CYPB\" ,\r\n           \"ZY_BRRY\".\"LSTD\" ,\r\n           \"ZY_BRRY\".\"GFSH\" ,\r\n\t\t\t  \"ZY_BRRY\".\"PID\" ,\r\n           \"ZY_BRRY\".\"KNXX\"     \r\n        FROM \"ZY_BRRY\"      \r\n        WHERE ( ZY_BRRY.CYPB < 8 ) and          ( ZY_BRRY.BRXZ IN (SELECT BRXZ FROM GY_BRXZ WHERE SJXZ=6046) )"
+    },
+    {
+      "offset": 33832,
+      "text": "SELECT ZY_BRRY.ZYH,\r\n         ZY_BRRY.KZHM,      \r\n         ZY_BRRY.ZYHM,\r\n         ZY_BRRY.BRXM,   \r\n         ZY_BRRY.RYRQ,   \r\n         ZY_BRRY.BRCH,\r\n\t\t\t1 AS NBSC\r\n    FROM ZY_BRRY,   \r\n         ZY_FYMX  \r\n   WHERE ( ZY_BRRY.ZYH = ZY_FYMX.ZYH ) AND  \r\n\t\t\t( ZY_FYMX.NBSC = 0 OR ZY_FYMX.NBSC IS NULL) AND\r\n\t\t\t( ZY_BRRY.CYPB <8) AND\r\n         ( ZY_BRRY.BRXZ ="
+    },
+    {
+      "offset": 35667,
+      "text": "select tgdw from gy_tgdw where brxz =0 and yblx =substr ( ' ' , 1 , 6 )"
+    },
+    {
+      "offset": 35886,
+      "text": "select ZYH , jscs from ZY_BRRY WHERE JSDH =0 and knxx =' '"
+    },
+    {
+      "offset": 36072,
+      "text": "Select Count ( *) From ZY_FYMX Where ZYH =0 AND ( JSCS =0 )"
+    },
+    {
+      "offset": 36418,
+      "text": "update zy_brry set jsdh =0 where zyh =0"
+    },
+    {
+      "offset": 36526,
+      "text": "select JSDH , KNXX from ZY_BRRY WHERE ZYH =0"
+    },
+    {
+      "offset": 36694,
+      "text": "select ksmc from gy_ksdm where ksdm =0"
+    },
+    {
+      "offset": 36854,
+      "text": "select YBKDAT*"
+    },
+    {
+      "offset": 37024,
+      "text": "select sum ( ZJJE ) from ZY_FYMX where ZYH =0 and JSCS =0"
+    },
+    {
+      "offset": 37227,
+      "text": "select ZYH from ZY_BRRY WHERE KNXX =' ' AND CYPB <= 1"
+    },
+    {
+      "offset": 37435,
+      "text": "DELETE FROM BQXT.H_NB_ZYFYMXSC WHERE ZYH =0"
+    },
+    {
+      "offset": 37588,
+      "text": "select ypmc from yk_typk where ypxh =0"
+    },
+    {
+      "offset": 37750,
+      "text": "INSERT INTO BQXT.H_NB_ZYFYMXSC ( JLXH , ZYH , SCBZ ) VALUES ( 0 , 0 , 1 )"
+    },
+    {
+      "offset": 37900,
+      "text": "SELECT ZZYS , BRKS , RYRQ FROM ZY_BRRY WHERE ZYH =0"
+    },
+    {
+      "offset": 38080,
+      "text": "SELECT YGXM FROM GY_YGDM WHERE YGDM =' '"
+    },
+    {
+      "offset": 38244,
+      "text": "SELECT KSMC FROM GY_KSDM WHERE KSDM =0"
+    },
+    {
+      "offset": 38414,
+      "text": "SELECT BZDM FROM BQXT.H_NB_BZML WHERE BZDM =' '"
+    },
+    {
+      "offset": 38586,
+      "text": "INSERT INTO BQXT.H_NB_JSJL ( JSDH , ZYH , JSCS , FPHM , JSLX , KZHM , BRXM , JSRQ , CZGH , FPZE , YLZL , BLZF , KBJE , QFBZ , SBJE , ZHZF , GRZF , ZHYE , DNBXLJ , ZFBZ ) Values ( 0 , 0 , 0 , ' ' , 0 , ' ' , ' ' , TO_DATE('27-05-2025 16:41:38','DD-MM-YYYY HH24:MI:SS') , ' ' , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 )"
+    },
+    {
+      "offset": 39052,
+      "text": "update BQXT.H_NB_JSJL set ZFBZ =1 , ZFRQ =TO_DATE('27-05-2025 16:41:38','DD-MM-YYYY HH24:MI:SS') , ZFGH =' ' where ZYH =0 and JSCS =0"
+    },
+    {
+      "offset": 39260,
+      "text": "SELECT YBPB FROM ZY_BRRY , GY_BRXZ WHERE ZY_BRRY.BRXZ =GY_BRXZ.BRXZ AND ZY_BRRY.ZYH =0"
+    },
+    {
+      "offset": 39478,
+      "text": "update H_NB_JSJL set JSRQ =TO_DATE('27-05-2025 16:41:38','DD-MM-YYYY HH24:MI:SS') , FPZE =0 , YLZL =0 , BLZF =0 , KBJE =0 , QFBZ =0 , SBJE =0 , ZHZF =0 , GRZF =0 , ZHYE =0 , DNBXLJ =0 FROM H_NB_JSJL WHERE H_NB_JSJL.JSDH =0"
+    },
+    {
+      "offset": 39806,
+      "text": "INSERT INTO H_NB_JSJL ( JSDH , ZYH , JSCS , FPHM , JSLX , KZHM , BRBM , BRXM , JSRQ , CZGH , FPZE , YLZL , BLZF , KBJE , QFBZ , SBDAT*"
+    },
+    {
+      "offset": 49044,
+      "text": "select BRXZ FROM GY_BRXZ WHERE YBPB = 2"
+    },
+    {
+      "offset": 49502,
+      "text": "SELECT YK_TYPK.YPXH AS YPXH,YK_TYPK.YPMC AS YPMC,NBDZDM AS NBDZDM,YK_TYPK.BFDW AS BFDW FROM YK_TYPK"
+    },
+    {
+      "offset": 49720,
+      "text": "SELECT GY_YLSF.FYXH AS FYXH,FYMC,NBDZDM AS NBDZDM,FYDW FROM GY_YLSF"
+    },
+    {
+      "offset": 112021,
+      "text": "select bm AS BRXZ FROM bmk WHERE lbm ='06' and bm = 'c'"
+    },
+    {
+      "offset": 112443,
+      "text": "Select YK_TYPK.YPXH as ypxh,YK_TYPK.YPMC as Ypmc,H_NB_YPML.YPDM as nbbm,YK_TYPK.BFDW as bfdw,YK_TYPK.TYPE AS YPLX From YK_TYPK ,H_NB_YPML WHERE YK_TYPK.NBDZDM *= H_NB_YPML.YPDM"
+    },
+    {
+      "offset": 112737,
+      "text": "Select CONVERT(NUMERIC(12,0),bh) AS fyxh,mz_yjxm.pm  as Fymc,H_NB_FYML.FYDM as nbbm,mz_yjxm.dw From mz_yjxm,H_NB_FYML WHERE mz_yjxm.NBDZDM *= H_NB_FYML.FYDM"
+    },
+    {
+      "offset": 150742,
+      "text": "SELECT ZY_FYMX.JLXH,   \r\n\t\t\t\tZY_FYMX.ZYH,   \r\n\t\t\t\tZY_FYMX.FYRQ,   \r\n\t\t\t\tZY_FYMX.FYXH,   \r\n\t\t\t\tZY_FYMX.FYMC,   \r\n\t\t\t\tZY_FYMX.YPCD,   \r\n\t\t\t\tZY_FYMX.FYSL,   \r\n\t\t\t\tZY_FYMX.FYDJ,   \r\n\t\t\t\tZY_FYMX.ZJJE,   \r\n\t\t\t\tZY_FYMX.ZFJE,   \r\n\t\t\t\tZY_FYMX.YSGH,   \r\n\t\t\t\tZY_FYMX.SRGH,   \r\n\t\t\t\tZY_FYMX.QRGH,   \r\n\t\t\tDAT*"
+    },
+    {
+      "offset": 151352,
+      "text": ") AND  \r\n            ( ZY_FYMX.JSCS = 0 ) AND \r\n            ( ZY_FYMX.JLXH NOT IN ( SELECT JLXH FROM BQXT.H_NB_ZYFYMXSC\r\n             WHERE ZYH ="
+    },
+    {
+      "offset": 170580,
+      "text": "SELECT BQXT.H_NB_JSJL.JSDH,   \r\n         BQXT.H_NB_JSJL.ZYH,   \r\n         BQXT.H_NB_JSJL.JSCS,   \r\n         BQXT.H_NB_JSJL.FPHM,   \r\n         BQXT.H_NB_JSJL.JSLX,   \r\n         BQXT.H_NB_JSJL.KZHM,   \r\n         BQXT.H_NB_JSJL.BRXM,   \r\n         BQXT.H_NB_JSJL.JSRQ,   \r\n         BQXT.H_NB_JSJL.CZGH,   \r\n         BQXT.H_NB_JSJL.FPZE,   \r\n         BQXT.H_NB_JSJL.YLZL,   \r\n         BQXT.H_NB_JSJL.BLZF,   \r\n         BQXT.H_NB_JSDAT*"
+    },
+    {
+      "offset": 174668,
+      "text": "delete from h_nb_dzxx where dzrq =TO_DATE('27-05-2025 16:41:38','DD-MM-YYYY HH24:MI:SS')"
+    },
+    {
+      "offset": 174820,
+      "text": "insert into h_nb_dzxx ( dzrq , dzjg , jzrs , fpze , sbje , jzrsbd , fpzebd , sbjebd ) values ( TO_DATE('27-05-2025 16:41:38','DD-MM-YYYY HH24:MI:SS') , 0 , 0 , 0 , 0 , 0 , 0 , 0 )"
+    },
+    {
+      "offset": 187081,
+      "text": "update"
+    },
+    {
+      "offset": 243564,
+      "text": "SELECT BQXT.H_NB_JYMX.JYRQ,   \r\n         BQXT.H_NB_JYMX.HZYLHM,   \r\n         BQXT.H_NB_JYMX.XM,   \r\n         BQXT.H_NB_JYMX.JSDH,   \r\n         BQXDAT*"
+    },
+    {
+      "offset": 254338,
+      "text": "SELECT NB_JSJL.JYLSH,   \r\n         NB_JSJL.FPHM,   \r\n         NB_JSJL.JSLX,   \r\n         NB_JSJL.KZHM,   \r\n         NB_JSJL.DAT*"
+    },
+    {
+      "offset": 258189,
+      "text": "delete from bqxt.h_nb_zyfymxsc where zyh =0"
+    },
+    {
+      "offset": 334914,
+      "text": "select  JSRQ, sum(JZRS) AS JZRS, sum(FPZE) AS FPZE,  sum(SBJE) AS SBJE,\r\n\t-1 AS DZJG\r\n  from (\r\nSELECT to_date(to_char(JSRQ,'yyyy-mm-dd'),'yyyy-mm-dd') JSRQ,\r\n\tCOUNT(JSDH) AS JZRS,\r\n\tSUM(FPZE) AS FPZE,\r\n\tSUM(SBJE) AS SBJE \r\nFROM H_NB_JSJL\r\nWHERE JSRQ>="
+    },
+    {
+      "offset": 335179,
+      "text": "GROUP BY to_char(JSRQ,'yyyy-mm-dd')\r\nunion\r\nSELECT to_date(to_char(ZFRQ,'yyyy-mm-dd'),'yyyy-mm-dd') JSRQ,\r\n\t-COUNT(JSDH) AS JZRS,\r\n\t-SUM(FPZE) AS FPZE,\r\n\t-SUM(SBJE) AS SBJE  \r\nFRODAT*"
+    },
+    {
+      "offset": 350484,
+      "text": "SELECT BQ_BRQFXX.ZYH,   \r\n         BQ_BRQFXX.ZYHM,   \r\n         BQ_BRQFXX.BRXZ,   \r\n         BQ_BRQFXX.BRXM,    \r\n         BQ_BRQFXX.BRXB,   \r\n         BQ_BRQFXX.CSNY,\t\r\n\t\t\tBQ_BRQFXX.ZSYS,\r\n         BQ_BRQFXX.BRBQ,\t\r\n\t\t\tBQ_BRQFXX.BRKSDAT*"
+    }
+  ]
+}

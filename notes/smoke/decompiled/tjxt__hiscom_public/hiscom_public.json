@@ -1,0 +1,499 @@
+{
+  "pbl": "D:\\ynsoft\\ljp\\源程序\\tjxt\\hiscom_public.pbl",
+  "size": 92160,
+  "objects": [
+    {
+      "name": "n_hiscomsys",
+      "ancestor": "nonvisualobject",
+      "within": null,
+      "line": 44,
+      "type_text": "global type n_hiscomsys from nonvisualobject\nend type"
+    },
+    {
+      "name": "n_hiscomdcbbase",
+      "ancestor": "nonvisualobject",
+      "within": null,
+      "line": 157,
+      "type_text": "global type n_hiscomdcbbase from nonvisualobject\nevent ue_decode ( string as_data )\nevent ue_afterdecode ( )\nevent ue_beforedecode ( )\nevent ue_decodebinary ( blob ab_data )\nend type"
+    },
+    {
+      "name": "w_hiscommain",
+      "ancestor": "window",
+      "within": null,
+      "line": 865,
+      "type_text": "global type w_hiscommain from window\ninteger width = 302\ninteger height = 272\nboolean titlebar = true\nstring title = \"HIS串口通讯\"\nboolean controlmenu = true\nboolean minbox = true\nboolean maxbox = true\nlong backcolor = 67108864\nstring icon = \"AppIcon!\"\nboolean center = true\nevent ue_process ( readonly string as_data )\nevent ue_port ( )"
+    }
+  ],
+  "members": [
+    {
+      "name": "os_securityattributes",
+      "ancestor": "structure",
+      "within": null,
+      "line": 50,
+      "type_text": "type os_securityattributes from structure\n\tunsignedlong\t\tul_length                          \n\tstring\t\tch_description                   \n\tboolean\t\tb_inherit   \nend type",
+      "member_of": "n_hiscomsys"
+    },
+    {
+      "name": "ole_comm",
+      "ancestor": "olecustomcontrol",
+      "within": "w_hiscommain",
+      "line": 1108,
+      "type_text": "type ole_comm from olecustomcontrol within w_hiscommain\nevent oncomm ( )\ninteger x = 50\ninteger y = 4\ninteger width = 174\ninteger height = 152\ninteger taborder = 10\nborderstyle borderstyle = stylelowered!\nboolean focusrectangle = false\nstring binarykey = \"w_hiscommain.win\"\ninteger textsize = -10\ninteger weight = 400\nfontcharset fontcharset = ansi!\nfontpitch fontpitch = variable!\nfontfamily fontfamily = swiss!\nstring facename = \"Arial\"\nlong textcolor = 33554432\nend type",
+      "member_of": "w_hiscommain"
+    }
+  ],
+  "blocks": [
+    {
+      "kind": "function",
+      "object": "n_hiscomsys",
+      "name": "GetCurrentDirectoryA",
+      "text": "FUNCTION ulong GetCurrentDirectoryA(ulong nBufferLength,ref string lpBuffer) LIBRARY \"kernel32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "FUNCTION ulong GetCurrentDirectoryA(ulong nBufferLength,ref string lpBuffer) LIBRARY \"kernel32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "n_hiscomsys",
+      "name": "SetCurrentDirectory",
+      "text": "FUNCTION ulong SetCurrentDirectory(ref string lpPathName) LIBRARY \"kernel32.dll\" ALIAS FOR \"SetCurrentDirectoryA\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "FUNCTION ulong SetCurrentDirectory(ref string lpPathName) LIBRARY \"kernel32.dll\" ALIAS FOR \"SetCurrentDirectoryA\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "n_hiscomsys",
+      "name": "MoveFileA",
+      "text": "Function boolean MoveFileA (ref string oldfile, ref string newfile) library \"KERNEL32.DLL\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "Function boolean MoveFileA (ref string oldfile, ref string newfile) library \"KERNEL32.DLL\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "n_hiscomsys",
+      "name": "GetModuleFileName",
+      "text": "Function Long GetModuleFileName(Long hModule,ref string lpFileName,Long nSize)  Library \"kernel32\" Alias for \"GetModuleFileNameA\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "Function Long GetModuleFileName(Long hModule,ref string lpFileName,Long nSize)  Library \"kernel32\" Alias for \"GetModuleFileNameA\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "n_hiscomsys",
+      "name": "DeleteFile",
+      "text": "FUNCTION ulong DeleteFile(ref string lpFileName) LIBRARY \"kernel32.dll\" ALIAS FOR \"DeleteFileA\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "FUNCTION ulong DeleteFile(ref string lpFileName) LIBRARY \"kernel32.dll\" ALIAS FOR \"DeleteFileA\"",
+      "access": ""
+    },
+    {
+      "kind": "variables",
+      "object": "n_hiscomsys",
+      "name": "type",
+      "text": "type variables\nstring is_path\nstring is_inifile\nstring is_yiqileixin\n \n//window iw_hiscommain\n//window iw_savedata\nend variables",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "type variables"
+    },
+    {
+      "kind": "prototypes",
+      "object": "n_hiscomsys",
+      "name": "prototypes",
+      "text": "forward prototypes\npublic function string uf_getcurrentdirectory ()\npublic function integer uf_movefile (string as_sourcefile, string as_targetfile)\npublic subroutine uf_setcurrentdirectory (string curdir)\npublic function string uf_getscenum (string as_num)\npublic function long uf_hextodec (string hexnumber)\npublic function string uf_getline (string strtext, long linenumber)\npublic function string uf_getfullfilename (long al_handle)\npublic function string uf_getfullfilepath (string as_fullfilename)\npublic function integer uf_delfile (string path)\npublic subroutine uf_dump (string as_filename, string as_data)\npublic subroutine uf_dump (string as_filename, blob as_data)\npublic function string uf_cutstr (string code, string delim, integer index)\npublic function integer uf_putarray (string data, string delim, ref string unit[])\npublic function integer uf_splitparm_str (string as_parmstring, ref string as_parm[], string as_str)\npublic function integer uf_init (string as_yiqileixin)\nend prototypes",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "forward prototypes"
+    },
+    {
+      "kind": "function",
+      "object": "n_hiscomsys",
+      "name": "uf_getcurrentdirectory",
+      "text": "public function string uf_getcurrentdirectory ();string ls_dir\nulong ll_size\n\nll_size = 200\nls_dir = space(ll_size)\nGetCurrentDirectoryA(ll_size,ls_dir)\nRETURN ls_dir\nend function",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "public function string uf_getcurrentdirectory ()",
+      "access": "public"
+    },
+    {
+      "kind": "function",
+      "object": "n_hiscomsys",
+      "name": "uf_movefile",
+      "text": "public function integer uf_movefile (string as_sourcefile, string as_targetfile);If MoveFileA(as_SourceFile, as_TargetFile) Then\n\tReturn 1\nElse\n\tReturn -1\nEnd If\nend function",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "public function integer uf_movefile (string as_sourcefile, string as_targetfile)",
+      "access": "public"
+    },
+    {
+      "kind": "subroutine",
+      "object": "n_hiscomsys",
+      "name": "uf_setcurrentdirectory",
+      "text": "public subroutine uf_setcurrentdirectory (string curdir);string ls_dir\n\nls_dir = curdir\nSetCurrentDirectory(ls_dir)\n\nRETURN \nend subroutine",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "public subroutine uf_setcurrentdirectory (string curdir)",
+      "access": "public"
+    },
+    {
+      "kind": "function",
+      "object": "n_hiscomsys",
+      "name": "uf_getscenum",
+      "text": "public function string uf_getscenum (string as_num);Int li_pos\nString ls_left,ls_right,ls_ret\n\nli_pos = Pos(as_num,'E')\nIF li_pos < 1 Then Return as_num\n\nls_left = Trim(Left(as_num,li_pos - 1 ) )\n\nls_right =Trim(Mid(as_num,li_pos + 1 ))\nIF Left(ls_right,1) = '-' Then\n\tls_right = Mid(ls_right,2)\n\tls_ret = String(Dn_hiscomdcbbase nonvisualobject accessiblestate accessibility\nmailrecipient\nenvironment\nmailfiledescription\nmailmessage\ndatawindowchild\nlistviewitem\ntreeviewitem\nconnectioninfo\npowerobject\nn_hiscomsys\nw_hiscommain\ngf_hiscomlog\nn_hiscomdcbbase\n+ue_decode\n+ue_afterdecode\n+ue_beforedecode\n+ue_decodebinary\nan_hiscomsys\nuf_waitfreelock\nBCn_hiscomsys.\nnonvisualobject\nn_hiscomdcbbase\naccessiblestate\naccessibility\nmailreci\nforward",
+      "truncated": true,
+      "reason": "next-structure",
+      "external": false,
+      "control": null,
+      "header": "public function string uf_getscenum (string as_num)",
+      "access": "public"
+    },
+    {
+      "kind": "variables",
+      "object": "n_hiscomdcbbase",
+      "name": "type",
+      "text": "type variables\npublic:\n//常用控制符\nCONSTANT STRING NUL = CHAR(0), SOH = CHAR(1), STX = CHAR(2), ETX = CHAR(3), EOT = CHAR(4)\nCONSTANT STRING ENQ = CHAR(5), ACK = CHAR(6), BEL = CHAR(7), BS = CHAR(8), HT = CHAR(9)\nCONSTANT STRING LF = CHAR(10), VT = CHAR(11), FF = CHAR(12), CR = CHAR(13), SO = CHAR(14)\nCONSTANT STRING SI = CHAR(15), SLE = CHAR(16), CS1 = CHAR(17), DC2 = CHAR(18), DC3 = CHAR(19)\nCONSTANT STRING DC4 = CHAR(20), NAK = CHAR(21), SYN = CHAR(22), ETB = CHAR(23), CAN = CHAR(24)\nCONSTANT STRING EM = CHAR(25), SIB = CHAR(26), ESC = CHAR(27), FS = CHAR(28), GS = CHAR(29)\nCONSTANT STRING RS = CHAR(30), US = CHAR(31)\nCONSTANT STRING CRLF = CHAR(13) + CHAR(10)\n\nstring  ui_s_code\nblob\t\tui_b_code\nboolean\tui_b_locked, ui_b_todayonly, ui_b_cutzero\nboolean ib_ACK=false\nstring is_path\n\n\n//通讯参数\nString\tis_commstr,is_port\nInt\tii_handshaking,ii_port,ii_inbuffersize\nInt\tii_inputmode\nboolean ib_usebinary\n\nn_hiscomsys\tin_hiscomsys\nw_hiscommain\tiw_parentwindow\nend variables",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "type variables"
+    },
+    {
+      "kind": "prototypes",
+      "object": "n_hiscomdcbbase",
+      "name": "prototypes",
+      "text": "forward prototypes\npublic function boolean uf_init (n_hiscomsys an_hiscomsys)\npublic subroutine uf_waitfreelock ()\npublic subroutine uf_unlock ()\npublic subroutine uf_lock ()environment\nmailfiledescription\nmailmessage\ndatawindowchild\nlistviewitem\ntreeviewitem\nconnectioninfo\npowerobject\nn_hiscomsys\nw_hiscommain\nec(ls_left) * (1 / 10 ^ Integer(ls_right)))\nElse\n\tls_ret = String(Dec(ls_left) * ( 10 ^ Integer(ls_right)))\nEnd IF\n\nReturn ls_ret\nend function\n\npublic function long uf_hextodec (string hexnumber);//将16进制字符转换成10进制数值\n\nlong ll_i, ll_Len, ll_HexBit, ll_DecNumber\nstring ls_HexBit\n\nHexNumber = Trim(HexNumber)\nll_Len = Len(HexNumber)\nif ll_Len > 0 then\n\tHexNumber = Reverse(HexNumber)\n\tfor ll_i = 1 to ll_Len\n\t\tls_HexBit = Mid(HexNumber, ll_i, 1)\n\t\tif IsNumber(ls_HexBit) then\n\t\t\tll_HexBit = Long(ls_HexBit)\n\t\telseif Match(ls_HexBit, \"[A-F]\") then\n\t\t\tll_HexBit = Asc(ls_HexBit) - 55\n\t\telseif Match(ls_HexBit, \"[a-f]\") then\n\t\t\tll_HexBit = Asc(ls_HexBit) - 87\n\t\telse\n\t\t\treturn -1\n\t\tend if\n\t\tll_DecNumber += (ll_HexBit * 16^(ll_i - 1))\n\tnext\nend if\n\nreturn ll_DecNumber\n\nend function\n\npublic function string uf_getline (string strtext, long linenumber);//返回字符串strtext的第linenumber行\n\nconstant string crlf = char(13) + char(10)\nlong ll_pos1, ll_pos2, ll_count\nstring ls_data\n\nif IsNull(strText) or IsNull(LineNumber) or LineNumber <= 0 then return \"\"\n\nif Right(strText, 2) <> CRLF then\n\tstrText += CRLF\nend if\n\nll_pos1 = 1\nll_pos2 = pos(strText, crlf)\nll_count = 0\n\ndo while ll_pos2 > 0\n\tll_count ++\n\tif ll_count = LineNumber then\n\t\treturn Mid(strText, ll_pos1, ll_pos2 - ll_pos1)\n\tend if\n\tll_pos1 = ll_pos2 + 2\n\tll_pos2 = pos(strText, crlf, ll_pos1)\nloop\n\nreturn \"\"\nend function\n\npublic function string uf_getfullfilename (long al_handle);String ls_filename\nLong ll_count\nls_filename = space(256)\nll_count = GetModuleFileName(al_handle,ls_filename,256)\nIF ll_count > 0 Then \n\tReturn ls_filename\nElse\n\tReturn ''\nEnd IF\nend function\n\npublic function string uf_getfullfilepath (string as_fullfilename);String ls_path\nInt li_i,li_len\n\n\nIf as_fullfilename = '' Then\n\tReturn ''\nEnd IF\n\nli_len = Len(as_fullfilename)\nFor li_i = li_len To 1 Step -1 \n\tIF Mid(as_fullfilename,li_i,1) = '\\' Then\n\t\tls_path = Left(as_fullfiln_hiscomsys nonvisualobject accessiblestate accessibility\nmailrecipient\nenvironment\nmailfiledescription\nmailmessage\ndatawindowchild\nlistviewitem\ntreeviewitem\nectioninfo\npowerobject\ngetcurrentdirectorya\nsetcurrentdirectory\ngetmodulefilename\ndeletefile\ngf_hiscomlog\napplication\nn_hiscomsys\nnbufferlength\ngetcurrentdirectorya\nkernel32.dll\nGetCurrentDirectoryA\nlppathname\nsetcurrentdirectory\nSetCurrentDirectoryA\nKERNEL32.DLL\nlpfilename\ngetmodulefilename\nGetModuleFileNameA\ndeletefile\nDeleteFileA\nuf_getcurrentdireas_sourcefile\nas_targetfile\nuf_movefile\nuf_setcurrentdirectory\nuf_getscenum\nuf_hextodec\nlinenumber\nuf_getline\nuf_getfullfilename\nas_fullfilename\nuf_getfullfilepath\nuf_delfile\nas_filename\nuf_putarray\nas_parmstring\nuf_splitparm_str\nas_yiqileixin\n+constructor\n+destructor\nename,li_i - 1)\n\t\tExit\n\tEnd If\nNext\nReturn ls_path\nend function\n\npublic function integer uf_delfile (string path);return DeleteFile(path)\nend function\n\npublic subroutine uf_dump (string as_filename, string as_data);Long ll_file\nIf IsNull(as_data) Or as_data = '' Then Return\nll_file = FileOpen(as_filename,StreamMode!,Write!,LockWrite!,Append!)\nIf ll_file < 1 Then Return\nFileWrite(ll_file,as_data)\nFileClose(ll_file)\nend subroutine\n\npublic subroutine uf_dump (string as_filename, blob as_data);Long ll_file\nIf len(as_data) < 1 Then Return\nll_file = FileOpen(as_filename,StreamMode!,Write!,LockWrite!,Append!)\nIf ll_file < 1 Then Return\nFileWrite(ll_file,as_data)\nFileClose(ll_file)\nend subroutine\n\npublic function string uf_cutstr (string code, string delim, integer index);long ll_begin, ll_end = 1, ll_count, ll_dlen, ll_oldbegin\nstring ls_ret\n\nif IsNull(code) or code = '' then return ''\nif IsNull(delim) or delim = '' then return ''\nif IsNull(index) or index <= 0 then return ''\n\nll_dlen = Len(delim)\nif left(code, ll_dlen) <> delim then code = delim + code\nif right(code, ll_dlen) <> delim then code += delim\n\ndo until ll_count = index\n\tll_begin = Pos(code, delim, ll_end)\n\tll_end = Pos(code, delim, ll_begin + 1)\n\tif ll_end = 0 then return \"\"\n\tll_oldbegin = ll_begin\n\tll_count ++\nloop\nls_ret = Mid(code, ll_oldbegin + ll_dlen,  ll_end - ll_oldbegin - ll_dlen)\n\nreturn ls_ret\nend function\n\npublic function integer uf_putarray (string data, string delim, ref string unit[]);string ls_unit\nlong ll_count, ll_pos, ll_len\n\nll_len = Len(delim)\nif Right(data, ll_len) <> delim then\n\tdata += delim\nend if\nll_pos = Pos(data, delim)\ndo while ll_pos > 0\n\tyield()\n\tll_count ++\n\tunit[ll_count] = Left(data, ll_pos - 1)\n\tdata = Mid(data, ll_pos + ll_len)\n\tll_pos = Pos(data, delim)\nloop\n\nreturn ll_count\n\n\nend function\n\npublic function integer uf_splitparm_str (string as_parmstring, ref string as_parm[], string as_str);\n//功能：将以','作为分窪AT*\n舴�的string型参数串as_parmstring分解成独立参数并放入变长数组\n//      as_parm[](by ref)中.用于在窗口间传递多个参数\n//====================================================================\n// 函数: uf_splitparm_str()\n//--------------------------------------------------------------------\n// 描述:\n//--------------------------------------------------------------------\n// 参数:\n// \tvalue    \tstring\tas_parmstring\t\n// \treference\tstring\tas_parm[]    \t\n// \tvalue    \tstring\tas_str       \t\n//--------记录错误信息到log文件global type gf_hiscomlog from function_object\nend type\n\nforward prototypes\nglobal subroutine gf_hiscomlog (string as_path, string as_str)\nend prototypes",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "forward prototypes"
+    },
+    {
+      "kind": "subroutine",
+      "object": "n_hiscomdcbbase",
+      "name": "gf_hiscomlog",
+      "text": "global subroutine gf_hiscomlog (string as_path, string as_str);\nString ls_filename\nLong ll_fileno\nls_filename =as_path + '\\log\\'+ String(Today(),'yyyymmdd')+'.log'// as_path + '\\log\\log.txt'\nll_fileno = FileOpen(ls_filename,LineMode!,Write!,LockReadWrite!,Append!)\nIF ll_fileno < 0 Then Return\nFileWrite(ll_fileno,String(DateTime(Today(),Now()),'yyyy.mm.dd hh:mm:ss:fff') + '~t' + as_str)\n\nFileClose(ll_fileno)\n\n\nReturn\n\nend subroutine",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "global subroutine gf_hiscomlog (string as_path, string as_str)",
+      "access": "global"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomdcbbase",
+      "name": "ue_decode",
+      "text": "event ue_decode(string as_data);//解码程序\nEvent ue_beforedecode()\n//\t将收来的字串读到缓冲中\n\nui_s_code = ui_s_code + as_data\n\nif pos(as_data, NAK) > 0 then\n\tgf_hiscomlog(is_path,\"收到 NAK\" )\nelseif pos(as_data, ACK) > 0 then\n\tgf_hiscomlog(is_path,'收到 ACK')\n\tib_ACK=true\nend if\nif as_data=ENQ then\n\tgf_hiscomlog(is_path,'收到 ENQ')\nend if\nEvent Post ue_afterdecode()\n////以下是子类的解码过程\n\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event ue_decode(string as_data);//解码程序"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomdcbbase",
+      "name": "ue_afterdecode",
+      "text": "event ue_afterdecode();//解码结束\nreturn\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event ue_afterdecode();//解码结束"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomdcbbase",
+      "name": "ue_beforedecode",
+      "text": "event ue_beforedecode();//解码开始\nreturn\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event ue_beforedecode();//解码开始"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomdcbbase",
+      "name": "ue_decodebinary",
+      "text": "event ue_decodebinary;//解码程序\nEvent ue_beforedecode()\n//\t将收来的字串读到缓冲中\n\nui_b_code = ui_b_code + ab_data\n\n \nEvent Post ue_afterdecode()\n////以下是子类的解码过程\n\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event ue_decodebinary;//解码程序"
+    },
+    {
+      "kind": "function",
+      "object": "n_hiscomdcbbase",
+      "name": "uf_init",
+      "text": "public function boolean uf_init (n_hiscomsys an_hiscomsys);String ls_baudrate,ls_databit,ls_stopbit,ls_parity\n\nin_hiscomsys=an_hiscomsys\nis_path =in_hiscomsys.is_path \n\nii_port  = ProFileint(in_hiscomsys.is_inifile,'Commuication','Port',1)\nif ProFileString(in_hiscomsys.is_inifile,'Commuication','Port','')='' then\n\tsetProFileString(in_hiscomsys.is_inifile,'Commuication','Port','1')\nend if\nii_inbuffersize = ProFileint(in_hiscomsys.is_inifile,'Commuication','InBufferSize',2048)\nif  ProFileString(in_hiscomsys.is_inifile,'Commuication','InBufferSize','')='' then\n\tsetProFileString(in_hiscomsys.is_inifile,'Commuication','InBufferSize','2048')\nend if\n\nls_baudrate = Trim(ProFileString(in_hiscomsys.is_inifile,'Commuication','BandRate',''))\nIf ls_baudrate = '' Then \n\tls_baudrate = '9600'\n\tsetProFileString(in_hiscomsys.is_inifile,'Commuication','BandRate',ls_baudrate)\nend if\nls_Databit  = Trim(ProFileString(in_hiscomsys.is_inifile,'Commuication','Databit',''))\nIf ls_databit = '' Then \n\tls_databit = '8'\n\tsetProFileString(in_hiscomsys.is_inifile,'Commuication','Databit',ls_databit)\nend if\nls_Stopbit = Trim(ProFileString(in_hiscomsys.is_inifile,'Commuication','Stopbit',''))\nIF ls_stopbit = '' Then \n\tls_stopbit = '1'\n\tsetPtart=li_finger + 1\n\tli_finger=pos(as_parmstring,as_str,li_start)\nloop\nif li_start<=len(as_parmstring) then\n\tli_counter ++\n\tas_parm[li_counter]=mid(as_parmstring,li_start,len(as_parmstring) - li_start +1)\nend if\nreturn li_counter\n \nend function",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "public function boolean uf_init (n_hiscomsys an_hiscomsys)",
+      "access": "public"
+    },
+    {
+      "kind": "function",
+      "object": "n_hiscomdcbbase",
+      "name": "uf_init",
+      "text": "public function integer uf_init (string as_yiqileixin);//====================================================================\n// 函数: n_hiscomsys.uf_init()\n//--------------------------------------------------------------------\n// 描述:\n//--------------------------------------------------------------------\n// 参数:\n// \tvalue\tstring\tas_yiqileixin\t仪器类型\n//--------------------------------------------------------------------\n// 返回:  integer\n//--------------------------------------------------------------------\n// 作者:\tsyc\t\t日期: 2015年07月28日\n//====================================================================\n\nlong ll_file,ll_delday,ll_i\nstring ls_file\nis_inifile = is_path + '\\i' + as_yiqileixin + '.ini'\n\n////创建日志文件目录\nIf Not DirectoryExists(is_path+'\\log') Then\n\tCreateDirectory(is_path+'\\log')\n\nEnd IF\n\nIF Not FileExists(is_inifile) Then\n\tgf_hiscomlog(is_path, \"仪器配置文件不存在 \" + is_inifile)\n\treturn -3\nEnd IF\n\nll_file =  FileOpen(is_path + '\\'+as_yiqileixin+'runonce',StreamMode!,Write!,LockReadWrite!,Replace!)\n\nIF ll_file = -1 Then//已经运行\n\tReturn -2\nEnd IF\n\nll_delday = long(profilestring(is_inifile,\"Special\",\"delday\",\"0\"))\nif ll_delday<=0 then\n\tll_delday=30\n\tsetprofilestringroFileString(in_hiscomsys.is_inifile,'Commuication','Stopbit',ls_stopbit)\nend if\nls_Parity= Trim(ProFileString(in_hiscomsys.is_inifile,'Commuication','Parity',''))\nIF ls_parity = '' Then \n\tls_parity = 'N'\n\tsetProFileString(in_hiscomsys.is_inifile,'Commuication','Parity',ls_parity)\nend if\nis_commstr =  ls_baudrate +',' + ls_parity + ',' + ls_databit +',' +ls_stopbit\n\nii_HandShaking = ProFileInt(in_hiscomsys.is_inifile,'Commuication','HandShaking',0)\nif ProFileString(in_hiscomsys.is_inifile, 'Commuication', 'inputmode', '')='' then\n\tsetProFileString(in_hiscomsys.is_inifile, 'Commuication', 'inputmode', '1')\nend if\nii_inputmode = profileint(in_hiscomsys.is_inifile, 'Commuication', 'inputmode', 1)\n\nib_usebinary = (ProFileString(in_hiscomsys.is_inifile,'Commuication','UseBinary','0') = '1') \nif ProFileString(in_hiscomsys.is_inifile,'Commuication','UseBinary','')='' then\n\tsetProFileString(in_hiscomsys.is_inifile,'Commuication','UseBinary','0')\nend if\n\nReturn true\nend function",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "public function integer uf_init (string as_yiqileixin)",
+      "access": "public"
+    },
+    {
+      "kind": "subroutine",
+      "object": "n_hiscomdcbbase",
+      "name": "uf_waitfreelock",
+      "text": "public subroutine uf_waitfreelock ();Do While ui_b_locked\n\tYield()\nLoop\n\nend subroutine",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "public subroutine uf_waitfreelock ()",
+      "access": "public"
+    },
+    {
+      "kind": "subroutine",
+      "object": "n_hiscomdcbbase",
+      "name": "uf_unlock",
+      "text": "public subroutine uf_unlock ();ui_b_locked = False\nend subroutine",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "public subroutine uf_unlock ()",
+      "access": "public"
+    },
+    {
+      "kind": "subroutine",
+      "object": "n_hiscomdcbbase",
+      "name": "uf_lock",
+      "text": "public subroutine uf_lock ();ui_b_locked = True\nend subroutine",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "public subroutine uf_lock ()",
+      "access": "public"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomdcbbase",
+      "name": "create",
+      "text": "on n_hiscomdcbbase.create\ncall super::create\nTriggerEvent( this, \"constructor\" )\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on n_hiscomdcbbase.create"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomdcbbase",
+      "name": "destroy",
+      "text": "on n_hiscomdcbbase.destroy\nTriggerEvent( this, \"destructor\" )\ncall super::destroy\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on n_hiscomdcbbase.destroy"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomsys",
+      "name": "create",
+      "text": "on n_hiscomsys.create\ncall super::create\nTriggerEvent( this, \"constructor\" )\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on n_hiscomsys.create"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomsys",
+      "name": "destroy",
+      "text": "on n_hiscomsys.destroy\nTriggerEvent( this, \"destructor\" )\ncall super::destroy\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on n_hiscomsys.destroy"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomdcbbase",
+      "name": "constructor",
+      "text": "event constructor;string ls_file\nlong ll_handle\nll_handle=handle(getapplication())\nIF ll_handle>0 THEN\n\tls_file = this.uf_getfullfilename(ll_handle)\n\tis_path = this.uf_getfullfilepath(ls_file)\nELSE\n\tis_path = this.uf_getcurrentdirectory()\nEND IF\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event constructor;string ls_file"
+    },
+    {
+      "kind": "event",
+      "object": "n_hiscomdcbbase",
+      "name": "destructor",
+      "text": "event destructor;//if isvalid(iw_hiscommain) then\n//\tclose(iw_hiscommain)\n//end if\n// \nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event destructor;//if isvalid(iw_hiscommain) then"
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "ue_proui_b_todayonly",
+      "text": "event ue_proui_b_todayonly\nui_b_cutzero\nis_commstr\nii_handshaking\nii_inbuffersize\nii_inputmode\nib_usebinary\nin_hiscomsys\niw_parentwindow\nerrornumber\nerrorwindowmenu\nerrorobject\nerrorscript\nreturnvalue\n串口出错!\n错误号: \n出错信息: \ngf_hiscomlog\nborderstyle\nfocusrectangle\nfontcharset\nfontfamily\nas_parmstring\nli_counter\nas_yiqileixin\nis_inifile\n仪器配置文件不存在 \nis_yiqileixin\nconstructor\ntriggerevent\ndestructor\ntriggerevent\nuf_getfullfilename\nuf_getfullfilepath\nuf_getcurrentdirectory\ngetcurrentdirectorya\nsetcurrentdirectory\ngetmodulefilename\ndeletefile\nuf_getcurrentdirectory\nuf_movefile\nuf_setcurrentdirectory\nuf_getscenum\nuf_hextodec\nuf_getline\nuf_getfullfilename\nuf_getfullfilepath\nuf_delfile\nuf_putarray\nuf_splitparm_str\ngf_hiscomlog\n+constructor\n+destructor\ncessbinary ( readonly blob ab_data )\nole_comm ole_comm\nend type\nglobal w_hiscommain w_hiscommain\n",
+      "truncated": true,
+      "reason": "next-structure",
+      "control": null,
+      "header": "event ue_proui_b_todayonly"
+    },
+    {
+      "kind": "variables",
+      "object": "w_hiscommain",
+      "name": "type",
+      "text": "type variables\nn_hiscomsys in_hiscomsys\nn_hiscomdcbbase in_hiscomdcb\nstring is_path\nend variables",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "type variables"
+    },
+    {
+      "kind": "prototypes",
+      "object": "w_hiscommain",
+      "name": "prototypes",
+      "text": "forward prototypes\npublic subroutine wf_send (string as_str)\nend prototypes",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "forward prototypes"
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "ue_process",
+      "text": "event ue_process(readonly string as_data);string ls_name,ls_temp\n\n \nls_name = string(today(),'yyyymmdd')\nin_hiscomsys.uf_dump(is_path+'\\raw\\'+ls_name+'.txt', as_data)\n\nin_hiscomdcb.Post Event ue_decode(as_data)\n\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event ue_process(readonly string as_data);string ls_name,ls_temp"
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "ue_port",
+      "text": "event ue_port();TRY\n\tIf ole_comm.Object.PortOpen Then\t////if opened\n\t\tole_comm.Object.RtsEnable = False\n\t\tole_comm.Object.PortOpen = False\t\t\t///closed it\n\t\tgf_hiscomlog(is_path,\"关闭端口 \" + string(ole_comm.Object.CommPort))\n\t\n\tElse\n\t\tole_comm.Object.Settings = in_hiscomdcb.is_commstr\n\t\tole_comm.Object.CommPort = in_hiscomdcb.ii_port\n\t\tole_comm.object.InBufferSize = in_hiscomdcb.ii_inbuffersize\n\t\tole_comm.Object.HandShaking = in_hiscomdcb.ii_handshaking\n\t\tole_comm.Object.InputMode = in_hiscomdcb.ii_inputmode\n\t\tole_comm.Object.PortOpen = True\n\t\tole_comm.Object.RtsEnable = True\n\t\tgf_hiscomlog(is_path,\"打开端口COM\" + String(Ole_comm.Object.CommPort) +& \t\t\t\t' 参数：' + Ole_comm.Object.Settings + \" 二进制流解码=\" + string(in_hiscomdcb.ib_usebinary))\n\tEnd If\n\n\t\t\nCATCH (Throwable  opene)\n\tif isvalid(in_hiscomdcb) then\n\t\tgf_hiscomlog('',\"打开端口COM\" +string(in_hiscomdcb.ii_port)+\" 失败：\" + opene.text)\n\telse\n\t\tgf_hiscomlog('',\"打开端口COM失败：\" + opene.text)\n\tend if\n\tif gs_rtxserver='' then gs_rtxserver='rtx.fey.com'\n\tif isvalid(gn_rtx) then\n\t\tgn_rtx.uf_sendmsg(gs_rtxserver,'信息技术科',\t'HIS串口通讯',\"打开通讯窗口失败：~r~n\"+ opene.text) \n\tend if\n\t \nFINALLY\n\t\nEND TRY\n\n\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event ue_port();TRY"
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "ue_processbinary",
+      "text": "event ue_processbinary(readonly blob ab_data);string ls_name,ls_temp\n\n \nls_name = string(today(),'yyyymmdd')\nin_hiscomsys.uf_dump(is_path+'\\raw\\'+ls_name+'.txt', ab_data)\n\nin_hiscomdcb.Post Event ue_decodebinary(ab_data)\n\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event ue_processbinary(readonly blob ab_data);string ls_name,ls_temp"
+    },
+    {
+      "kind": "subroutine",
+      "object": "w_hiscommain",
+      "name": "wf_send",
+      "text": "public subroutine wf_send (string as_str);If IsNull(as_str) or as_str = '' Then Return\n\nIf ole_comm.Object.PortOpen Then\n\tole_comm.Object.OutPut = as_str\nEnd IF\n\nend subroutine",
+      "truncated": false,
+      "reason": "",
+      "external": false,
+      "control": null,
+      "header": "public subroutine wf_send (string as_str)",
+      "access": "public"
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "create",
+      "text": "on w_hiscommain.create\nthis.ole_comm=create ole_comm\nthis.Control[]={this.ole_comm}\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on w_hiscommain.create"
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "destroy",
+      "text": "on w_hiscommain.destroy\ndestroy(this.ole_comm)\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on w_hiscommain.destroy"
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "open",
+      "text": "event open;TRY\n\tstring ls_yiqileixin\n\tthis.visible=false\n\t\n\tin_hiscomsys=create n_hiscomsys\n\tis_path=in_hiscomsys.is_path \n\t\n\tls_yiqileixin=message.stringparm\n\tif isnull(ls_yiqileixin) then ls_yiqileixin=''\n\tif ls_yiqileixin='' then\n\t\tgf_hiscomlog(is_path,'系统参数为空')\n\t\tclose(this)\n\t\treturn \n\tend if\n\t\n\t\n\tif in_hiscomsys.uf_init( ls_yiqileixin)<0 then\n\t \n\t\tgf_hiscomlog(is_path,'初始化失败')\n\t\tclose(this)\n\t\treturn \n\tend if\n\n\t \n\tTRY\n\t\tin_hiscomdcb = create using 'n_'+ ls_yiqileixin\n\t\t \n\tCATCH (Throwable  in_hiscomdcbe)\n\t\tgf_hiscomlog(is_path,'创建解码模块失败，可能对象 ：'+  'n_'+ ls_yiqileixin + \" 不存在，或者函数调用参数不对！\" + in_hiscomdcbe.text)\n\t\tclose(this)\n\t\treturn \n\tFINALLY\r \n\tEND TRY\n\t\n\t\n\t\n\tIF in_hiscomdcb.uf_init(in_hiscomsys) =false Then \n\t\tgf_hiscomlog(is_path,'解码模块初使化出错')\n\t\tclose(this)\n\t\tReturn \n\tEnd IF\n\tin_hiscomdcb.iw_parentwindow=this\n\n\t//判断winsock6.0是否注册\n\tString ls_value\n\tls_value = ''\n\tRegistryGet(\"HKEY_CLASSES_ROOT\\CLSID\\{648A5600-2C6E-101B-82B6-000000000014}\\InprocServer32\",\"\",RegString!, ls_value)\n\tIF IsNull(ls_value) Or ls_value = '' THEN\n\t\t gf_hiscomlog(is_path,\"打开通讯碊AT* 翱谑О埽捍�口通讯控件未注� !\")\n\t\n\tEND IF\t\nCATCH (Throwable  opene)\n\t\n\tgf_hiscomlog('',\"打开通讯窗口失败：\" + opene.text)\n\tif gs_rtxserver='' then gs_rtxserver='rtx.fey.com'\n\tif isvalid(gn_rtx) then\n\t\tgn_rtx.uf_sendmsg(gs_rtxserver,'信息技术科',\t'HIS串口通讯',\"打开通讯窗口失败：~r~n\"+ opene.text) \n\tend if\n\tclose(this)\n\treturn\nFINALLY\n\t\nEND TRY\n\n\ngf_hiscomlog(is_path,'启动系统')\nEvent  ue_port()\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event open;TRY"
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "close",
+      "text": "event close;IF ole_comm.Object.portopen Then \n\tEvent ue_port()\nEnd If\n\nif isvalid(in_hiscomdcb) then\n\tdestroy  in_hiscomdcb\nend if\n\nif isvalid(in_hiscomsys) then\n\tdestroy in_hiscomsys\nend if\ngf_hiscomlog(is_path,\"退出系统\")\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "event close;IF ole_comm.Object.portopen Then "
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "oncomm",
+      "text": "event oncomm();Int li_ev\nString ls_str\nblob lb_str\n\nli_ev = This.Object.CommEvent\n\nChoose Case li_ev\n\tCase 1 ////SND 发送事件 3号线\n\tCase 2 ////RCV 接收事件 2号线\n\t\t\n\t\tlb_str = this.object.input\n\t\tif len(lb_str) > 0 then\n\t\t\tif in_hiscomdcb.ib_usebinary then\n\t\t\t\t//Event ue_processbinary(lb_str)\n\t\t\telse\n\t\t\t\tParent.Event ue_process(string(lb_str))\n\t\t\tend if\n\t\t\t\n\t\t\t\n\t\t\t\n\t\tEnd if\n\t\t\n\t\t\n\t\t//Parent.Event ue_rcvOff()\n\tCase 3 ////CTS clear-to-send 线变化 清除发送 7-8号线\n//\t\tParent.Event  ue_ctschanged()\n\tCase 4 ////DSR data-set-ready 线变化 数据准备好 4-6号线\n\t\t//Parent.Event  ue_dsrchanged()\n\tcase 5 //carrier detect 线变化 载波监测 1号线\n\t\t\n\tcase 6 //振铃检测 9号线\n\t\t\n\tcase 7 //文件结束\n\t\t\n\tcase 1001 //接收到中断信号\n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 接收到中断信号\")\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\n\tcase 1002 //Clear-to-send 超时 \n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 清除发送(Clear-to-send) 超时\")\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\n\tcase 1003 //Data-set ready 超时\n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 数据准备好(Data-set-ready)监测 超时\")\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\n\tcase 1004 //帧错误 \n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 帧错误，可能参数设置错误，如奇偶校验码\")\n\t\t//\nParent.post Event ue_CommEventErr(li_ev)\n\tcase 1006 //端口超速\n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 端口超速\")\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\n\tcase 1007 //Carrier detect 超时 \n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 载波监测(Carrier detect) 超时\")\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\n\tcase 1008 //接收缓冲区溢出 \n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 接收缓冲区溢出\")\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\n\tcase 1009 //Parity 错误 \n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 奇偶(Parity)校验 错误\")\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\n\tcase 1010 //传输缓冲区满 \n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 传输缓冲区满\")\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\n\tcase 1011 //检索端口设备控制块 (DCB) 时的意外错误\n\t\tgf_hiscomlog(is_path,'串口事件:' + String(li_ev) + \" 检索端口设备控制块 (DCB) 时的意外错误\")\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\n\tCase Else\n\t\tgfis_inifile\nis_yiqileixin\n_hiscomlog(is_path,'串口事件:' + String(li_ev))\n\t\t//Parent.post Event ue_CommEventErr(li_ev)\nEnd Choose\n\n\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": "ole_comm",
+      "header": "event oncomm();Int li_ev"
+    },
+    {
+      "kind": "event",
+      "object": "w_hiscommain",
+      "name": "error",
+      "text": "event error;String ls_ErrMsg\n\n\nls_ErrMsg = \"串口出错!~r~n错误号: \" + String(errornumber) + \"出错信息: \" + errortext\ngf_hiscomlog( is_path, ls_ErrMsg)\nreturn\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": "ole_comm",
+      "header": "event error;String ls_ErrMsg"
+    }
+  ]
+}

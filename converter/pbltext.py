@@ -58,7 +58,22 @@ def decode_run(b: bytes) -> str:
         return b.decode("gbk")
     except UnicodeDecodeError:
         pass
-    return b.decode("latin-1", errors="replace")
+    s = b.decode("latin-1", errors="replace")
+    # Post-fix: if the string looks like GBK bytes misread as latin-1
+    # (high Latin-1 chars 0xC0-0xFF mixed with ASCII), re-decode as GBK.
+    if _looks_like_mojibake(s):
+        try:
+            return s.encode("latin-1", errors="ignore").decode("gbk", errors="replace")
+        except (UnicodeDecodeError, UnicodeEncodeError):
+            pass
+    return s
+
+
+def _looks_like_mojibake(s: str) -> bool:
+    """Heuristic: >=3 chars in 0xC0-0xFF range in a short string."""
+    if not s: return False
+    hi = sum(1 for c in s if 0xC0 <= ord(c) <= 0xFF)
+    return hi >= 3 and hi / max(1, len(s)) < 0.5
 
 
 def strip_marker(line: str) -> tuple[str, bool]:

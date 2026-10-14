@@ -1,0 +1,55 @@
+{
+  "file": "D:\\ynsoft\\gzltj\\pbdwr90.pbd",
+  "size": 152576,
+  "version": "0600",
+  "entries": [
+    {
+      "name": "nv_retreival_arg",
+      "suffix": ".udo",
+      "kind": "userobject",
+      "offset": 1080
+    },
+    {
+      "name": "nv_remote_datawindow",
+      "suffix": ".udo",
+      "kind": "userobject",
+      "offset": 1125
+    },
+    {
+      "name": "nv_datastore",
+      "suffix": ".udo",
+      "kind": "userobject",
+      "offset": 1225
+    }
+  ],
+  "sql": [
+    {
+      "offset": 13135,
+      "text": "update"
+    },
+    {
+      "offset": 66869,
+      "text": "Update()"
+    },
+    {
+      "offset": 66949,
+      "text": "update"
+    },
+    {
+      "offset": 66973,
+      "text": "Update() ="
+    },
+    {
+      "offset": 67760,
+      "text": "update"
+    },
+    {
+      "offset": 96095,
+      "text": "Update"
+    },
+    {
+      "offset": 127956,
+      "text": "update"
+    }
+  ]
+}

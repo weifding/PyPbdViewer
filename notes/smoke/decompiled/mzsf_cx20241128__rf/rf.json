@@ -1,0 +1,374 @@
+{
+  "pbl": "D:\\ynsoft\\mzsf_cx20241128\\rf.pbl",
+  "size": 40448,
+  "objects": [
+    {
+      "name": "rf",
+      "ancestor": "application",
+      "within": null,
+      "line": 14,
+      "type_text": "global type rf from application\n end type"
+    },
+    {
+      "name": "w_rf",
+      "ancestor": "window",
+      "within": null,
+      "line": 30,
+      "type_text": "global type w_rf from Window\nint X=1056\nint Y=484\nint Width=2569\nint Height=1516\nboolean TitleBar=true\nstring Title=\"Test_Rf\"\nlong BackColor=80269524\nboolean ControlMenu=true\nboolean MinBox=true\nboolean MaxBox=true\nboolean Resizable=true\ncb_3 cb_3\ncb_2 cb_2\ncb_1 cb_1\nlb_1 lb_1\nend type"
+    }
+  ],
+  "members": [
+    {
+      "name": "cb_3",
+      "ancestor": "commandbutton",
+      "within": "w_rf",
+      "line": 444,
+      "type_text": "type cb_3 from commandbutton within w_rf\nint X=1906\nint Y=704\nint Width=389\nint Height=108\nint TabOrder=30\nstring Text=\"Exit\"\nint TextSize=-12\nint Weight=400\nstring FaceName=\"Arial\"\nFontCharSet FontCharSet=Ansi!\nFontFamily FontFamily=Swiss!\nFontPitch FontPitch=Variable!\nend type",
+      "member_of": "w_rf"
+    },
+    {
+      "name": "cb_2",
+      "ancestor": "commandbutton",
+      "within": "w_rf",
+      "line": 135,
+      "type_text": "type cb_2 from commandbutton within w_rf\nint X=1911\nint Y=396\nint Width=370\nint Height=108\nint TabOrder=20\nstring Text=\"Test\"\nint TextSize=-12\nint Weight=400\nstring FaceName=\"Arial\"\nFontCharSet FontCharSet=Ansi!\nFontFamily FontFamily=Swiss!\nFontPitch FontPitch=Variable!\nend type",
+      "member_of": "w_rf"
+    },
+    {
+      "name": "cb_1",
+      "ancestor": "commandbutton",
+      "within": "w_rf",
+      "line": 213,
+      "type_text": "type cb_1 from commandbutton within w_rf\nint X=1906\nint Y=112\nint Width=384\nint Height=108\nint TabOrder=10\nstring Text=\"Init\"\nint TextSize=-12\nint Weight=400\nstring FaceName=\"Arial\"\nFontCharSet FontCharSet=Ansi!\nFontFamily FontFamily=Swiss!\nFontPitch FontPitch=Variable!\nend type",
+      "member_of": "w_rf"
+    },
+    {
+      "name": "lb_1",
+      "ancestor": "listbox",
+      "within": "w_rf",
+      "line": 242,
+      "type_text": "type lb_1 from listbox within w_rf\nint X=233\nint Y=128\nint Width=1518\nint Height=928\nint TabOrder=20\nBorderStyle BorderStyle=StyleLowered!\nboolean VScrollBar=true\nboolean Sorted=false\nlong TextColor=33554432\nint TextSize=-12\nint Weight=400\nstring FaceName=\"Arial\"\nFontCharSet FontCharSet=Ansi!\nFontFamily FontFamily=Swiss!\nFontPitch FontPitch=Variable!\nend type",
+      "member_of": "w_rf"
+    }
+  ],
+  "blocks": [
+    {
+      "kind": "variables",
+      "object": "<global>",
+      "name": "global",
+      "text": "global variables\nlong icdev = -1\nend variables",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "global variables"
+    },
+    {
+      "kind": "function",
+      "object": "rf",
+      "name": "IC_InitComm_Baud",
+      "text": "function long  IC_InitComm_Baud( int port, long baud ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function long  IC_InitComm_Baud( int port, long baud ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "rf",
+      "name": "IC_ExitComm",
+      "text": "function int   IC_ExitComm( long icdev ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_ExitComm( long icdev ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "rf",
+      "name": "IC_Request",
+      "text": "function int   IC_Request( long icdev , int mode, ref UINT tagtype ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Request( long icdev , int mode, ref UINT tagtype ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "rf",
+      "name": "IC_Anticoll",
+      "text": "function int   IC_Anticoll(  long icdev , int bcnt, ref long snr ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Anticoll(  long icdev , int bcnt, ref long snr ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "rf",
+      "name": "IC_Select",
+      "text": "function int   IC_Select( long  icdev, long snr , ref int  sizee ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Select( long  icdev, long snr , ref int  sizee ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "rf",
+      "name": "IC_Card",
+      "text": "function int   IC_Card( long  icdev, int mode, ref long snr ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Card( long  icdev, int mode, ref long snr ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "rf",
+      "name": "IC_Load_Key",
+      "text": "function int   IC_Load_Key( long  icdev, int mode, int secnr, ref string nkey ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Load_Key( long  icdev, int mode, int secnr, ref string nkey ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "rf",
+      "name": "IC_Load_Keyhex",
+      "text": "function int   IC_Load_Keyhex( long  icdev, int mode,int secnr, ref string nkey ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Load_Keyhex( long  icdev, int mode,int secnr, ref string nkey ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "event",
+      "object": "w_rf",
+      "name": "create",
+      "text": "on w_rf.create\nthis.cb_3=create cb_3\nthis.cb_2=create cb_2\nthis.cb_1=create cb_1\nthis.lb_1=create lb_1\nthis.Control[]={this.cb_3,&\nthis.cb_2,&\nthis.cb_1,&\nthis.lb_1}\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on w_rf.create"
+    },
+    {
+      "kind": "event",
+      "object": "w_rf",
+      "name": "destroy",
+      "text": "on w_rf.destroy\ndestroy(this.cb_3)\ndestroy(this.cb_2)\ndestroy(this.cb_1)\ndestroy(this.lb_1)\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on w_rf.destroy"
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_ReadMifare",
+      "text": "function int   IC_ReadMifare( long  icdev, int adr, ref string sdata ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_ReadMifare( long  icdev, int adr, ref string sdata ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_ReadMifare_Hex",
+      "text": "function int   IC_ReadMifare_Hex( long  icdev, int adr, ref string sdata ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_ReadMifare_Hex( long  icdev, int adr, ref string sdata ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_WriteMifare",
+      "text": "function int   IC_WriteMifare( long  icdev, int adr, ref string sdata) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_WriteMifare( long  icdev, int adr, ref string sdata) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_WriteMifare_Hex",
+      "text": "function int   IC_WriteMifare_Hex( long  icdev, int adr, ref string sdata) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_WriteMifare_Hex( long  icdev, int adr, ref string sdata) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_Init_Value",
+      "text": "function int  IC_Init_Value (long  icdev, int adr) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int  IC_Init_Value (long  icdev, int adr) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_Read_Value",
+      "text": "function int   IC_Read_Value( long  icdev, int adr,  ref long rvalue ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Read_Value( long  icdev, int adr,  ref long rvalue ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_Increment",
+      "text": "function int   IC_Increment( long  icdev, int adr, long rvalue ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Increment( long  icdev, int adr, long rvalue ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_Decrement",
+      "text": "function int   IC_Decrement( long  icdev, int adr, long rvalue ) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Decrement( long  icdev, int adr, long rvalue ) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_Restore",
+      "text": "function int   IC_Restore(long  icdev, int adr) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Restore(long  icdev, int adr) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_Transfer",
+      "text": "function int   IC_Transfer(long  icdev, int adr) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Transfer(long  icdev, int adr) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "function",
+      "object": "w_rf",
+      "name": "IC_Halt",
+      "text": "function int   IC_Halt(long  icdev) library \"dcic32.dll\"",
+      "truncated": false,
+      "reason": "",
+      "external": true,
+      "control": null,
+      "header": "function int   IC_Halt(long  icdev) library \"dcic32.dll\"",
+      "access": ""
+    },
+    {
+      "kind": "event",
+      "object": "rf",
+      "name": "create",
+      "text": "on rf.create\nappname = \"rf\"\nmessage = create message\nsqlca = create transaction\nsqlda = create dynamicdescriptionarea\nsqlsa = create dynamicstagingarea\nerror = create error\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on rf.create"
+    },
+    {
+      "kind": "event",
+      "object": "rf",
+      "name": "destroy",
+      "text": "on rf.destroy\ndestroy( sqlca )\ndestroy( sqlda )\ndestroy( sqlsa )\ndestroy( error )\ndestroy( message )\nend on",
+      "truncated": false,
+      "reason": "",
+      "control": null,
+      "header": "on rf.destroy"
+    },
+    {
+      "kind": "event",
+      "object": "w_rf",
+      "name": "open",
+      "text": "event open;open(w_rf)\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": "cb_3",
+      "header": "event open;open(w_rf)"
+    },
+    {
+      "kind": "event",
+      "object": "w_rf",
+      "name": "clicked",
+      "text": "event clicked;\nIC_ExitComm(icdev)\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": "cb_3",
+      "header": "event clicked;"
+    },
+    {
+      "kind": "event",
+      "object": "w_rf",
+      "name": "clicked",
+      "text": "event clicked;int cardmode = 1\nint address = 1\nint sector = 0\nint count=0\nlong snr\nint size\nUINT tagtype\nstring data32,databuff32\nint st\n\ndata32=space(50)\ndatabuff32=space(50)\nstring hexkey = \"ffffffffffff\"\n\n\nst = ic_card( icdev, cardmode, ref snr)\nIf st <> 0 Then\n      lb_1.AddItem (\"调用 dc_card()函数出错\")\n      //return\nEnd If\nlb_1.AddItem (\"调用 dc_card()函数成功\")\nlb_1.additem (string(snr))\n \n\nst = ic_load_keyhex(icdev, 0, sector,  hexkey)\nIf st <> 0 Then\n      lb_1.AddItem (\"调用 dc_Load_key_hex()函数出错!\")\n      //return\nEnd If\nlb_1.AddItem (\"调用 dc_Load_key_hex()函数成功!\")\n\n \nst = ic_authentication( icdev, 0, sector)\nIf st <> 0 Then\n      lb_1.AddItem (\"调用 dc_authentication()函数出错!\")\n\t\t//return\nEnd If\nlb_1.AddItem( \"调用 dc_authentication()函数成功!\")\n \n\n\naddress=sector*4+2\ndata32 = \"1234567890abcdef1234567890abcdef\"\nst = IC_WriteMifare_Hex( icdev, address,  ref data32)\nIf st <> 0 Then\n      lb_1.AddItem (\"调用 dc_write_hex()函数出错!\")\n      //return\nEnd If\nlb_1.AddItem (\"调用 dc_write_hex()函数成功!\")\n\n\n \n\n\nst = IC_ReadMifare_Hex( icdev, address, ref databuff32)\nIf st <> 0 Then\n     lb_1.AddItem (\"调用 dc_read_hex函数出错\")\n     //return\nEnd If\nlb_1.AddItem( \"调用  h  dc_read_hex函数成功\")\nlb_1.additem(databuff32)\n \nend event",
+      "truncated": false,
+      "reason": "",
+      "control": "cb_2",
+      "header": "event clicked;int cardmode = 1"
+    },
+    {
+      "kind": "event",
+      "object": "w_rf",
+      "name": "clicked",
+      "text": "event clicked;\nint st\nicdev = IC_InitComm_Baud(0,19200)\nIf icdev <= 0 Then\n   lb_1.AddItem (\"Init COM Error!\")\n   return\nEnd If\n\nst = IC_DevBeep(icdev,10)\nif st <>0 then\n\tlb_1.additem(\"beep error\")\n\treturn\nend if\nend event",
+      "truncated": false,
+      "reason": "",
+      "control": "cb_1",
+      "header": "event clicked;"
+    }
+  ]
+}
