@@ -2,8 +2,8 @@
 Convert PyPbdViewer JSON output to TypeScript.
 
 PBD has no recoverable PowerScript source, so we emit:
-- Window / UserObject classes with empty event handlers (stub).
-- Global function exports with TODO stubs.
+- Window / UserObject classes with event handlers.
+- Global function exports with TODO stubs (or VM-transpiled bodies when available).
 - DataWindow as a typed interface.
 - SQL strings recovered from the binary attached as leading comments.
 """
@@ -13,6 +13,30 @@ from pathlib import Path
 
 
 PB_RUNTIME_IMPORT = "import { NonVisualObject, Window, Application, PB } from './pb-runtime';"
+
+
+def _vm_transpile_func(pcode_hex: str, locals_names: list[str], str_pool_hex: str) -> str:
+    """Run pcode_vm on one function and return TS body lines (indented)."""
+    try:
+        from pcode_vm import VM
+        from vm2pb import vm_to_pb
+        from psparser import parse_function_body
+        from tsbuilder import build_function_body
+    except Exception as e:
+        return f"  // VM import error: {e}"
+    try:
+        pcode = bytes.fromhex(pcode_hex) if pcode_hex else b""
+        str_pool = bytes.fromhex(str_pool_hex) if str_pool_hex else b""
+        vm = VM(pcode, variables=locals_names, string_table=str_pool)
+        pseudo = vm.run()
+        pb_text = vm_to_pb(pseudo)
+        ast = parse_function_body(pb_text)
+        ts, fell_back = build_function_body(ast)
+        if fell_back or not ts.strip():
+            return f"  // VM stub: no AST\n  // {pseudo[:200].replace(chr(10), chr(10)+'  // ')}"
+        return ts
+    except Exception as e:
+        return f"  // VM error: {e}"
 
 
 def emit_for_idx(idx: dict, out_dir: Path):
