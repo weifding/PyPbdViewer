@@ -74,8 +74,15 @@ def emit_for_idx(idx: dict, out_dir: Path):
                     PB_RUNTIME_IMPORT,
                     "",
                     f"export class {name} extends Window {{",
-                    "  // Recovered event scripts are not available from compiled PBD.",
-                    "  // Override these handlers in your app to port behavior.",
+                ]
+                # Emit VM-transpiled function bodies if available.
+                for fi, f in enumerate(e.get("objects", [{}])[0].get("funcs", []) if e.get("objects") else []):
+                    ts_body = _vm_transpile_func(f.get("pcode_hex", ""), f.get("locals", []), f.get("str_pool_hex", ""))
+                    body.append(f"  public event_{fi}(): any {{")
+                    for bl in ts_body.splitlines():
+                        body.append("    " + bl)
+                    body.append("  }")
+                body += [
                     "  public open(): void {}",
                     "  public close(): void {}",
                     "  public resize(): void {}",
