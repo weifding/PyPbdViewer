@@ -75,6 +75,71 @@ def read_cstr(buf, off, is_unicode=False):
             return buf[off:end].decode("latin-1", errors="replace")
 
 
+def _read_vars(data, pos, is_unicode):
+    """ReadVariables: skip 6 + struct buffer + u16 count/20 + 20 each. Returns (pos, vars_list)."""
+    pos += 6
+    sb_size = read_u32(data, pos); pos += 4
+    sb_size2 = read_u32(data, pos); pos += 4
+    struct_buf = data[pos:pos+sb_size]; pos += sb_size + sb_size2
+    num = read_u16(data, pos); pos += 2
+    num //= 20
+    out = []
+    for _ in range(num):
+        rec = data[pos:pos+20]; pos += 20
+        name_off = read_u32(rec, 8)
+        val_off = read_u32(rec, 12)
+        type_idx = read_u16(rec, 18)
+        out.append({
+            "name": read_cstr(struct_buf, name_off, is_unicode),
+            "val_off": val_off,
+            "type_idx": type_idx,
+            "struct_buf": struct_buf,
+            "rec": rec,
+        })
+    return pos, out
+
+
+def _read_func(data, pos, is_unicode):
+    """ReadFunction: u16 pc_size, u16 dbg_size, u16 flag, p-code, debug*4, locals vars, struct buffer."""
+    pc_size = read_u16(data, pos); pos += 2
+    dbg_size = read_u16(data, pos); pos += 2
+    pos += 2  # flag
+    pos += pc_size
+    pos += dbg_size * 4
+    pos, _ = _read_vars(data, pos, is_unicode)
+    # struct buffer
+    sb_size = read_u32(data, pos); pos += 4
+    sb_size2 = read_u32(data, pos); pos += 4
+    pos += sb_size + sb_size2
+    return pos
+
+
+def _read_object(data, pos, inh, is_unicode, type_names):
+    """ReadObject per control. Returns (pos, props_list)."""
+    num_funcs = read_u16(data, pos); pos += 2
+    func_idx = []
+    for _ in range(num_funcs):
+        func_idx.append(data[pos:pos+4]); pos += 4
+    for idx in func_idx:
+        pos = _read_func(data, pos, is_unicode)
+
+    # ReadBuffer(6 * buffer[24]), ReadBuffer(4 * buffer[22])
+    pos += 6 * read_u16(inh, 24)
+    pos += 4 * read_u16(inh, 22)
+
+    # ReadReferencedFunctions (skip)
+    pos, _ = _read_vars(data, pos, is_unicode)
+
+    # **Control properties** = ReadVariables(false)
+    pos, props = _read_vars(data, pos, is_unicode)
+
+    pos += 8 * read_u16(inh, 28)
+    pos += 16 * read_u16(inh, 26)
+    num_fndefs = read_u16(inh, 4)
+    pos += 48 * num_fndefs
+    return pos, props
+
+
 def parse_entry(data: bytes, is_unicode: bool = False):
     """Parse a PBD entry, return (version, variables, objects)."""
     pos = 0
@@ -157,9 +222,10 @@ def parse_entry(data: bytes, is_unicode: bool = False):
     for i in range(num_inherit):
         inherit_recs.append(data[pos:pos+32]); pos += 32
 
-    # Per-object ReadObject (best-effort, skip to next object)
+    # Per-object ReadObject
     objects = []
     inh_idx = 0
+    cur_pos = pos
     for i in range(total_obj):
         raw = objraw[i]
         type_idx = read_u16(raw, 2)
@@ -173,17 +239,19 @@ def parse_entry(data: bytes, is_unicode: bool = False):
             continue
         inh_type_idx = read_u16(inh, 0)
         parent_type_idx = read_u16(inh, 2)
-        # type index has 0x8000 high bit; mask to local table index
         def _tn(t):
             return type_names.get(t & 0x7FFF, type_names.get(t, f"t{t}"))
         obj_name = _tn(type_idx)
+        try:
+            cur_pos, props = _read_object(data, cur_pos, inh, is_unicode, type_names)
+        except Exception as e:
+            props = []
         objects.append({
             "name": obj_name,
             "type_idx": type_idx,
             "inh_type": _tn(inh_type_idx),
             "parent_type": _tn(parent_type_idx),
-            "raw": raw,
-            "inh": inh,
+            "props": props,
         })
 
     return {
@@ -192,7 +260,7 @@ def parse_entry(data: bytes, is_unicode: bool = False):
         "total_obj": total_obj, "num_inherit": num_inherit,
         "type_names": type_names,
         "objects": objects,
-        "pos": pos, "data_len": len(data),
+        "pos": cur_pos, "data_len": len(data),
     }
 
 
@@ -210,4 +278,6 @@ if __name__ == "__main__":
         print(f"  [{k}] {v}")
     print(f"\nObjects ({len(r['objects'])}):")
     for o in r['objects']:
-        print(f"  {o['name']:30s} inh={o['inh_type']:20s} parent={o['parent_type']}")
+        print(f"  {o['name']:25s} inh={o['inh_type']:18s} props={len(o['props'])}")
+        for p in o['props'][:25]:
+            print(f"      {p['name']:25s} type=t{p['type_idx']} val_off={p['val_off']}")
