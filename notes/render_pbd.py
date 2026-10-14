@@ -4,9 +4,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "converter"))
 from pbd_entry_structured import parse_entry
 
-# PB dialog units -> pixels: H=2px, V=1.5px
-def h(v): return int(v * 2)
-def v(v): return int(v * 1.5)
+# PB dialog units -> pixels: H=2px, V=1.5px; scaled to fit ~1200px width
+SCALE = 0.45
+def h(v): return int(v * 2 * SCALE)
+def v(v): return int(v * 1.5 * SCALE)
 
 def color_to_css(c):
     # PB long is BGR
@@ -42,7 +43,7 @@ def render(entry_path):
         w, hh = h(p.get("width", 100)), v(p.get("height", 30))
         text = p.get("text", "")
         facename = p.get("facename", "Tahoma")
-        fs = textsize_to_px(p.get("textsize", -900))
+        fs = int(textsize_to_px(p.get("textsize", -900)) * SCALE)
         fw = "bold" if p.get("weight", 400) >= 600 else "normal"
         fg = color_to_css(p.get("textcolor", 0))
         bg = color_to_css(p.get("backcolor", 67108864))
