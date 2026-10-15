@@ -46,7 +46,7 @@ class Builder:
         if isinstance(e, ArrayLit):
             return "[" + ", ".join(self.expr(x) for x in e.elems) + "]"
         if isinstance(e, CreateExpr):
-            return f"new /* {e.type} */ ()"
+            return f"null as any  /* create {e.type} */"
         if isinstance(e, Literal):
             if e.kind == 'str':
                 # PB string already decoded; re-escape for TS.

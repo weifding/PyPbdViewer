@@ -228,10 +228,16 @@ def _try_translate_body(body_lines: list[str]) -> tuple[str, bool]:
         from psparser import parse_function_body, ParseError
         from tsbuilder import build_function_body
         ast = parse_function_body(body_lines)
-        ts = build_function_body(ast)
-        if not ts.strip():
+        result = build_function_body(ast)
+        if isinstance(result, tuple):
+            ts, fell_back = result
+        else:
+            ts, fell_back = result, False
+        if fell_back or not ts.strip():
             return "", True
-        return ts, False
+        # M2 output still has syntax issues (return End, duplicate returns, broken comments).
+        # Disable emission until tsbuilder is hardened; keep TODO stub path.
+        return "", True
     except Exception:
         return "", True
 
