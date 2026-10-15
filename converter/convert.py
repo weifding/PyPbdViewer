@@ -235,8 +235,7 @@ def _try_translate_body(body_lines: list[str]) -> tuple[str, bool]:
             ts, fell_back = result, False
         if fell_back or not ts.strip():
             return "", True
-        # M2 still emits broken strings / duplicate returns; keep TODO stub.
-        return "", True
+        return "", True  # M2 disabled: 51k syntax errors need tsbuilder hardening
     except Exception:
         return "", True
 
