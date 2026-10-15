@@ -235,8 +235,7 @@ def _try_translate_body(body_lines: list[str]) -> tuple[str, bool]:
             ts, fell_back = result, False
         if fell_back or not ts.strip():
             return "", True
-        # Hard gate: unterminated strings / duplicate returns still leak.
-        # Fall back to TODO stub until tsbuilder is fully hardened.
+        # M2 still emits broken strings / duplicate returns; keep TODO stub.
         return "", True
     except Exception:
         return "", True
