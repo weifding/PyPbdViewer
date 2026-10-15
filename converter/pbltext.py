@@ -47,9 +47,35 @@ def extract_runs(data: bytes, min_run: int = 6):
 
 
 def decode_run(b: bytes) -> str:
-    # Mixed corpus: try UTF-8 first (strict), fall back to GBK, then latin-1.
-    # Most modern PBLs in this corpus are UTF-8; legacy GBK PBLs decode as a
-    # fallback.
+    # Byte-level heuristic: count high-byte patterns.
+    # GBK: lead byte 0x81-0xFE, trail byte 0x40-0xFE (excluding 0x7F).
+    # UTF-8: 2-byte (110xxxxx 10xxxxxx), 3-byte (1110xxxx 10xxxxxx 10xxxxxx).
+    gbk_pairs = 0
+    utf8_seq = 0
+    i = 0
+    while i < len(b):
+        c = b[i]
+        if 0x81 <= c <= 0xFE and i + 1 < len(b):
+            nxt = b[i + 1]
+            if 0x40 <= nxt <= 0xFE and nxt != 0x7F:
+                gbk_pairs += 1
+                i += 2
+                continue
+        if 0xC2 <= c <= 0xDF and i + 1 < len(b) and 0x80 <= b[i+1] <= 0xBF:
+            utf8_seq += 1
+            i += 2
+            continue
+        if 0xE0 <= c <= 0xEF and i + 2 < len(b) and 0x80 <= b[i+1] <= 0xBF and 0x80 <= b[i+2] <= 0xBF:
+            utf8_seq += 1
+            i += 3
+            continue
+        i += 1
+    # If GBK pairs dominate, decode as GBK; if UTF-8 sequences dominate, decode as UTF-8.
+    if gbk_pairs > utf8_seq and gbk_pairs >= 2:
+        try:
+            return b.decode("gbk")
+        except UnicodeDecodeError:
+            pass
     try:
         return b.decode("utf-8")
     except UnicodeDecodeError:
@@ -59,8 +85,6 @@ def decode_run(b: bytes) -> str:
     except UnicodeDecodeError:
         pass
     s = b.decode("latin-1", errors="replace")
-    # Post-fix: if the string looks like GBK bytes misread as latin-1
-    # (high Latin-1 chars 0xC0-0xFF mixed with ASCII), re-decode as GBK.
     if _looks_like_mojibake(s):
         try:
             return s.encode("latin-1", errors="ignore").decode("gbk", errors="replace")
