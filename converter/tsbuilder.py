@@ -105,6 +105,10 @@ class Builder:
         if isinstance(s, Return):
             if s.value is None:
                 return ["return;"]
+            # PB `return End` / `return Close` are bare returns in disguise.
+            from psparser import Ident
+            if isinstance(s.value, Ident) and s.value.name in ("End", "end", "Close", "close"):
+                return ["return;"]
             return [f"return {self.expr(s.value)};"]
         if isinstance(s, Exit):
             return ["break;"]
@@ -124,7 +128,7 @@ class Builder:
                 out.append(f"let {n}{v};")
             return out
         if isinstance(s, Create):
-            return [f"{s.name} = new /* {s.type or s.name} */ ();"]
+            return [f"{s.name} = null as any;  /* create {s.type or s.name} */"]
         if isinstance(s, Destroy):
             return [f"{s.name} = null;"]
         if isinstance(s, CallStmt):
