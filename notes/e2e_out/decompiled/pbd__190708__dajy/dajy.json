@@ -1,0 +1,91 @@
+{
+  "file": "D:\\ynsoft\\dajy-menzhen\\bak\\190708\\dajy.pbd",
+  "size": 169984,
+  "version": "0600",
+  "entries": [
+    {
+      "name": "gf_begin_transaction",
+      "suffix": ".fun",
+      "kind": "globalfunction",
+      "offset": 1113
+    },
+    {
+      "name": "gf_commit_transaction",
+      "suffix": ".fun",
+      "kind": "globalfunction",
+      "offset": 1162
+    },
+    {
+      "name": "gf_getpara",
+      "suffix": ".fun",
+      "kind": "globalfunction",
+      "offset": 1212
+    },
+    {
+      "name": "gf_getpara_eas",
+      "suffix": ".fun",
+      "kind": "globalfunction",
+      "offset": 1251
+    },
+    {
+      "name": "gf_applog",
+      "suffix": ".fun",
+      "kind": "globalfunction",
+      "offset": 1294
+    },
+    {
+      "name": "d_import",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1332
+    },
+    {
+      "name": "gf_replacestr",
+      "suffix": ".fun",
+      "kind": "globalfunction",
+      "offset": 1369
+    },
+    {
+      "name": "d_labmain",
+      "suffix": ".dwo",
+      "kind": "datawindow",
+      "offset": 1411
+    },
+    {
+      "name": "gf_splitparm_sms",
+      "suffix": ".fun",
+      "kind": "globalfunction",
+      "offset": 1449
+    },
+    {
+      "name": "gf_midstring",
+      "suffix": ".fun",
+      "kind": "globalfunction",
+      "offset": 1494
+    },
+    {
+      "name": "w_dajydr",
+      "suffix": ".win",
+      "kind": "window",
+      "offset": 1535
+    }
+  ],
+  "sql": [
+    {
+      "offset": 12268,
+      "text": "select CSZ from GY_XDAT*"
+    },
+    {
+      "offset": 12479,
+      "text": "insert into GY_XTCS ( XTSB , CSMC , CSZ , BZ , MRZ ) values ( 0 , ' ' , ' ' , ' ' , ' ' )"
+    },
+    {
+      "offset": 14790,
+      "text": "select CSZ from GY_XTCS where XTSB =0 and CSMC =' '"
+    },
+    {
+      "offset": 14978,
+      "text": "insert into GY_XTCS ( XTSB , CSMC , CSZ , BZ , MRZ ) values ( 0 , ' ' , ' ' , ' ' , ' ' )"
+    }
+  ]
+}

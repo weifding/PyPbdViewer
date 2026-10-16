@@ -173,8 +173,9 @@ def _read_object(data, pos, inh, is_unicode, type_names, var_buf):
     pos += 6 * read_u16(inh, 24)
     pos += 4 * read_u16(inh, 22)
 
-    # ReadReferencedFunctions (skip)
-    pos, _ = _read_vars(data, pos, is_unicode)
+    # ReadReferencedFunctions — this is the call_gf[N] name table.
+    pos, ref_vars = _read_vars(data, pos, is_unicode)
+    ref_names = [v.get("name", "") for v in ref_vars]
 
     # **Control properties** = ReadVariables(false)
     pos, props = _read_vars(data, pos, is_unicode)
@@ -186,7 +187,7 @@ def _read_object(data, pos, inh, is_unicode, type_names, var_buf):
     # resolve values
     for p in props:
         p["value"] = _resolve_val(p, var_buf, is_unicode)
-    return pos, props, funcs
+    return pos, props, funcs, ref_names
 
 
 def parse_entry(data: bytes, is_unicode: bool = False):
@@ -292,9 +293,9 @@ def parse_entry(data: bytes, is_unicode: bool = False):
             return type_names.get(t & 0x7FFF, type_names.get(t, f"t{t}"))
         obj_name = _tn(type_idx)
         try:
-            cur_pos, props, funcs = _read_object(data, cur_pos, inh, is_unicode, type_names, var_buf)
+            cur_pos, props, funcs, ref_names = _read_object(data, cur_pos, inh, is_unicode, type_names, var_buf)
         except Exception as e:
-            props, funcs = [], []
+            props, funcs, ref_names = [], [], []
         objects.append({
             "name": obj_name,
             "type_idx": type_idx,
@@ -302,6 +303,7 @@ def parse_entry(data: bytes, is_unicode: bool = False):
             "parent_type": _tn(parent_type_idx),
             "props": props,
             "funcs": funcs,
+            "ref_names": ref_names,
         })
 
     return {

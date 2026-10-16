@@ -1,0 +1,61 @@
+// gf_splitparm_sms.fun
+// PDB version: 0x00C1, flag: 0x0003, type: 0x4061
+// mtime: 2010-01-25 08:44:20
+// ctime: 2019-06-21 08:54:28
+  Global/shared variables (0):
+// Types:
+  type[0] = function_object (class)
+  type[1] = gf_splitparm_sms 
+  type[2] = structure (class)
+  type[3] = accessiblestate (class)
+  type[4] = accessibility (class)
+  type[5] = mailrecipient (class)
+  type[6] = environment (class)
+  type[7] = mailfiledescription (class)
+  type[8] = mailmessage (class)
+  type[9] = datawindowchild (class)
+  type[10] = listviewitem (class)
+  type[11] = treeviewitem (class)
+  type[12] = connectioninfo (class)
+  type[13] = powerobject (class)
+  Enums (0):
+// Objects: 1
+  Object[0] type=#32769
+  object[0] function-slots: 1
+    fn[0] pcode=406 bytes (strpool=9):
+      if not as_parmstring = "" then goto 0024;
+      return -1;
+      // op 0x0197 @002C operands=00 00
+      li_len = as_char;
+      // op 0x003C @0048 operands=01 00
+      gf[211] = call_gf[3]();
+      // op 0x003C @0070 operands=02 00
+      if not li_finger > 0 then goto 0118;
+      li_start += li_counter;
+      // op 0x003C @008C operands=01 00
+      // op 0x01AF @0090 operands=
+      // op 0x0120 @0092 operands=
+      // op 0x003C @009C operands=01 00
+      // op 0x003C @00A8 operands=01 00
+      // op 0x003C @00AC operands=02 00
+      gf[160] = call_gf[3]();
+      // op 0x003C @00D4 operands=01 00
+      // op 0x003C @00D8 operands=02 00
+      li_start = li_finger + li_len;
+      // op 0x003C @00F6 operands=01 00
+      gf[211] = call_gf[3]();
+      goto 0066;
+      // op 0x0197 @0120 operands=00 00
+      // op 0x003C @0124 operands=02 00
+      if not li_start <= as_parmstring then goto 0186;
+      li_start += li_counter;
+      // op 0x003C @0140 operands=01 00
+      // op 0x01AF @0144 operands=
+      // op 0x0120 @0146 operands=
+      // op 0x003C @0150 operands=01 00
+      // op 0x0197 @0158 operands=00 00
+      // op 0x003C @0160 operands=01 00
+      // op 0x003C @016A operands=01 00
+      gf[160] = call_gf[3]();
+      return li_counter;
+      return;

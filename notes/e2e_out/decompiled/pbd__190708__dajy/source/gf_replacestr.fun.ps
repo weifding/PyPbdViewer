@@ -1,0 +1,40 @@
+// gf_replacestr.fun
+// PDB version: 0x00C1, flag: 0x0003, type: 0x4061
+// mtime: 2016-06-28 14:57:07
+// ctime: 2019-06-21 08:54:28
+  Global/shared variables (0):
+// Types:
+  type[0] = function_object (class)
+  type[1] = gf_replacestr 
+  type[2] = structure (class)
+  type[3] = accessiblestate (class)
+  type[4] = accessibility (class)
+  type[5] = mailrecipient (class)
+  type[6] = environment (class)
+  type[7] = mailfiledescription (class)
+  type[8] = mailmessage (class)
+  type[9] = datawindowchild (class)
+  type[10] = listviewitem (class)
+  type[11] = treeviewitem (class)
+  type[12] = connectioninfo (class)
+  type[13] = powerobject (class)
+  Enums (0):
+// Objects: 1
+  Object[0] type=#32769
+  object[0] function-slots: 1
+    fn[0] pcode=282 bytes (strpool=9):
+      // op 0x0192 @0014 operands=
+      if not as_str = "" or as_str or as_find = as_replace then goto 003A;
+      return as_str;
+      // op 0x0197 @0042 operands=00 00
+      ll_len = as_replace;
+      if not ll_pos + ll_len = 0 then goto 008C;
+      gf[211] = call_gf[3]();
+      goto 00B8;
+      gf[211] = call_gf[3]();
+      if not ll_pos > 0 then goto 00F6;
+      // op 0x0197 @00D8 operands=00 00
+      gf[269] = call_gf[4]();
+      if ll_pos > 0 then goto 004A;
+      return as_str;
+      return;

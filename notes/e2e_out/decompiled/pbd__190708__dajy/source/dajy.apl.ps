@@ -1,0 +1,73 @@
+// dajy.apl
+// PDB version: 0x00C1, flag: 0x0003, type: 0x406C
+// mtime: 2018-08-14 09:51:06
+// ctime: 2019-06-21 08:54:27
+  Global/shared variables (9):
+    [0] sqlca : #0
+    [1] sqlda : #0
+    [2] sqlsa : #0
+    [3] error : #0
+    [4] message : #0
+    [5] gn_rtx : #0
+    [6] gs_rtxserver : #0
+    [7] gs_apppath : #0
+    [8] dajy : #0
+// Types:
+  type[0] = _initsrc 
+  type[1] = application (class)
+  type[2] = dajy 
+  type[3] = structure (class)
+  type[4] = accessiblestate (class)
+  type[5] = accessibility (class)
+  type[6] = mailrecipient (class)
+  type[7] = environment (class)
+  type[8] = mailfiledescription (class)
+  type[9] = mailmessage (class)
+  type[10] = datawindowchild (class)
+  type[11] = listviewitem (class)
+  type[12] = treeviewitem (class)
+  type[13] = connectioninfo (class)
+  type[14] = powerobject (class)
+  type[15] = transaction (class)
+  type[16] = dynamicdescriptionarea (class)
+  type[17] = dynamicstagingarea (class)
+  type[18] = error (class)
+  type[19] = message (class)
+  type[20] = _globsrc 
+  type[21] = n_rtxsdk (class)
+  type[22] = w_dajydr (class)
+  Enums (0):
+// Objects: 3
+  Object[0] type=#32768
+  object[0] function-slots: 3
+    fn[0] pcode=102 bytes (strpool=144):
+      // op 0x011F @0008 operands=02 00
+      inst16 = "dajy";
+      // op 0x016A @001E operands=28 00 00 00
+      this = gbl29;
+      // op 0x016A @002C operands=3c 00 00 00
+       = gbl30;
+      // op 0x016A @003A operands=5c 00 00 00
+       = gbl31;
+      // op 0x016A @0048 operands=78 00 00 00
+       = gbl32;
+      // op 0x016A @0056 operands=88 00 00 00
+       = gbl33;
+      return;
+    fn[1] pcode=36 bytes (strpool=8):
+      destroy gbl30;
+      destroy gbl31;
+      destroy gbl32;
+      destroy gbl33;
+      destroy gbl29;
+      return;
+    fn[2] pcode=58 bytes (strpool=8):
+      gf[73] = call_gf[0]();
+      // op 0x01A6 @0018 operands=23 00
+      // op 0x01B6 @002A operands=01 00
+      call_gf[1]();
+      return;
+  Object[1] type=#32770
+  object[1] function-slots: 0
+  Object[2] type=#32788
+  object[2] function-slots: 0

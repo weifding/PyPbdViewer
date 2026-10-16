@@ -1,0 +1,48 @@
+// gf_getpara_eas.fun
+// PDB version: 0x00C1, flag: 0x0003, type: 0x4061
+// mtime: 2016-06-23 08:17:16
+// ctime: 2019-06-21 08:54:27
+  Global/shared variables (0):
+// Types:
+  type[0] = function_object (class)
+  type[1] = gf_getpara_eas 
+  type[2] = structure (class)
+  type[3] = accessiblestate (class)
+  type[4] = accessibility (class)
+  type[5] = mailrecipient (class)
+  type[6] = environment (class)
+  type[7] = mailfiledescription (class)
+  type[8] = mailmessage (class)
+  type[9] = datawindowchild (class)
+  type[10] = listviewitem (class)
+  type[11] = treeviewitem (class)
+  type[12] = connectioninfo (class)
+  type[13] = powerobject (class)
+  type[14] = transaction (class)
+  Enums (0):
+// Objects: 1
+  Object[0] type=#32769
+  object[0] function-slots: 1
+    fn[0] pcode=282 bytes (strpool=36):
+      // op 0x0195 @0004 operands=
+      if not not atr_transaction then goto 001C;
+      return "";
+      // op 0x01A4 @0024 operands=00 00
+      ls_paraname = ls_csmc;
+      // op 0x01A9 @002C operands=06 00
+      // op 0x000F @003C operands=54 01 00 80 02 00 01 00
+      if not inst12.0 = 100 then goto 00BE;
+      // sql dml @2147484156
+      if not inst20.0 = 0 then goto 00A4;
+      commit;
+      goto 00AA;
+      rollback;
+      ls_valule = ls_default;
+      goto 00EA;
+      if not inst28.0 = -1 then goto 00EA;
+      ls_valule = "";
+      // op 0x0192 @00EE operands=
+      if not ls_valule then goto 0106;
+      ls_valule = "";
+      return ls_valule;
+      return;

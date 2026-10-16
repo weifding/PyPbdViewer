@@ -65,11 +65,43 @@ def process_pbl(p: Path, dec_root: Path, ts_root: Path) -> dict:
     return row
 
 
+def _enrich_pcode(idx: dict, pbd_path: Path) -> None:
+    """Attach parsed pcode funcs to each entry so convert_pbd can VM-transpile.
+
+    pbdview.decompile only yields entry metadata; the actual function p-code
+    lives in the binary entry payload. Walk the real layout and attach
+    per-object funcs (pcode_hex/locals/str_pool_hex) keyed by object name.
+    """
+    try:
+        from pbd_structured import parse_pbd as walk_pbd
+        from pbd_entry_structured import parse_entry
+    except Exception:
+        return
+    by_name = {}
+    for pe in walk_pbd(pbd_path):
+        base = pe.name.rsplit(".", 1)[0]
+        by_name.setdefault(base, []).append(pe)
+    for e in idx.get("entries", []):
+        name = e.get("name")
+        for pe in by_name.get(name, []):
+            try:
+                r = parse_entry(pe.raw)
+            except Exception:
+                continue
+            funcs = []
+            for o in r.get("objects", []):
+                funcs.extend(o.get("funcs", []))
+            if funcs:
+                e["funcs"] = funcs
+
+
 def process_pbd(p: Path, dec_root: Path, ts_root: Path) -> dict:
     row = {"file": str(p), "kind": "pbd", "size": p.stat().st_size}
     sub = f"pbd__{p.parent.name}__{p.stem}"
     try:
         idx = decompile_pbd(p, dec_root / sub)
+        # Attach real p-code funcs so emit_for_idx can VM-transpile bodies.
+        _enrich_pcode(idx, p)
         # Also dump raw per-entry payload (ported from C# PbdViewer PbFile.cs).
         try:
             from pbd_structured import save_entries as _save_structured

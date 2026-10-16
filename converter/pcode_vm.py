@@ -1,8 +1,14 @@
 """
-Python port of PCodeParser90.cs opcode table.
+Python port of PCodeParser90.cs opcode semantics.
 
-Covers the full 256-entry opcode length table + the common opcode switch.
-Uncommon opcodes (SQL variants, casts) fall back to hex-dump comments.
+PDB version 0xC1 (193) uses PCodeParser90. The pcode instruction format is:
+  - opcode: uint16 (2 bytes, little-endian)
+  - operands: LEN[opcode] * 2 bytes
+
+The length table (_len105.py, despite the name, is the PB 9.0 table) gives
+the operand length in 16-bit units; multiply by 2 to get byte count.
+
+Uncommon opcodes fall back to hex-dump comments rather than crashing.
 """
 from __future__ import annotations
 import struct
@@ -16,26 +22,13 @@ except ImportError:
     from _len105 import LEN_105
 
 
+LEN = LEN_105
+
+
 @dataclass
 class StackObject:
     str: str
     opreator: str = ""
-
-
-# Use PB 10.5 length table (matches PDB version 0xC1=193 in our corpus).
-LEN_90 = LEN_105
-
-# Length table overrides: u16-arg opcodes need 2 bytes.
-LEN_90[27] = 2
-LEN_90[28] = 2
-LEN_90[29] = 2
-LEN_90[36] = 2
-LEN_90[44] = 2
-LEN_90[45] = 2
-LEN_90[46] = 2
-LEN_90[1] = 2
-LEN_90[2] = 2
-LEN_90[3] = 2
 
 
 OP_LEVEL = {
@@ -54,10 +47,12 @@ def _level(op: str) -> int:
 class VM:
     def __init__(self, pcode: bytes, variables: list[str] | None = None,
                  entry_variables: list[str] | None = None,
+                 global_variables: list[str] | None = None,
                  string_table: bytes | None = None):
         self.pcode = pcode
         self.variables = variables or []
         self.entry_variables = entry_variables or []
+        self.global_variables = global_variables or []
         self.string_table = string_table or b""
         self.stack: list[StackObject] = []
         self.output: list[str] = []
@@ -67,7 +62,9 @@ class VM:
         self.stack.append(StackObject(s, op))
 
     def pop(self) -> StackObject:
-        return self.stack.pop() if self.stack else StackObject("")
+        if not self.stack:
+            return StackObject("")
+        return self.stack.pop()
 
     def operate(self, op: str):
         b = self.pop(); a = self.pop()
@@ -87,7 +84,6 @@ class VM:
     def read_str(self, off: int) -> str:
         if off >= len(self.string_table):
             return f"/*str@{off}*/"
-        # Non-Unicode PB: null-terminated GBK string.
         end = off
         while end < len(self.string_table) and self.string_table[end] != 0:
             end += 1
@@ -98,27 +94,38 @@ class VM:
             return struct.unpack_from("<H", operands, off)[0]
         return operands[off] if len(operands) > off else 0
 
+    def _u32(self, operands: bytes, off: int = 0) -> int:
+        if len(operands) - off >= 4:
+            return struct.unpack_from("<I", operands, off)[0]
+        return self._u16(operands, off)
+
+    def _i32(self, operands: bytes, off: int = 0) -> int:
+        if len(operands) - off >= 4:
+            return struct.unpack_from("<i", operands, off)[0]
+        return self._u16(operands, off)
+
     def run(self) -> str:
         n = len(self.pcode)
         while self.pos < n:
-            op = self.pcode[self.pos]
+            start = self.pos
+            op = struct.unpack_from("<H", self.pcode, self.pos)[0]
+            self.pos += 2
+            oplen_units = LEN[op] if op < len(LEN) else 0
+            operands = self.pcode[self.pos:self.pos + oplen_units * 2]
+            self.pos += oplen_units * 2
             try:
-                self.handle(op)
+                self.handle(op, operands, start)
             except Exception as e:
-                self.output.append(f"// op 0x{op:02X} @{self.pos}: error {e}")
+                self.output.append(f"// op 0x{op:04X} @{start:04X}: error {e}")
                 break
+        if self.pos != n:
+            self.output.append(f"// WARNING: disassembler stopped at {self.pos:04X}/{n:04X}")
         return "\n".join(self.output)
 
-    def handle(self, op: int):
-        op_len = LEN_90[op] if op < len(LEN_90) else 0
-        start = self.pos
-        self.pos += 1
-        operands = self.pcode[self.pos:self.pos + op_len]
-        self.pos += op_len
-
+    def handle(self, op: int, operands: bytes, start: int):
         # ---- control flow ----
-        if op == 0:  # return
-            flag = self._u16(operands, 0) if len(operands) >= 2 else (operands[0] if operands else 0)
+        if op == 0:
+            flag = self._u16(operands, 0)
             if flag == 1:
                 v = self.pop()
                 self.output.append(f"return {v.str};")
@@ -145,14 +152,18 @@ class VM:
         elif op == 9:
             c = self._u16(operands, 0)
             self.output.append(f"open {c};")
-        elif op == 10 or op == 11 or op == 14 or op == 25 or op == 26:
-            off = struct.unpack_from("<I", operands, 0)[0] if len(operands) >= 4 else 0
-            self.output.append(f"// sql dml @{off}")
+        elif op in (10, 11, 14, 25, 26):
+            off = self._u32(operands, 0)
+            sql_text = self.read_str(off) if off < len(self.string_table) else ""
+            if sql_text and not sql_text.startswith("/*str@"):
+                self.output.append(f'// SQL: "{sql_text}"')
+            else:
+                self.output.append(f"// sql dml @{off}")
         elif op == 12:
             c = self._u16(operands, 0)
             self.output.append(f"execute {c};")
         elif op == 13:
-            c = self._u16(operands, 4) if len(operands) >= 6 else 0
+            c = self._u16(operands, 4)
             self.output.append(f"fetch {c};")
 
         # ---- object lifecycle ----
@@ -163,16 +174,16 @@ class VM:
             f = self._u16(operands, 0)
             self.output.append(f"halt {'close' if f == 0 else ''};")
         elif op == 18:
-            self.output.append(f"super::<fn>();")
+            self.output.append("super::<fn>();")
         elif op == 19:
             v = self.pop()
             self.output.append(f"{v.str};")
         elif op == 42:
-            off = struct.unpack_from("<I", operands, 0)[0] if len(operands) >= 4 else 0
+            off = self._u32(operands, 0)
             self.push(f"create /*type@{off}*/")
 
-        # ---- push ----
-        elif op == 27 or op == 45:
+        # ---- push variable references ----
+        elif op in (27, 45):
             idx = self._u16(operands, 0)
             name = self.variables[idx] if idx < len(self.variables) else f"loc{idx}"
             self.push(name)
@@ -191,39 +202,62 @@ class VM:
             self.push(f"{b.str}.{off}")
         elif op == 44:
             idx = self._u16(operands, 0)
-            self.push(f"gbl{idx}")
+            name = self.global_variables[idx] if idx < len(self.global_variables) else f"gbl{idx}"
+            self.push(name)
         elif op == 46:
             idx = self._u16(operands, 0)
             self.push(f"gsh{idx}")
+        # Begin assignment targets (push LHS variable name onto stack for later EndAssign)
+        elif op in (282, 285):
+            idx = self._u16(operands, 0)
+            name = self.variables[idx] if idx < len(self.variables) else f"loc{idx}"
+            self.push(name)
+        elif op == 283:
+            idx = self._u16(operands, 0)
+            name = self.entry_variables[idx] if idx < len(self.entry_variables) else f"sh{idx}"
+            self.push(name)
+        elif op == 284:
+            idx = self._u16(operands, 0)
+            name = self.global_variables[idx] if idx < len(self.global_variables) else f"gbl{idx}"
+            self.push(name)
+
+        # ---- push constants ----
         elif op == 47:
-            v = struct.unpack_from("<h", operands, 0)[0] if len(operands) >= 2 else (operands[0] if operands else 0)
+            v = struct.unpack_from("<h", operands, 0)[0] if len(operands) >= 2 else 0
             self.push(str(v))
         elif op == 48:
             v = self._u16(operands, 0)
             self.push(str(v))
         elif op == 49:
-            v = struct.unpack_from("<i", operands, 0)[0] if len(operands) >= 4 else 0
+            v = self._i32(operands, 0)
             self.push(str(v))
         elif op == 50:
-            v = struct.unpack_from("<I", operands, 0)[0] if len(operands) >= 4 else 0
+            v = self._u32(operands, 0)
             self.push(str(v))
         elif op == 56:
-            off = struct.unpack_from("<I", operands, 0)[0] if len(operands) >= 4 else 0
+            off = self._u32(operands, 0)
             self.push(f'"{self.read_str(off)}"')
         elif op == 57:
             v = self._u16(operands, 0)
             self.push("true" if v == 1 else "false")
+        elif op == 58:
+            idx = self._u16(operands, 0)
+            self.push(f"enum[{idx}]")
 
-        # ---- arithmetic / comparison ----
+        # ---- logic ----
+        elif op == 33: self.operate("and")
+        elif op == 34: self.operate("or")
+        elif op == 35: self.operate_single("not")
+
+        # ---- arithmetic ----
         elif op in (80,81,82,83,84,85,86,122,123): self.operate("+")
         elif op in (87,88,89,90,91,92,93): self.operate("-")
         elif op in (94,95,96,97,98,99,100): self.operate("*")
         elif op in (101,102,103,104,105,106,107): self.operate("/")
         elif op in (108,109,110,111,112,113,114): self.operate("^")
         elif op in (115,116,117,118,119,120,121): self.operate_single("-")
-        elif op == 33: self.operate("and")
-        elif op == 34: self.operate("or")
-        elif op == 35: self.operate_single("not")
+
+        # ---- compare ----
         elif 163 <= op <= 178: self.operate("=")
         elif 179 <= op <= 194: self.operate("<>")
         elif 195 <= op <= 206: self.operate(">")
@@ -239,9 +273,28 @@ class VM:
         elif 257 <= op <= 263: self.end_assign("+=")
         elif 264 <= op <= 270: self.end_assign("-=")
 
+        # ---- casts (no stack effect on output, just type annotations) ----
+        elif (138 <= op <= 162) or (292 <= op <= 296) or (304 <= op <= 315) or (320 <= op <= 323):
+            # Type cast: the value is already on the stack; we don't annotate.
+            pass
+
+        # ---- global function references ----
+        elif op == 444:
+            fn_idx = self._u16(operands, 0)
+            self.push(f"gf[{fn_idx}]")
+        elif op in (445, 446, 447, 448):
+            fn_idx = self._u16(operands, 2)
+            self.push(f"call_gf[{fn_idx}]()")
+
+        # ---- builtins ----
+        elif op == 440: self.push("lowerbound()")
+        elif op == 441: self.push("upperbound()")
+        elif op == 442: self.end_assign("++")
+        elif op == 443: self.end_assign("--")
+
         # ---- function call ----
         elif op == 41:
-            n = struct.unpack_from("<H", operands, 6)[0] if len(operands) >= 8 else 0
+            n = self._u16(operands, 6) if len(operands) >= 8 else 0
             args = [self.pop().str for _ in range(n)]
             args.reverse()
             fn = self.pop()
@@ -252,7 +305,7 @@ class VM:
             pass
 
         else:
-            self.output.append(f"// op 0x{op:02X} @{start:04X} operands={operands.hex(' ')}")
+            self.output.append(f"// op 0x{op:04X} @{start:04X} operands={operands.hex(' ')}")
 
 
 def decompile_pcode(pcode: bytes, variables: list[str] | None = None) -> str:
