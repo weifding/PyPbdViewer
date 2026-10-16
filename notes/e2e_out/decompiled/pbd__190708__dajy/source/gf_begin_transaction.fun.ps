@@ -24,10 +24,9 @@
   Object[0] type=#32769
   object[0] function-slots: 1
     fn[0] pcode=92 bytes (strpool=32):
-      if not inst8.0 then goto 0028;
-      // op 0x011F @001C operands=02 00
-      inst16 = false;
-      if not inst24.0 <> 0 then goto 004C;
+      if not ao_environment.inst13 then goto 0028;
+      ao_environment.inst13 = false;
+      if not ao_environment.inst8 <> 0 then goto 004C;
       return false;
       return true;
       return;

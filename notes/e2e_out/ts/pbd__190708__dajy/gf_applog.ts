@@ -3,10 +3,10 @@
 import { NonVisualObject, Window, Application, PB } from './pb-runtime';
 
 export function gf_applog(..._args: any[]): any {
-    "yyyymmdd" = ((gf[(311) - 1] + call_gf[(2) - 1]()) + ".log");
+    ls_filename = (((gbl15 + "\\log\\") + sys185_311(sys185_321(), "yyyymmdd")) + ".log");
     ls_errinfo = as_errtext;
-    gf[(58) - 1] = call_gf[(5) - 1]();
-    call_gf[(2) - 1]();
-    call_gf[(1) - 1]();
+    li_filenum = sys185_58(ls_filename, pbEnum[(16405) - 1], pbEnum[(16403) - 1], pbEnum[(16404) - 1], pbEnum[(16478) - 1]);
+    sys185_65(li_filenum, (((("// " + sys185_311(sys185_321(), "yyyy.mm.dd")) + " ") + sys185_311(sys185_165(), "hh:mm:ss")) + ls_errinfo));
+    sys185_47(li_filenum);
     return;
 }

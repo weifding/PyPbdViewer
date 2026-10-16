@@ -24,19 +24,12 @@
   Object[0] type=#32769
   object[0] function-slots: 1
     fn[0] pcode=194 bytes (strpool=9):
-      // op 0x01A4 @0008 operands=00 00
-      ls_paraname = ls_csmc;
-      // op 0x01A9 @0010 operands=05 00
+      ls_paraname = upper(ls_csmc);
       // op 0x000F @0020 operands=58 01 00 80 02 00 01 00
-      // op 0x0192 @002E operands=
-      if not ls_valule or ls_valule = "" then goto 00AE;
-      // op 0x01A6 @0046 operands=10 00
-      // op 0x01B6 @0058 operands=01 00
-      call_gf[1]();
+      if not isnull(ls_valule) or ls_valule = "" then goto 00AE;
+      gf_?1(gbl16);
       // sql dml @2147484180
-      // op 0x01A6 @0082 operands=10 00
-      // op 0x01B6 @0094 operands=01 00
-      call_gf[1]();
+      gf_?2(gbl16);
       ls_valule = ls_default;
       return ls_valule;
       return;

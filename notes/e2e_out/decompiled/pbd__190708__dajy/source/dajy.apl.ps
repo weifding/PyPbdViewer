@@ -41,31 +41,23 @@
   Object[0] type=#32768
   object[0] function-slots: 3
     fn[0] pcode=102 bytes (strpool=144):
-      // op 0x011F @0008 operands=02 00
-      inst16 = "dajy";
-      // op 0x016A @001E operands=28 00 00 00
-      this = gbl29;
-      // op 0x016A @002C operands=3c 00 00 00
-       = gbl30;
-      // op 0x016A @003A operands=5c 00 00 00
-       = gbl31;
-      // op 0x016A @0048 operands=78 00 00 00
-       = gbl32;
-      // op 0x016A @0056 operands=88 00 00 00
-       = gbl33;
+      this.appname = "dajy";
+      gbl29 = create pstr@40;
+      gbl30 = create 0;
+      gbl31 = create D;
+      gbl32 = create d;
+      gbl33 = create pstr@136;
       return;
     fn[1] pcode=36 bytes (strpool=8):
-      destroy gbl30;
-      destroy gbl31;
-      destroy gbl32;
-      destroy gbl33;
-      destroy gbl29;
+      destroy(gbl30);
+      destroy(gbl31);
+      destroy(gbl32);
+      destroy(gbl33);
+      destroy(gbl29);
       return;
     fn[2] pcode=58 bytes (strpool=8):
-      gf[73] = call_gf[0]();
-      // op 0x01A6 @0018 operands=23 00
-      // op 0x01B6 @002A operands=01 00
-      call_gf[1]();
+      sh7 = sys185_73();
+      sys185_166(gbl35);
       return;
   Object[1] type=#32770
   object[1] function-slots: 0

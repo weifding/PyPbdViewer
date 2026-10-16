@@ -89,10 +89,14 @@ def _enrich_pcode(idx: dict, pbd_path: Path) -> None:
             except Exception:
                 continue
             funcs = []
+            refs = []
             for o in r.get("objects", []):
                 funcs.extend(o.get("funcs", []))
+                refs.extend(o.get("ref_names", []))
             if funcs:
                 e["funcs"] = funcs
+            if refs:
+                e["ref_names"] = refs
 
 
 def process_pbd(p: Path, dec_root: Path, ts_root: Path) -> dict:

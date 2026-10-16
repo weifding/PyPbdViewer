@@ -3,14 +3,18 @@
 import { NonVisualObject, Window, Application, PB } from './pb-runtime';
 
 export function gf_begin_transaction(..._args: any[]): any {
-    // TODO: unparsed: .0 then goto L0028 ;
-    inst16 = false;
-    // TODO: unparsed: .0 <> 0 then goto L004C ;
-    return false;
-    return true;
-    return;
-    // TODO: unparsed: ;
-    // TODO: unparsed: ;
-    // TODO: unparsed: ;
-    // TODO: unparsed: ;
+    if (!ao_environment.inst13) {
+        // GOTO L0028 not translated
+        ao_environment.inst13 = false;
+        if (PB.ne(!ao_environment.inst8, 0)) {
+              // GOTO L004C not translated
+              return false;
+              return true;
+              return;
+              // TODO: unparsed: ;
+              // TODO: unparsed: ;
+              // TODO: unparsed: ;
+              // TODO: unparsed: ;
+        }
+    }
 }

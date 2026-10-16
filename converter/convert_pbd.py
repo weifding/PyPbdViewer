@@ -15,7 +15,9 @@ from pathlib import Path
 PB_RUNTIME_IMPORT = "import { NonVisualObject, Window, Application, PB } from './pb-runtime';"
 
 
-def _vm_transpile_func(pcode_hex: str, locals_names: list[str], str_pool_hex: str) -> str:
+def _vm_transpile_func(pcode_hex: str, locals_names: list[str], str_pool_hex: str,
+                       ref_names: list[str] | None = None,
+                       global_variables: list[str] | None = None) -> str:
     """Run pcode_vm on one function and return TS body lines (indented)."""
     try:
         from pcode_vm import VM
@@ -27,10 +29,10 @@ def _vm_transpile_func(pcode_hex: str, locals_names: list[str], str_pool_hex: st
     try:
         pcode = bytes.fromhex(pcode_hex) if pcode_hex else b""
         str_pool = bytes.fromhex(str_pool_hex) if str_pool_hex else b""
-        vm = VM(pcode, variables=locals_names, string_table=str_pool)
-        pseudo = vm.run()
-        pb_text = vm_to_pb(pseudo)
-        ast = parse_function_body(pb_text)
+        vm = VM(pcode, variables=locals_names, string_table=str_pool,
+                ref_names=ref_names or [], global_variables=global_variables or [])
+        pseudo = vm_to_pb(vm.run_lines())
+        ast = parse_function_body(pseudo)
         ts, fell_back = build_function_body(ast)
         if fell_back or not ts.strip():
             return f"  // VM stub: no AST\n  // {pseudo[:200].replace(chr(10), chr(10)+'  // ')}"
@@ -88,9 +90,14 @@ def emit_for_idx(idx: dict, out_dir: Path):
                     "",
                     f"export class {name} extends Window {{",
                 ]
-                # Window event handlers are NOT VM-transpiled yet: VM emits
-                # `super = x` (TS1034 syntax error) that @ts-nocheck can't
-                # suppress. Keep stubs until VM semantics are fixed.
+                # Emit VM-transpiled event handlers.
+                for fi, f in enumerate(_entry_funcs(e)):
+                    ts_body = _vm_transpile_func(f.get("pcode_hex", ""), f.get("locals", []), f.get("str_pool_hex", ""),
+                                                 ref_names=e.get("ref_names"))
+                    body.append(f"  public event_{fi}(): any {{")
+                    for bl in ts_body.splitlines():
+                        body.append("    " + bl)
+                    body.append("  }")
                 body += [
                     "  public open(): void {}",
                     "  public close(): void {}",
@@ -116,7 +123,8 @@ def emit_for_idx(idx: dict, out_dir: Path):
                 funcs = _entry_funcs(e)
                 if funcs:
                     for f in funcs:
-                        ts_body = _vm_transpile_func(f.get("pcode_hex", ""), f.get("locals", []), f.get("str_pool_hex", ""))
+                        ts_body = _vm_transpile_func(f.get("pcode_hex", ""), f.get("locals", []), f.get("str_pool_hex", ""),
+                                                     ref_names=e.get("ref_names"))
                         for bl in ts_body.splitlines():
                             body.append("  " + bl)
                 else:

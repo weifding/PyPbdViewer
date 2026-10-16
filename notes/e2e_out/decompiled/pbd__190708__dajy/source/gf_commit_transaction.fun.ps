@@ -25,11 +25,10 @@
   object[0] function-slots: 1
     fn[0] pcode=116 bytes (strpool=32):
       commit;
-      if not inst8.0 <> 0 then goto 002A;
+      if not ao_environment.inst8 <> 0 then goto 002A;
       return false;
-      // op 0x011F @0034 operands=02 00
-      inst16 = true;
-      if not inst24.0 <> 0 then goto 0064;
+      ao_environment.inst13 = true;
+      if not ao_environment.inst8 <> 0 then goto 0064;
       return false;
       return true;
       return;

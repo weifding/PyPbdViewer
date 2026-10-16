@@ -3,11 +3,11 @@
 import { NonVisualObject, Window, Application, PB } from './pb-runtime';
 
 export function gf_getpara(..._args: any[]): any {
-    ls_paraname = ls_csmc;
-    if (PB.eq((!ls_valule || ls_valule), "")) {
+    ls_paraname = upper(ls_csmc);
+    if (PB.eq((!isnull(ls_valule) || ls_valule), "")) {
         // GOTO L00AE not translated
-        call_gf[(1) - 1]();
-        call_gf[(1) - 1]();
+        gf_begin_transaction(gbl16);
+        gf_commit_transaction(gbl16);
         ls_valule = ls_default;
         return ls_valule;
         return;

@@ -24,25 +24,21 @@
   Object[0] type=#32769
   object[0] function-slots: 1
     fn[0] pcode=282 bytes (strpool=36):
-      // op 0x0195 @0004 operands=
-      if not not atr_transaction then goto 001C;
+      if not not isvalid(atr_transaction) then goto 001C;
       return "";
-      // op 0x01A4 @0024 operands=00 00
-      ls_paraname = ls_csmc;
-      // op 0x01A9 @002C operands=06 00
+      ls_paraname = upper(ls_csmc);
       // op 0x000F @003C operands=54 01 00 80 02 00 01 00
-      if not inst12.0 = 100 then goto 00BE;
+      if not atr_transaction.inst8 = 100 then goto 00BE;
       // sql dml @2147484156
-      if not inst20.0 = 0 then goto 00A4;
+      if not atr_transaction.inst8 = 0 then goto 00A4;
       commit;
       goto 00AA;
       rollback;
       ls_valule = ls_default;
       goto 00EA;
-      if not inst28.0 = -1 then goto 00EA;
+      if not atr_transaction.inst8 = -1 then goto 00EA;
       ls_valule = "";
-      // op 0x0192 @00EE operands=
-      if not ls_valule then goto 0106;
+      if not isnull(ls_valule) then goto 0106;
       ls_valule = "";
       return ls_valule;
       return;

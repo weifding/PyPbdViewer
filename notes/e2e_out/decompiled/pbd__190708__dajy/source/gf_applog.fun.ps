@@ -23,10 +23,10 @@
   Object[0] type=#32769
   object[0] function-slots: 1
     fn[0] pcode=334 bytes (strpool=54):
-      "yyyymmdd" = gf[311] + call_gf[2]() + ".log";
+      ls_filename = gbl15 + "\log\" + sys185_311(sys185_321(), "yyyymmdd") + ".log";
       ls_errinfo = as_errtext;
-      gf[58] = call_gf[5]();
-      call_gf[2]();
-      call_gf[1]();
+      li_filenum = sys185_58(ls_filename, pbEnum[16405], pbEnum[16403], pbEnum[16404], pbEnum[16478]);
+      sys185_65(li_filenum, "// " + sys185_311(sys185_321(), "yyyy.mm.dd") + " " + sys185_311(sys185_165(), "hh:mm:ss") + ls_errinfo);
+      sys185_47(li_filenum);
       return;
       return;
