@@ -154,7 +154,8 @@ def run_tsc(ts_root: Path) -> tuple[int, str]:
         subprocess.run("npm install --no-audit --no-fund typescript@4.9",
                        cwd=str(ts_root), check=True, shell=True)
     r = subprocess.run("npx tsc --noEmit", cwd=str(ts_root),
-                       capture_output=True, text=True, shell=True)
+                       capture_output=True, text=True, shell=True,
+                       env={**os.environ, "NODE_OPTIONS": "--max-old-space-size=12288"})
     return r.returncode, r.stdout + r.stderr
 
 

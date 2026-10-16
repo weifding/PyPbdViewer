@@ -132,9 +132,19 @@ class VM:
         return s
 
     def _safe_name(self, raw: str, fallback: int) -> str:
-        """Return a valid identifier from a raw name, or a placeholder."""
+        """Return a valid, non-keyword identifier from a raw name, or a placeholder.
+
+        `new` (PB constructor) and other TS keywords must not leak through or
+        `x = new();` would be a TS1025 syntax error that @ts-nocheck can't hide.
+        """
         import re as _re
-        if raw and _re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', raw):
+        _kw = {"new", "class", "function", "return", "if", "else", "for", "while",
+               "do", "switch", "case", "default", "break", "continue", "try",
+               "catch", "finally", "throw", "this", "super", "typeof", "instanceof",
+               "delete", "in", "of", "var", "let", "const", "import", "export",
+               "extends", "interface", "enum", "null", "true", "false", "void",
+               "yield", "await", "async", "static", "get", "set", "as"}
+        if raw and _re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', raw) and raw not in _kw:
             return raw
         return f"m{fallback:04X}"
 
@@ -445,7 +455,7 @@ class VM:
             fn_idx = self._u16(operands, 0)
             obj_idx = self._u16(operands, 2)
             if obj_idx & 0x8000:
-                name = self.ref_names[fn_idx] if fn_idx < len(self.ref_names) else f"gf_?{fn_idx}"
+                name = self._safe_name(self.ref_names[fn_idx], fn_idx) if fn_idx < len(self.ref_names) else f"gf_{fn_idx}"
             elif obj_idx & 0x4000:
                 name = f"sys{obj_idx & 0x3FFF}_{fn_idx}"
             else:
