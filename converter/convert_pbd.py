@@ -90,11 +90,21 @@ def emit_for_idx(idx: dict, out_dir: Path):
                     "",
                     f"export class {name} extends Window {{",
                 ]
-                # Emit VM-transpiled event handlers.
+                # Emit VM-transpiled event handlers, named by real event name.
+                _ts_kw = {"new","class","function","return","if","else","for","while",
+                          "do","switch","case","default","break","continue","try","catch",
+                          "finally","throw","this","super","typeof","instanceof","delete",
+                          "in","of","var","let","const","import","export","extends",
+                          "interface","enum","null","true","false","void","yield","await",
+                          "async","static","get","set","as"}
                 for fi, f in enumerate(_entry_funcs(e)):
+                    evt = (f.get("name") or "").strip()
+                    if (not evt or evt in _ts_kw or not evt.replace("_", "").isalnum()
+                            or evt[0].isdigit()):
+                        evt = f"event_{fi}"
                     ts_body = _vm_transpile_func(f.get("pcode_hex", ""), f.get("locals", []), f.get("str_pool_hex", ""),
                                                  ref_names=e.get("ref_names"))
-                    body.append(f"  public event_{fi}(): any {{")
+                    body.append(f"  public {evt}(): any {{")
                     for bl in ts_body.splitlines():
                         body.append("    " + bl)
                     body.append("  }")

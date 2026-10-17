@@ -158,8 +158,10 @@ def _read_func(data, pos, is_unicode):
     return pos, func
 
 
-def _read_object(data, pos, inh, is_unicode, type_names, var_buf):
-    """ReadObject per control. Returns (pos, props_list)."""
+def _read_object(data, pos, inh, is_unicode, type_names, var_buf, func_buf):
+    """ReadObject per control. Returns (pos, props_list, funcs, ref_names).
+    funcs entries gain a `name` (event/function name) from FunctionDefinitions.
+    """
     num_funcs = read_u16(data, pos); pos += 2
     func_idx = []
     for _ in range(num_funcs):
@@ -182,8 +184,22 @@ def _read_object(data, pos, inh, is_unicode, type_names, var_buf):
 
     pos += 8 * read_u16(inh, 28)
     pos += 16 * read_u16(inh, 26)
+
+    # FunctionDefinitions: 48-byte recs (version>146); rec[0..4] = name offset
+    # relative to the FunctionBuffer. These are the real event/function names
+    # (open, close, ue_xxx, ...), in the same order as `funcs`.
     num_fndefs = read_u16(inh, 4)
-    pos += 48 * num_fndefs
+    fndef_names = []
+    for _ in range(num_fndefs):
+        rec = data[pos:pos+48]; pos += 48
+        nm_off = read_u32(rec, 0)
+        nm = read_cstr(func_buf, nm_off, is_unicode)
+        if nm.startswith("+"):
+            nm = nm[1:]
+        fndef_names.append(nm)
+    for i, f in enumerate(funcs):
+        f["name"] = fndef_names[i] if i < len(fndef_names) else None
+
     # resolve values
     for p in props:
         p["value"] = _resolve_val(p, var_buf, is_unicode)
@@ -293,7 +309,7 @@ def parse_entry(data: bytes, is_unicode: bool = False):
             return type_names.get(t & 0x7FFF, type_names.get(t, f"t{t}"))
         obj_name = _tn(type_idx)
         try:
-            cur_pos, props, funcs, ref_names = _read_object(data, cur_pos, inh, is_unicode, type_names, var_buf)
+            cur_pos, props, funcs, ref_names = _read_object(data, cur_pos, inh, is_unicode, type_names, var_buf, func_buf)
         except Exception as e:
             props, funcs, ref_names = [], [], []
         objects.append({
