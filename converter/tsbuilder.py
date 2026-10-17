@@ -47,7 +47,7 @@ class Builder:
     def build_block(self, stmts: List[Node], indent: int = 1):
         # Used only for top-level; nested bodies go through _render_body.
         pad = "  " * indent
-        for line in _render_body(stmts, indent):
+        for line in _render_body(stmts, indent, self):
             self.lines.append(pad + line if line else "")
 
     # ---- expressions ----
@@ -126,7 +126,13 @@ class Builder:
     def stmt(self, s: Node, indent: int) -> List[str]:
         if isinstance(s, Fallback):
             self.fallback = True
-            return [f"// TODO: unparsed statement: {s.text}"]
+            out = []
+            for ln in str(s.text).split("\n"):
+                if ln.strip():
+                    out.append(f"// TODO: unparsed statement: {ln}")
+                else:
+                    out.append("//")
+            return out
         if isinstance(s, SQLStmt):
             safe = s.text.replace('*/', '* /')
             return [f"/* SQL: {safe} */"]
@@ -275,16 +281,25 @@ class Builder:
         return out
 
 
-def _render_body(stmts, indent: int) -> List[str]:
-    """Render a list of statements as indented TS lines (no leading pad)."""
-    b = Builder()
+def _render_body(stmts, indent: int, builder: "Builder" = None) -> List[str]:
+    """Render a list of statements as indented TS lines (no leading pad).
+
+    `builder` is the shared Builder so nested fallback flags propagate to the
+    top-level caller (build_function_body / build_block). When None a private
+    Builder is used (flags are then still readable via the returned lines).
+    """
+    b = builder if builder is not None else Builder()
     # Temporarily route output via b.lines; stmt returns lists which we collect.
     pad = "  " * indent
     lines = []
     for s in stmts:
         if isinstance(s, Fallback):
             b.fallback = True
-            lines.append(pad + f"// TODO: unparsed: {s.text}")
+            for ln in str(s.text).split("\n"):
+                if ln.strip():
+                    lines.append(pad + f"// TODO: unparsed: {ln}")
+                else:
+                    lines.append(pad + "//")
             continue
         try:
             chunk = b.stmt(s, indent)
@@ -303,7 +318,7 @@ def _render_body(stmts, indent: int) -> List[str]:
 def build_function_body(stmts: List[Node]) -> Tuple[str, bool]:
     """Return (ts_body_str, fell_back)."""
     b = Builder()
-    lines = _render_body(stmts, indent=1)
+    lines = _render_body(stmts, indent=1, builder=b)
     return "\n".join(lines), b.fallback
 
 

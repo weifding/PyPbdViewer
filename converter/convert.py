@@ -100,6 +100,12 @@ def _body_lines(text: str) -> list[str]:
         return []
     head = lines[0]
     rest = lines[1:]
+    # Bare decorative dash rows (`---------------` with no `//` prefix) that
+    # survive PBL extraction lex as a chain of minus operators and merge with
+    # adjacent lines into invalid TS (e.g. `powerobject------------- - IF`).
+    # Turn them into comment lines so both the M1 comment stub and the M2
+    # parser see harmless noise.
+    rest = [("// ----" if re.fullmatch(r"\s*-{3,}\s*", l) else l) for l in rest]
     if ';' in head:
         after = head.split(';', 1)[1]
         if after.strip():
