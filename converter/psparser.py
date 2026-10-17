@@ -842,7 +842,7 @@ _BIN_PREC = {
     # NOTE: '=' is intentionally excluded here. In statement position it is an
     # assignment; in condition position it is equality. The caller decides.
     '<>': 3, '<': 3, '>': 3, '<=': 3, '>=': 3,
-    '+': 5, '-': 5,
+    '+': 5, '-': 5, '&&': 5,   # PB `&&` is string concatenation
     '*': 6, '/': 6, '^': 7,
 }
 

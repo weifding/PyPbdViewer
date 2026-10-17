@@ -279,7 +279,12 @@ def _emit_stub(lines: list[str], mname: str, ret: str, args, body_lines, indent=
         lines.append(f"{indent}}}")
         return
     # Try M2 translation.
-    translated, fell_back = _try_translate_body(body_lines)
+    if 'truncated' in note.lower():
+        # extraction truncated this block (datawindow/definition residue
+        # glued in) — M2 translation yields garbage; keep the reference stub.
+        translated, fell_back = "", True
+    else:
+        translated, fell_back = _try_translate_body(body_lines)
     if not fell_back and translated.strip():
         for l in translated.split("\n"):
             lines.append(indent + l if l else "")

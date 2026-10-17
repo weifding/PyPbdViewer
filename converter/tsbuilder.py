@@ -104,6 +104,9 @@ class Builder:
                 return f"({lhs} && {rhs})"
             if op == 'or':
                 return f"({lhs} || {rhs})"
+            if op == '&&':
+                # PB `&&` is string concatenation
+                return f"({lhs} + {rhs})"
             if op in ('+', '-', '*', '/', '^', '<', '>', '<=', '>='):
                 js_op = '**' if op == '^' else op
                 return f"({lhs} {js_op} {rhs})"
@@ -159,6 +162,10 @@ class Builder:
         if isinstance(s, CallStmt):
             return [f"{self.expr(Call(callee=s.callee, args=s.args))};"]
         if isinstance(s, ExprStmt):
+            # a bare string literal statement (e.g. `case "xxx"` label split)
+            # is not valid TS — emit as a comment
+            if isinstance(s.expr, Literal) and s.expr.kind == 'str':
+                return [f"// string-literal statement: {s.expr.value[:40]}"]
             return [f"{self.expr(s.expr)};"]
         if isinstance(s, Label):
             return [f"// label {s.name}: (PB GOTO not translated)"]
