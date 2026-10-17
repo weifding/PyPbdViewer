@@ -93,6 +93,7 @@ def _read_vars(data, pos, is_unicode):
             "name": read_cstr(struct_buf, name_off, is_unicode),
             "val_off": val_off,
             "type_idx": type_idx,
+            "global_index": read_u16(rec, 12),
             "struct_buf": struct_buf,
             "rec": rec,
         })
@@ -144,6 +145,12 @@ def _read_func(data, pos, is_unicode):
     pos += dbg_size * 4
     pos, locals_vars = _read_vars(data, pos, is_unicode)
     locals_names = [v.get("name", "") for v in locals_vars]
+    # project-level global variable name table: GlobalIndex -> name.
+    global_map = {}
+    for v in locals_vars:
+        gi = v.get("global_index", 0)
+        if gi and gi != 0xFFFF and v.get("name"):
+            global_map.setdefault(gi, v["name"])
     # struct buffer (function string pool)
     sb_size = read_u32(data, pos); pos += 4
     sb_size2 = read_u32(data, pos); pos += 4
@@ -153,6 +160,7 @@ def _read_func(data, pos, is_unicode):
         "flag": flag,
         "pcode_hex": pcode.hex(),
         "locals": locals_names,
+        "global_map": global_map,
         "str_pool_hex": str_pool.hex(),
     }
     return pos, func

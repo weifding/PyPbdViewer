@@ -62,7 +62,12 @@ class VM:
         self.pcode = pcode
         self.variables = variables or []
         self.entry_variables = entry_variables or []
-        self.global_variables = global_variables or []
+        # global variable name table: GlobalIndex -> name (list is kept for
+        # backward callers; indexed as-is).
+        if isinstance(global_variables, dict):
+            self.global_variables = global_variables
+        else:
+            self.global_variables = {i: n for i, n in enumerate(global_variables or [])}
         self.string_table = string_table or b""
         # function struct buffer (string pool) — same backing store as string_table
         self.buffer = buffer if buffer is not None else self.string_table
@@ -284,8 +289,7 @@ class VM:
                 self.push(f"{self._safe_name(a.str, start)}.{self._safe_name(b.str, start)}")
         elif op == 44:
             idx = self._u16(operands, 0)
-            name = self.global_variables[idx] if idx < len(self.global_variables) else f"gbl{idx}"
-            self.push(name)
+            self.push(self.global_variables.get(idx, f"gbl{idx}"))
         elif op == 46: self.push(f"gsh{self._u16(operands, 0)}")
         elif op in (332, 333, 339, 367, 425, 512):
             idx = self._u16(operands, 0)
@@ -297,8 +301,7 @@ class VM:
             self.push(name)
         elif op in (336, 337, 369, 422, 513):
             idx = self._u16(operands, 0)
-            name = self.global_variables[idx] if idx < len(self.global_variables) else f"gbl{idx}"
-            self.push(name)
+            self.push(self.global_variables.get(idx, f"gbl{idx}"))
         elif op == 387:
             b = self.pop(); a = self.pop()
             self.push(f"{self._safe_name(a.str, start)}.{self._safe_name(b.str, start)}")
@@ -321,8 +324,7 @@ class VM:
             self.push(name)
         elif op == 284:
             idx = self._u16(operands, 0)
-            name = self.global_variables[idx] if idx < len(self.global_variables) else f"gbl{idx}"
-            self.push(name)
+            self.push(self.global_variables.get(idx, f"gbl{idx}"))
         elif op == 287:  # BeginAssignInstanceVariable
             b = self.pop(); a = self.pop()
             if a.str == "entryobject":

@@ -17,8 +17,9 @@ PB_RUNTIME_IMPORT = "import { NonVisualObject, Window, Application, PB } from '.
 
 def _vm_transpile_func(pcode_hex: str, locals_names: list[str], str_pool_hex: str,
                        ref_names: list[str] | None = None,
-                       global_variables: list[str] | None = None) -> str:
-    """Run pcode_vm on one function and return TS body lines (indented)."""
+                       global_variables=None) -> str:
+    """Run pcode_vm on one function and return TS body lines (indented).
+    global_variables: list or dict(GlobalIndex -> name) name table."""
     try:
         from pcode_vm import VM
         from vm2pb import vm_to_pb
@@ -103,7 +104,7 @@ def emit_for_idx(idx: dict, out_dir: Path):
                             or evt[0].isdigit()):
                         evt = f"event_{fi}"
                     ts_body = _vm_transpile_func(f.get("pcode_hex", ""), f.get("locals", []), f.get("str_pool_hex", ""),
-                                                 ref_names=e.get("ref_names"))
+                                                 ref_names=e.get("ref_names"), global_variables=f.get("global_map"))
                     body.append(f"  public {evt}(): any {{")
                     for bl in ts_body.splitlines():
                         body.append("    " + bl)
@@ -134,7 +135,7 @@ def emit_for_idx(idx: dict, out_dir: Path):
                 if funcs:
                     for f in funcs:
                         ts_body = _vm_transpile_func(f.get("pcode_hex", ""), f.get("locals", []), f.get("str_pool_hex", ""),
-                                                     ref_names=e.get("ref_names"))
+                                                     ref_names=e.get("ref_names"), global_variables=f.get("global_map"))
                         for bl in ts_body.splitlines():
                             body.append("  " + bl)
                 else:
