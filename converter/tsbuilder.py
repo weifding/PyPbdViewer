@@ -19,14 +19,23 @@ the M1 comment-stub instead.
 """
 from __future__ import annotations
 from typing import List, Tuple
-import sys, os
+import sys, os, re
 sys.path.insert(0, os.path.dirname(__file__))
 from psparser import (
     Node, Literal, Ident, Index, Member, Call, BinaryOp, UnaryOp,
     Assign, If, Choose, For, DoWhile, DoUntil, LoopWhile, LoopUntil,
     Try, Return, Exit, Continue, Throw, Create, Destroy, CallStmt, ExprStmt,
     Goto, Label, Decl, MultiDecl, ArrayLit, CreateExpr, Fallback, ParseError,
+    SQLStmt, PostDec,
 )
+
+
+_TS_RESERVED = frozenset(
+    "break case catch class const continue debugger default delete do else enum "
+    "export extends false finally for function if import in instanceof new null "
+    "return super switch this throw true try typeof var void while with let yield "
+    "async await static interface type implements private protected public "
+    "namespace module declare abstract".split())
 
 
 class Builder:
@@ -59,10 +68,23 @@ class Builder:
                 return 'null'
             return repr(e.value)
         if isinstance(e, Ident):
-            return e.name
+            # SQL host variable :name → bare name
+            n = e.name[1:] if e.name.startswith(':') else e.name
+            if n in _TS_RESERVED or not re.match(r'^[A-Za-z_$][A-Za-z0-9_$]*$', n):
+                # TS reserved word or invalid identifier (mojibake) → safe null
+                return 'null'
+            return n
+        if isinstance(e, PostDec):
+            return f"{self.expr(e.base)}--"
         if isinstance(e, Member):
             base = self.expr(e.base)
-            return f"{base}.{e.field}"
+            f = e.field
+            if f.startswith('#'):
+                # PB DW column index #N → colN
+                return f"{base}['col{f[1:]}']"
+            if f and (f[0].isdigit() or not (f[0].isalpha() or f[0] == '_')):
+                return f"{base}[{f!r}]"
+            return f"{base}.{f}"
         if isinstance(e, Index):
             # 1-based → 0-based
             return f"{self.expr(e.base)}[({self.expr(e.idx)}) - 1]"
@@ -102,6 +124,9 @@ class Builder:
         if isinstance(s, Fallback):
             self.fallback = True
             return [f"// TODO: unparsed statement: {s.text}"]
+        if isinstance(s, SQLStmt):
+            safe = s.text.replace('*/', '* /')
+            return [f"/* SQL: {safe} */"]
         if isinstance(s, Return):
             if s.value is None:
                 return ["return;"]

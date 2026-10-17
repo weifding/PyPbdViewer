@@ -88,6 +88,25 @@ def _fmt_args(args) -> str:
     return ", ".join(parts)
 
 
+def _body_lines(text: str) -> list[str]:
+    """Body of a PB block: lines after the signature line.
+
+    The signature line may embed the first statement after ';' (PB packs the
+    whole object body with ';' separators), e.g. `sub u();choose case x`.
+    That trailing statement must be kept as the first body line.
+    """
+    lines = text.split("\n")
+    if not lines:
+        return []
+    head = lines[0]
+    rest = lines[1:]
+    if ';' in head:
+        after = head.split(';', 1)[1]
+        if after.strip():
+            return [after] + rest
+    return rest
+
+
 def _split_top(s: str, sep: str = ",") -> list[str]:
     """Split on `sep` outside strings and parentheses."""
     parts, depth, in_str, cur = [], 0, None, []
@@ -235,7 +254,7 @@ def _try_translate_body(body_lines: list[str]) -> tuple[str, bool]:
             ts, fell_back = result, False
         if fell_back or not ts.strip():
             return "", True
-        return "", True  # M2 disabled: 51k syntax errors need tsbuilder hardening
+        return ts, False
     except Exception:
         return "", True
 
@@ -479,7 +498,7 @@ def emit_object_ts(obj_name: str, ancestor: str, blocks, out_path: Path,
             lines.append(f"  // Could not parse signature: {(variants[0].get('header') or mname)[:80]}")
             _emit_stub(lines, mname, "any" if not is_event else "void",
                        [("_args", "any[]", False)],
-                       variants[0]["text"].split("\n")[1:], note="signature unparsed")
+                       _body_lines(variants[0]["text"]), note="signature unparsed")
             continue
 
         # collapse variants that share one signature (duplicate source copies
@@ -510,7 +529,7 @@ def emit_object_ts(obj_name: str, ancestor: str, blocks, out_path: Path,
                 stats["truncated"] += 1
                 note = "body block truncated in extraction"
         _emit_stub(lines, mname, impl_ret if not is_event else "void", impl_args,
-                   b["text"].split("\n")[1:], note=note, external=bool(b.get("external")))
+                   _body_lines(b["text"]), note=note, external=bool(b.get("external")))
 
     lines.append("}")
     out_path.write_text("\n".join(lines), encoding="utf-8")
@@ -576,7 +595,7 @@ def emit_global_functions(blocks, out_path: Path) -> dict:
             stats["functions"] += 1
             if b.get("truncated"):
                 stats["truncated"] += 1
-            body = b["text"].split("\n")[1:]
+            body = _body_lines(b["text"])
             lines.append(f"export function {gname}({arg_str}): {impl_ret} {{")
             lines.append("  // TODO: PB body preserved as reference; behavior needs manual port.")
             for l in body[:60]:

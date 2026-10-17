@@ -169,6 +169,14 @@ class Label(Node):
     name: str
 
 @dataclass
+class SQLStmt(Node):
+    text: str
+
+@dataclass
+class PostDec(Node):
+    base: Node
+
+@dataclass
 class Decl(Node):
     type: str
     name: str
@@ -329,6 +337,16 @@ class Parser:
             if w in ('shared', 'global', 'local', 'instance', 'variables',
                      'forward', 'prototypes', 'end', 'type', 'from', 'within'):
                 raise ParseError(f"block-level keyword: {w}")
+            # embedded SQL statement start keywords
+            if w in ('select', 'insert', 'update', 'delete', 'where',
+                     'commit', 'rollback', 'fetch', 'open', 'close',
+                     'prepare', 'execute', 'declare'):
+                return self.parse_sql_stmt()
+            # `function` / `subroutine` / `event` left over from a consumed
+            # block terminator (`end function`) — safe to drop.
+            if w in ('function', 'subroutine', 'event'):
+                self.next()
+                return Fallback(text=w)
             if w == 'halt':
                 self.next()
                 return Fallback(text='halt')
@@ -354,25 +372,62 @@ class Parser:
 
     # --- statements ---
 
+    def _then_line_has_stmt(self) -> bool:
+        """True if a real statement follows `THEN` on the same physical line.
+
+        `IF c THEN  // comment` has only a comment on the THEN line — that is a
+        multi-line IF whose body starts on the next line, not a single-line IF.
+        """
+        t = self.peek()
+        if t.kind not in ('NL', 'SEMI', 'EOF'):
+            if t.kind == 'COMMENT':
+                save = self.i
+                while self.peek().kind == 'COMMENT':
+                    self.next()
+                res = self.peek().kind not in ('NL', 'SEMI', 'EOF')
+                self.i = save
+                return res
+            return True
+        return False
+
     def parse_if(self) -> If:
         self.expect_kw('if')
         cond = self.parse_cond_expr()
         self.expect_kw('then')
-        # `if <cond> then goto L;` is a single-statement if whose whole body is
-        # a goto. psparser must NOT swallow the rest of the function into the
-        # then block. Detect it by parsing just the first statement.
-        save = self.i
-        try:
-            first = self.parse_statement()
-        except ParseError:
-            first = self._fallback_stmt()
-        if isinstance(first, Goto):
-            then = [first]
-            self.accept('SEMI')
-            self.accept('NL')
-            return If(cond=cond, then=then, elseifs=[], else_=[])
-        # otherwise rewind and parse the full then-block
-        self.i = save
+        # Single-line IF: `IF c THEN stmt [ELSE stmt]` has no END IF. Detect it
+        # by the THEN line carrying statements (do NOT skip NL here — a
+        # multi-line IF always has the THEN line end with a newline). Rewind to
+        # block mode if an `end if` follows (a multi-line IF whose first
+        # statement shares the THEN line).
+        if self._then_line_has_stmt():
+            self.skip_noise()
+            save = self.i
+            try:
+                then = [self.parse_statement()]
+                if self.peek().kind == 'KW' and self.peek().value.lower() == 'else':
+                    self.next()
+                    self.skip_noise()
+                    el = []
+                    if self.peek().kind not in ('NL', 'SEMI', 'EOF'):
+                        el.append(self.parse_statement())
+                    then, else_ = then, el
+                else:
+                    else_ = []
+                # If the next statement is `end if`, this was really a
+                # multi-line IF that started on the THEN line — rewind.
+                save2 = self.i
+                self.skip_noise()
+                nxt = self.peek()
+                if nxt.kind == 'KW' and nxt.value.lower() == 'end':
+                    self.i = save
+                    # fall through to multi-line block parse below
+                else:
+                    self.i = save2
+                    self.accept('SEMI')
+                    self.accept('NL')
+                    return If(cond=cond, then=then, elseifs=[], else_=else_)
+            except ParseError:
+                self.i = save
         then = self.parse_block_until({'elseif', 'else'})
         elseifs = []
         while self.accept_kw('elseif'):
@@ -503,6 +558,8 @@ class Parser:
 
     def parse_return(self) -> Return:
         self.expect_kw('return')
+        if self.peek().kind in ('NL', 'SEMI', 'EOF'):
+            return Return(value=None)
         self.skip_noise()
         if self.peek().kind in ('NL', 'SEMI', 'EOF'):
             return Return(value=None)
@@ -536,6 +593,41 @@ class Parser:
             args = self.parse_args()
             self.expect('RPAREN')
         return CallStmt(callee=base, args=args)
+
+    def parse_sql_stmt(self) -> Node:
+        """Read an embedded SQL statement verbatim until `;` or a block end.
+
+        PowerBuilder inline SQL (`select ... into ... from ... where ...;`) is
+        not modelled — emitting it as a single verbatim comment avoids the
+        expression-splitter cascade of syntax errors.
+        """
+        start_i = self.i
+        ntok = 0
+        while True:
+            t = self.peek()
+            if t.kind == 'EOF':
+                break
+            if t.kind == 'SEMI':
+                self.next()
+                break
+            if t.kind == 'KW' and t.value.lower() in (
+                    'end', 'elseif', 'else', 'next', 'loop',
+                    'return', 'if', 'for', 'choose', 'create', 'destroy',
+                    'column'):
+                break
+            self.next()
+            ntok += 1
+            if ntok > 200:
+                # no `;` after many tokens — extraction likely glued several
+                # statements together; truncate rather than swallow the rest.
+                break
+        toks = []
+        for tok in self.toks[start_i:self.i]:
+            if tok.kind in ('COMMENT',):
+                continue
+            v = tok.value
+            toks.append(' ' if tok.kind == 'NL' else v)
+        return SQLStmt(text=''.join(toks).strip())
 
     def parse_decl(self) -> Node:
         # leading constant
@@ -637,7 +729,8 @@ class Parser:
                 if prec < min_prec:
                     break
                 self.next()
-                rhs = self.parse_unary()
+                # RHS may itself be a `=` comparison (`a = b or c = d`).
+                rhs = self.parse_cond_expr()
                 left = BinaryOp(op=t.value.lower(), lhs=left, rhs=rhs)
             else:
                 break
@@ -686,6 +779,10 @@ class Parser:
                 args = self.parse_args()
                 self.expect('RPAREN')
                 node = Call(callee=node, args=args)
+            elif t.kind == 'OP' and t.value == '--':
+                # PowerScript post-decrement: `i --` → i--
+                self.next()
+                node = PostDec(base=node)
             else:
                 break
         return node
@@ -714,7 +811,8 @@ class Parser:
             self.next(); return Literal(value=None, kind='null')
         if t.kind == 'LPAREN':
             self.next()
-            e = self.parse_expr()
+            # Parenthesised `=` is a condition comparison, not an assignment.
+            e = self.parse_cond_expr()
             self.expect('RPAREN')
             return e
         if t.kind == 'LBRACE':

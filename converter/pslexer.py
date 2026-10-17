@@ -47,6 +47,7 @@ KEYWORDS = {
     "order", "having", "asc", "desc", "inner", "outer", "left", "right",
     "join", "on", "upper", "lower", "max", "min", "sum", "count", "avg",
     "nvl", "sysdate", "trunc", "decode", "substr",
+    "column", "procedure", "table",
 }
 
 # Single-character punctuation → token kind.
@@ -58,7 +59,7 @@ _PUNCT_KINDS = {
     ';': 'SEMI',    ':': 'COLON',
     '?': 'OP',
 }
-_OPS_2 = {'<>', '<=', '>=', '=='}
+_OPS_2 = {'<>', '<=', '>=', '==', '--'}
 _OPS_1 = set('+-*/^=<>!')
 
 
@@ -138,6 +139,15 @@ def tokenize(text: str) -> List[Token]:
             col += j - i; i = j
             continue
 
+        # PB DW column index: #N  (dw.Object.#2[row])
+        if c == '#':
+            j = i + 1
+            while j < n and text[j].isdigit():
+                j += 1
+            emit('COLNUM', text[i:j])
+            col += j - i; i = j
+            continue
+
         # numbers: 123, 1.5, .5
         if c.isdigit() or (c == '.' and i + 1 < n and text[i + 1].isdigit()):
             j = i
@@ -183,7 +193,7 @@ def tokenize(text: str) -> List[Token]:
             continue
 
         # two-char operators
-        if c in '<>=' and i + 1 < n and text[i:i + 2] in _OPS_2:
+        if i + 1 < n and text[i:i + 2] in _OPS_2:
             emit('OP', text[i:i + 2])
             i += 2; col += 2; continue
 
