@@ -157,6 +157,10 @@ class CallStmt(Node):
     args: List[Node] = field(default_factory=list)
 
 @dataclass
+class ExprStmt(Node):
+    expr: Node
+
+@dataclass
 class Goto(Node):
     label: str
 
@@ -257,6 +261,10 @@ class Parser:
                 break
             if t.kind == 'KW' and t.value.lower() == 'end':
                 break
+            if t.kind == 'SEMI':
+                # empty statement `;` — skip, do not emit a Fallback node.
+                self.next()
+                continue
             try:
                 stmts.append(self.parse_statement())
             except ParseError:
@@ -553,7 +561,7 @@ class Parser:
             return Assign(target=target, value=value)
         if isinstance(target, Call):
             return CallStmt(callee=target.callee, args=target.args)
-        return Fallback(text=';')
+        return ExprStmt(expr=target)
 
     # --- expressions ---
 

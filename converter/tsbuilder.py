@@ -24,7 +24,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from psparser import (
     Node, Literal, Ident, Index, Member, Call, BinaryOp, UnaryOp,
     Assign, If, Choose, For, DoWhile, DoUntil, LoopWhile, LoopUntil,
-    Try, Return, Exit, Continue, Throw, Create, Destroy, CallStmt,
+    Try, Return, Exit, Continue, Throw, Create, Destroy, CallStmt, ExprStmt,
     Goto, Label, Decl, MultiDecl, ArrayLit, CreateExpr, Fallback, ParseError,
 )
 
@@ -133,6 +133,8 @@ class Builder:
             return [f"{s.name} = null;"]
         if isinstance(s, CallStmt):
             return [f"{self.expr(Call(callee=s.callee, args=s.args))};"]
+        if isinstance(s, ExprStmt):
+            return [f"{self.expr(s.expr)};"]
         if isinstance(s, Label):
             return [f"// label {s.name}: (PB GOTO not translated)"]
         if isinstance(s, Goto):
