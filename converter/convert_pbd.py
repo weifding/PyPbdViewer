@@ -34,6 +34,11 @@ def _vm_transpile_func(pcode_hex: str, locals_names: list[str], str_pool_hex: st
                 ref_names=ref_names or [], global_variables=global_variables or [])
         pseudo = vm_to_pb(vm.run_lines())
         ast = parse_function_body(pseudo)
+        try:
+            from goto_struct import structurize
+            ast = structurize(ast)
+        except Exception:
+            pass
         ts, fell_back = build_function_body(ast)
         if fell_back or not ts.strip():
             return f"  // VM stub: no AST\n  // {pseudo[:200].replace(chr(10), chr(10)+'  // ')}"

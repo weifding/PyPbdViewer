@@ -332,6 +332,17 @@ class Parser:
             if w == 'halt':
                 self.next()
                 return Fallback(text='halt')
+            if w == 'label':
+                # `label Lxxxx` emitted by vm2pb -> a Label node.
+                self.next()
+                self.skip_noise()
+                nx = self.peek()
+                if nx.kind in ('IDENT', 'NUM', 'KW'):
+                    lbl = str(nx.value)
+                    self.next()
+                else:
+                    lbl = ''
+                return Label(name=lbl)
 
         # Label: IDENT followed by ':'
         if t.kind == 'IDENT' and self.peek(1).kind == 'COLON':
@@ -347,6 +358,21 @@ class Parser:
         self.expect_kw('if')
         cond = self.parse_cond_expr()
         self.expect_kw('then')
+        # `if <cond> then goto L;` is a single-statement if whose whole body is
+        # a goto. psparser must NOT swallow the rest of the function into the
+        # then block. Detect it by parsing just the first statement.
+        save = self.i
+        try:
+            first = self.parse_statement()
+        except ParseError:
+            first = self._fallback_stmt()
+        if isinstance(first, Goto):
+            then = [first]
+            self.accept('SEMI')
+            self.accept('NL')
+            return If(cond=cond, then=then, elseifs=[], else_=[])
+        # otherwise rewind and parse the full then-block
+        self.i = save
         then = self.parse_block_until({'elseif', 'else'})
         elseifs = []
         while self.accept_kw('elseif'):
